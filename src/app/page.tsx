@@ -65,19 +65,19 @@ export default function EvergreenVowsPage() {
 }
 
 const HeroSection = () => (
-  <section id="home" className="relative h-screen flex items-center justify-center text-center text-white">
+  <section id="home" className="relative h-screen flex items-center justify-center text-center text-primary">
     <Image
-      src="https://picsum.photos/seed/wedding-hero/1920/1080"
-      alt="A beautiful floral arrangement for a wedding"
-      data-ai-hint="wedding flowers"
+      src="https://media.katsudoto.id/media/public/70/56834/thumbnail/thumb-lg-676408-2000-2000-1755052004-59e8d8c19ddf135fcda341b9.png"
+      alt="A beautiful fairytale castle"
+      data-ai-hint="fairytale castle"
       fill
       className="object-cover"
       priority
     />
-    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-black/30" />
+    <div className="absolute inset-0 bg-background/30 backdrop-blur-sm" />
     <div className="relative z-10 p-4 flex flex-col items-center">
         <AnimateOnScroll animation="fade-in-up" delay={0.2} duration={0.8}>
-            <p className="font-body text-lg md:text-xl mb-4 tracking-widest uppercase">We're getting married</p>
+            <p className="font-body text-lg md:text-xl mb-4 tracking-widest uppercase">The Wedding Of</p>
         </AnimateOnScroll>
         <AnimateOnScroll animation="fade-in-up" delay={0.4} duration={0.8}>
             <h1 className="font-headline text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight text-shadow-lg">
@@ -85,12 +85,13 @@ const HeroSection = () => (
             </h1>
         </AnimateOnScroll>
         <AnimateOnScroll animation="fade-in" delay={0.8} duration={1}>
-            <Separator className="my-8 bg-white/50 w-1/3 mx-auto" />
+            <Separator className="my-8 bg-primary/50 w-1/3 mx-auto" />
         </AnimateOnScroll>
         <AnimateOnScroll animation="fade-in-up" delay={1} duration={0.8}>
             <Countdown targetDate={weddingDate} />
         </AnimateOnScroll>
     </div>
+     <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-background to-transparent" />
   </section>
 );
 
