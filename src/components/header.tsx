@@ -10,8 +10,8 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
   { href: "#home", label: "Home" },
+  { href: "#couple", label: "Couple" },
   { href: "#events", label: "Events" },
-  { href: "#venue", label: "Venue" },
   { href: "#gallery", label: "Gallery" },
   { href: "#gifts", label: "Gifts" },
   { href: "#rsvp", label: "RSVP" },
@@ -64,7 +64,7 @@ const Header = () => {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled ? "bg-background/80 backdrop-blur-lg shadow-lg" : "bg-transparent"
+        isScrolled ? "bg-background/80 backdrop-blur-lg shadow-md" : "bg-transparent"
       )}
     >
       <div className="container mx-auto px-4">
@@ -96,7 +96,7 @@ const Header = () => {
                       <span className="font-headline text-2xl text-primary font-bold">Evergreen Vows</span>
                     </Link>
                   </SheetTitle>
-                  <SheetClose asChild>
+                   <SheetClose asChild>
                      <Button variant="ghost" size="icon">
                       <X className="h-7 w-7" />
                       <span className="sr-only">Close menu</span>

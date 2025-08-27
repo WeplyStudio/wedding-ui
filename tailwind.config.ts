@@ -17,8 +17,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        body: ['Raleway', 'sans-serif'],
-        headline: ['Playfair Display', 'serif'],
+        body: ['Ovo', 'serif'],
+        headline: ['Cormorant Upright', 'serif'],
         code: ['monospace'],
       },
       colors: {
