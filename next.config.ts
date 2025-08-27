@@ -22,6 +22,18 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'leoncelesta.katsudoto.id',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'media.katsudoto.id',
+        port: '',
+        pathname: '/**',
+      }
     ],
   },
 };
