@@ -56,8 +56,8 @@ const Countdown = ({ targetDate, className }: { targetDate: Date, className?: st
     return (
        <div className={cn("flex justify-center gap-2 md:gap-4", className)}>
         {['Days', 'Hours', 'Minutes', 'Seconds'].map((label) => (
-          <div key={label} className="bg-black/20 border border-white/20 p-2 rounded-lg shadow-lg backdrop-blur-sm w-16 md:w-20 flex flex-col items-center justify-center">
-            <span className="text-2xl md:text-4xl font-bold font-serif text-white text-shadow">00</span>
+          <div key={label} className="bg-black/20 border border-white/20 p-3 rounded-lg shadow-lg backdrop-blur-sm w-16 md:w-20 flex flex-col items-center justify-center">
+            <span className="text-2xl md:text-3xl font-bold font-serif text-white text-shadow">00</span>
             <span className="text-[10px] md:text-xs font-sans text-white/80 uppercase tracking-wider mt-1">{label}</span>
           </div>
         ))}
@@ -67,10 +67,10 @@ const Countdown = ({ targetDate, className }: { targetDate: Date, className?: st
 
 
   return (
-    <div className={cn("flex justify-center gap-2 md:gap-4", className)}>
+    <div className={cn("flex justify-center items-stretch gap-2 md:gap-4", className)}>
       {timeUnits.map(({ value, label }) => (
-        <div key={label} className="bg-black/20 border border-white/20 p-2 rounded-lg shadow-lg backdrop-blur-sm w-16 md:w-20 flex flex-col items-center justify-center">
-          <span className="text-2xl md:text-4xl font-bold font-serif text-white text-shadow">{value !== undefined ? String(value).padStart(2, '0') : '00'}</span>
+        <div key={label} className="bg-black/20 border border-white/20 p-3 rounded-lg shadow-lg backdrop-blur-sm flex-1 flex flex-col items-center justify-center">
+          <span className="text-2xl md:text-3xl font-bold font-serif text-white text-shadow">{value !== undefined ? String(value).padStart(2, '0') : '00'}</span>
           <span className="text-[10px] md:text-xs font-sans text-white/80 uppercase tracking-wider mt-1">{label}</span>
         </div>
       ))}

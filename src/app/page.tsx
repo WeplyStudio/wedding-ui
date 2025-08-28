@@ -119,7 +119,7 @@ const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => vo
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
   
           <div className="relative z-10 flex flex-col items-center justify-end h-full w-full text-center text-primary-foreground p-8">
-              <div className="flex flex-col items-center mb-8 animate-fade-in-up" style={{ animationDuration: '1.2s' }}>
+              <div className="flex flex-col items-center mb-8 animate-fade-in-up text-foreground" style={{ animationDuration: '1.2s' }}>
                   <p className="font-sans text-sm tracking-[0.2em] uppercase mb-2 text-shadow">The Wedding Of</p>
                   <h1 className="font-serif text-5xl md:text-6xl font-bold text-shadow-lg leading-tight">Andika &<br/>Putri</h1>
                   <div className="w-full text-center mt-8">
@@ -132,7 +132,7 @@ const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => vo
               <Button 
                 onClick={onOpen} 
                 size="lg" 
-                className="w-full max-w-sm rounded-full px-10 py-7 text-lg shadow-lg bg-accent/80 backdrop-blur-sm hover:bg-accent text-accent-foreground font-sans animate-fade-in-up"
+                className="w-full max-w-sm rounded-full px-10 py-7 text-lg shadow-lg bg-primary hover:bg-primary/90 text-primary-foreground font-sans animate-fade-in-up"
                 style={{ animationDuration: '0.8s', animationDelay: '0.3s' }}
               >
                   <Mail className="mr-3 h-5 w-5" />
@@ -155,7 +155,7 @@ const HeroSection = () => {
     }, []);
 
     return (
-        <section id="home" className="relative h-screen flex flex-col items-center justify-end text-center p-4 text-white">
+        <section id="home" className="relative h-screen flex flex-col items-center justify-end text-center p-4 pb-28 text-white">
             <div className="absolute inset-0">
                  {galleryImages.map((image, index) => (
                     <Image
@@ -174,7 +174,7 @@ const HeroSection = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
             </div>
             
-            <div className="relative z-10 flex flex-col items-center w-full pb-16 animate-fade-in-up" style={{animationDuration: '1.2s'}}>
+            <div className="relative z-10 flex flex-col items-center w-full animate-fade-in-up" style={{animationDuration: '1.2s'}}>
                 <p className="font-sans tracking-[0.2em] text-sm uppercase">The Wedding Of</p>
                 <h1 className="font-serif text-6xl md:text-7xl mt-2 mb-4 text-shadow-lg">{coupleNames}</h1>
                 <p className="font-sans text-lg">20 . 09 . 2025</p>
@@ -217,8 +217,8 @@ const CoupleSection = () => (
           </AnimateOnScroll>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8 items-center">
-            <AnimateOnScroll animation="fade-in-right" className="w-full">
-                <div className="md:text-right text-center">
+            <AnimateOnScroll animation="fade-in-right" className="w-full text-center">
+                <div className="md:text-right">
                     <h3 className="font-serif text-4xl text-primary mb-2">Putri Cantika Sari</h3>
                     <p className="font-sans text-sm text-muted-foreground mb-1">Putri Pertama dari</p>
                     <p className="font-sans font-semibold mb-4">Bapak Abdul Rozak dan Ibu Adella Marni</p>
@@ -234,7 +234,7 @@ const CoupleSection = () => (
                         <Image
                             src="https://the.invisimple.id/wp-content/uploads/elementor/thumbs/WANITA-r1qxu50pofy26yljvdfud7qei6f9whhy1kfb005u2w.jpg"
                             alt="Putri Cantika Sari"
-                            layout="fill"
+                            fill
                             objectFit="cover"
                             className="rounded-3xl -rotate-6 transition-transform duration-500"
                         />
@@ -242,8 +242,8 @@ const CoupleSection = () => (
                 </div>
             </AnimateOnScroll>
 
-            <AnimateOnScroll animation="fade-in-left" className="w-full">
-                <div className="text-center md:text-left">
+            <AnimateOnScroll animation="fade-in-left" className="w-full text-center md:text-left">
+                 <div className="md:order-2">
                      <h3 className="font-serif text-4xl text-primary mb-2">Putra Andika Pratama</h3>
                     <p className="font-sans text-sm text-muted-foreground mb-1">Putra Pertama dari</p>
                     <p className="font-sans font-semibold mb-4">Bapak Deni Bastian dan Ibu Aisha Dania</p>
@@ -254,12 +254,12 @@ const CoupleSection = () => (
                         </a>
                     </Button>
                 </div>
-                <div className="relative w-full h-[400px] mt-8 flex items-center justify-center">
+                <div className="relative w-full h-[400px] mt-8 flex items-center justify-center md:order-1">
                     <div className="relative w-full max-w-[300px] md:w-3/4 aspect-[3/4] rounded-3xl -rotate-3 transition-transform duration-500 shadow-2xl">
                         <Image
                             src="https://the.invisimple.id/wp-content/uploads/elementor/thumbs/PRIA-r1qxu50pofy26yljvdfud7qei6f9whhy1kfb005u2w.jpg"
                             alt="Putra Andika Pratama"
-                            layout="fill"
+                            fill
                             objectFit="cover"
                             className="rounded-3xl rotate-6 transition-transform duration-500"
                         />
@@ -507,4 +507,5 @@ const BottomNav = () => {
     
 
     
+
 
