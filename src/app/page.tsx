@@ -164,9 +164,9 @@ const CoupleSection = () => (
 )
 
 const EventsSection = () => (
-  <section id="events" className="py-20 md:py-32 bg-background relative">
-     <Image src="https://leoncelesta.katsudoto.id/media/template/exclusive/charera/original/Orn-46.png" alt="ornament" width={150} height={150} className="absolute top-10 right-10 opacity-30" />
-     <Image src="https://leoncelesta.katsudoto.id/media/template/exclusive/charera/original/Orn-46.png" alt="ornament" width={150} height={150} className="absolute bottom-10 left-10 opacity-30 -scale-x-100" />
+  <section id="events" className="py-20 md:py-32 bg-background relative overflow-hidden">
+     <Image src="https://leoncelesta.katsudoto.id/media/template/exclusive/charera/original/Orn-19.png" alt="ornament" width={150} height={150} className="absolute top-10 right-10 opacity-30" />
+     <Image src="https://leoncelesta.katsudoto.id/media/template/exclusive/charera/original/Orn-18.png" alt="ornament" width={150} height={150} className="absolute bottom-10 left-10 opacity-30" />
     <div className="container mx-auto px-4">
       <AnimateOnScroll animation="fade-in-down">
         <h2 className="text-4xl md:text-5xl font-headline text-center text-primary mb-16">Schedule of Events</h2>
