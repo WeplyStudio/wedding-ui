@@ -109,12 +109,12 @@ const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => vo
         <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/70 to-transparent" />
         <div className="relative z-10 flex flex-col items-center justify-end h-full w-full">
             <div className="absolute bottom-[-2%] left-[-5%] w-[40%] h-[30%] opacity-80 animate-sway-left">
-                <Image src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-asset-03.png" layout="fill" objectFit="contain" alt="Floral ornament" />
+                <Image src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-asset-03.png" layout="fill" objectFit="contain" alt="Floral ornament" className="rotate-180" />
             </div>
              <div className="absolute bottom-[-2%] right-[-5%] w-[40%] h-[30%] opacity-80 animate-sway-right">
-                <Image src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-asset-03.png" layout="fill" objectFit="contain" alt="Floral ornament" />
+                <Image src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-asset-03.png" layout="fill" objectFit="contain" alt="Floral ornament" className="rotate-180" />
             </div>
-            <div className="flex flex-col items-center justify-end h-full pb-20 text-primary p-4 z-20">
+            <div className="flex flex-col items-center justify-end h-full pb-20 text-primary p-4 z-20 max-h-[50vh]">
                 <div className="flex-grow flex flex-col items-center justify-end text-center pb-8">
                     <p className="font-body text-sm md:text-base tracking-widest uppercase mb-4">The Wedding Of</p>
                     <h1 className="font-headline text-5xl md:text-6xl font-bold">{coupleNames}</h1>
@@ -468,6 +468,7 @@ const Footer = () => (
     
 
     
+
 
 
 
