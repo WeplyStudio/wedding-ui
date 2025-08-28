@@ -132,8 +132,8 @@ const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => vo
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
   
           <div className="relative z-10 flex flex-col items-center justify-end h-full w-full text-center p-8 text-foreground">
-              <div className="flex flex-col items-center mb-8 animate-fade-in-up text-shadow" style={{ animationDuration: '1.2s' }}>
-                  <p className="font-sans text-sm tracking-[0.2em] uppercase mb-2">The Wedding Of</p>
+              <div className="flex flex-col items-center mb-8 animate-fade-in-up" style={{ animationDuration: '1.2s' }}>
+                  <p className="font-sans text-sm tracking-[0.2em] uppercase mb-2 text-shadow">The Wedding Of</p>
                   <h1 className="font-serif text-5xl md:text-6xl font-bold text-shadow-lg leading-tight">Andika &<br/>Putri</h1>
                   <div className="w-full text-center mt-8">
                       <p className="font-sans text-lg mb-1">Dear</p>
@@ -199,11 +199,13 @@ const HeroSection = () => {
     );
 };
 
-const SectionTitle = ({ icon: Icon, title, subtitle }: { icon: React.ElementType, title: string, subtitle: string }) => (
+const SectionTitle = ({ icon: Icon, title, subtitle }: { icon?: React.ElementType, title: string, subtitle: string }) => (
     <AnimateOnScroll className="flex flex-col items-center text-center mb-12">
-        <div className="mb-4">
-            <Icon className="w-12 h-12 text-primary" />
-        </div>
+        {Icon && (
+            <div className="mb-4">
+                <Icon className="w-12 h-12 text-primary" />
+            </div>
+        )}
         <p className="font-sans tracking-[0.2em] text-sm uppercase text-primary mb-2">{title}</p>
         <h2 className="font-serif text-5xl">{subtitle}</h2>
     </AnimateOnScroll>
@@ -211,25 +213,36 @@ const SectionTitle = ({ icon: Icon, title, subtitle }: { icon: React.ElementType
 
 const CoupleSection = () => (
     <section id="couple" className="relative py-24 px-4 sm:px-6 bg-primary/5 overflow-hidden">
-      <div className="max-w-4xl mx-auto">
-          <AnimateOnScroll animation="fade-in-up" className="relative text-center text-foreground z-10 mb-16">
-             <div className="relative inline-block">
-                <svg viewBox="0 0 400 150" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
-                    <path d="M0 50 Q 50 0, 100 50 T 200 50 T 300 50 T 400 50 V 100 Q 350 150, 300 100 T 200 100 T 100 100 T 0 100 V 50 Z" fill="hsl(var(--card))" />
-                    <text x="200" y="70" fontFamily="serif" fontSize="24" fill="hsl(var(--primary))" textAnchor="middle" className="font-serif">
-                        Kedua Mempelai
-                    </text>
-                     <text x="200" y="100" fontFamily="sans-serif" fontSize="12" fill="hsl(var(--muted-foreground))" textAnchor="middle" className="font-sans">
-                        Maha suci Allah yang telah menciptakan makhluk-Nya
-                    </text>
-                     <text x="200" y="115" fontFamily="sans-serif" fontSize="12" fill="hsl(var(--muted-foreground))" textAnchor="middle" className="font-sans">
-                        berpasang-pasangan.
-                    </text>
+        <AnimateOnScroll animation="fade-in-up" className="text-center mb-16 px-6">
+            <div className="relative inline-block">
+                <svg viewBox="0 0 400 150" className="w-full max-w-lg h-auto" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="cool-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style={{ stopColor: 'hsl(var(--primary))', stopOpacity: 0.1 }} />
+                            <stop offset="100%" style={{ stopColor: 'hsl(var(--accent))', stopOpacity: 0.1 }} />
+                        </linearGradient>
+                    </defs>
+                    <path
+                        d="M0,50 Q50,0 100,50 T200,50 T300,50 T400,50 V100 Q350,150 300,100 T200,100 T100,100 T0,100 Z"
+                        fill="url(#cool-gradient)"
+                    />
+                    <path
+                        d="M0,50 Q50,0 100,50 T200,50 T300,50 T400,50 V100 Q350,150 300,100 T200,100 T100,100 T0,100 Z"
+                        fill="transparent"
+                        stroke="hsl(var(--border))"
+                        strokeWidth="1"
+                    />
                 </svg>
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-6">
+                    <h2 className="font-serif text-3xl text-primary mb-2">Kedua Mempelai</h2>
+                    <p className="text-sm text-muted-foreground text-center">
+                        Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan pernikahan putra-putri kami:
+                    </p>
+                </div>
             </div>
-          </AnimateOnScroll>
+        </AnimateOnScroll>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8 items-start">
             <AnimateOnScroll animation="fade-in-right" className="w-full text-center md:text-right">
                 <div className="flex flex-col items-center md:items-end">
                     <h3 className="font-serif text-4xl text-primary mb-2">Putri Cantika Sari</h3>
@@ -242,13 +255,13 @@ const CoupleSection = () => (
                         </a>
                     </Button>
                     <div className="relative w-full h-[400px] mt-8 flex items-center justify-center md:justify-end">
-                        <div className="relative w-full max-w-[300px] aspect-[3/4] bg-secondary/30 rounded-3xl rotate-3 transition-transform duration-500 shadow-2xl">
+                        <div className="relative w-full max-w-[300px] aspect-[3/4] bg-secondary/30 rounded-3xl rotate-3 transition-transform duration-500 shadow-2xl hover:rotate-1 hover:scale-105">
                             <Image
                                 src="https://the.invisimple.id/wp-content/uploads/elementor/thumbs/WANITA-r1qxu50pofy26yljvdfud7qei6f9whhy1kfb005u2w.jpg"
                                 alt="Putri Cantika Sari"
                                 fill
-                                objectFit="cover"
-                                className="rounded-3xl -rotate-6 transition-transform duration-500"
+                                style={{ objectFit: 'cover' }}
+                                className="rounded-3xl -rotate-6 transition-transform duration-500 group-hover:rotate-0"
                             />
                         </div>
                     </div>
@@ -267,21 +280,20 @@ const CoupleSection = () => (
                         </a>
                     </Button>
                     <div className="relative w-full h-[400px] mt-8 flex items-center justify-center md:justify-start">
-                        <div className="relative w-full max-w-[300px] aspect-[3/4] rounded-3xl -rotate-3 transition-transform duration-500 shadow-2xl">
+                        <div className="relative w-full max-w-[300px] aspect-[3/4] rounded-3xl -rotate-3 transition-transform duration-500 shadow-2xl hover:rotate-1 hover:scale-105">
                             <Image
                                 src="https://the.invisimple.id/wp-content/uploads/elementor/thumbs/PRIA-r1qxu50pofy26yljvdfud7qei6f9whhy1kfb005u2w.jpg"
                                 alt="Putra Andika Pratama"
                                 fill
-                                objectFit="cover"
-                                className="rounded-3xl rotate-6 transition-transform duration-500"
+                                style={{ objectFit: 'cover' }}
+                                className="rounded-3xl rotate-6 transition-transform duration-500 group-hover:rotate-0"
                             />
                         </div>
                     </div>
                 </div>
             </AnimateOnScroll>
         </div>
-      </div>
-    </section>
+      </section>
 );
 
 
@@ -427,7 +439,7 @@ const PhotoGrid = () => (
 
 const GallerySection = () => (
     <section id="gallery" className="py-24 px-6">
-        <SectionTitle icon={Camera} title="Our Moments" subtitle="A Glimpse of Our Journey" />
+        <SectionTitle title="Our Moments" subtitle="A Glimpse of Our Journey" />
         <AnimateOnScroll animation="fade-in-up">
             <Carousel
                 opts={{
@@ -583,7 +595,7 @@ const GiftDrawer = () => {
 
 const GuestBookSection = () => (
     <section id="guestbook" className="py-24 px-6 bg-secondary/20 rounded-bl-[50]">
-      <SectionTitle icon={Mail} title="Wishes" subtitle="Leave Your Wishes" />
+      <SectionTitle title="Wishes" subtitle="Leave Your Wishes" />
       <div className="max-w-4xl mx-auto">
         <AnimateOnScroll>
              <GuestBook />
@@ -667,6 +679,7 @@ const BottomNav = () => {
     
 
     
+
 
 
 
