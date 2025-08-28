@@ -1,11 +1,11 @@
 
 "use client";
 
-import React, { useActionState, useEffect, useRef } from "react";
+import React, { useActionState, useEffect, useRef, useState, useTransition } from "react";
 import { useFormStatus } from "react-dom";
 import { addGuestbookMessage, getGuestbookMessages } from "@/app/actions";
 import { useToast } from "@/hooks/use-toast";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -31,7 +31,7 @@ function SubmitButton() {
   );
 }
 
-const GuestbookForm = () => {
+const GuestbookForm = ({ onMessageAdded }: { onMessageAdded: () => void }) => {
     const [state, formAction] = useActionState(addGuestbookMessage, initialState);
     const { toast } = useToast();
     const formRef = useRef<HTMLFormElement>(null);
@@ -43,6 +43,7 @@ const GuestbookForm = () => {
             description: state.message,
           });
           formRef.current?.reset();
+          onMessageAdded(); // Callback to refresh messages
         } else if (state.message && Object.keys(state.errors ?? {}).length > 0) {
           toast({
             variant: "destructive",
@@ -50,7 +51,7 @@ const GuestbookForm = () => {
             description: state.message,
           });
         }
-    }, [state, toast]);
+    }, [state, toast, onMessageAdded]);
 
     return (
         <form ref={formRef} action={formAction} className="space-y-4 font-sans">
@@ -70,15 +71,19 @@ const GuestbookForm = () => {
 }
 
 export default function GuestBook() {
-    const [messages, setMessages] = React.useState<GuestbookMessageWithId[]>([]);
-  
+    const [messages, setMessages] = useState<GuestbookMessageWithId[]>([]);
+    const [isPending, startTransition] = useTransition();
+
+    const fetchMessages = () => {
+        startTransition(async () => {
+            const fetchedMessages = await getGuestbookMessages();
+            setMessages(fetchedMessages);
+        });
+    };
+
     useEffect(() => {
-      const fetchMessages = async () => {
-        const fetchedMessages = await getGuestbookMessages();
-        setMessages(fetchedMessages);
-      };
-      fetchMessages();
-    }, [messages]); // Re-fetch when a new message is added (could be improved with subscriptions)
+        fetchMessages();
+    }, []);
   
     return (
        <Card className="bg-background/80 backdrop-blur-sm border-primary/10 shadow-xl h-full">
@@ -89,7 +94,9 @@ export default function GuestBook() {
           <CardContent>
               <ScrollArea className="h-[400px] pr-4">
                   <div className="space-y-6">
-                      {messages.length > 0 ? (
+                      {isPending && messages.length === 0 ? (
+                          <p className="text-muted-foreground text-center py-8 font-sans">Loading messages...</p>
+                      ) : messages.length > 0 ? (
                           messages.map((msg, index) => (
                              <AnimateOnScroll key={msg._id} delay={index * 0.1} className="flex items-start gap-4">
                                   <Avatar className="h-10 w-10 border-2 border-primary/20">
@@ -116,7 +123,7 @@ export default function GuestBook() {
             <Separator />
             <div className="w-full">
                 <p className="font-serif text-2xl text-primary mb-4">Leave a Message</p>
-                <GuestbookForm />
+                <GuestbookForm onMessageAdded={fetchMessages} />
             </div>
           </CardFooter>
       </Card>

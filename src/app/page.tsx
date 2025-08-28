@@ -133,7 +133,7 @@ const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => vo
                 onClick={onOpen} 
                 size="lg" 
                 className="w-full max-w-sm rounded-full px-10 py-7 text-lg shadow-lg bg-accent/80 backdrop-blur-sm hover:bg-accent text-accent-foreground font-sans animate-fade-in-up"
-                style={{ animationDuration: '1.2s', animationDelay: '0.3s' }}
+                style={{ animationDuration: '0.8s', animationDelay: '0.3s' }}
               >
                   <Mail className="mr-3 h-5 w-5" />
                   Buka Undangan
@@ -158,10 +158,10 @@ const HeroSection = () => (
     </div>
     
     <div className="relative z-10 flex flex-col items-center w-full animate-fade-in-up" style={{animationDuration: '1.2s'}}>
-      <p className="font-sans tracking-[0.2em] text-sm uppercase">The Wedding Of</p>
-      <h1 className="font-serif text-7xl md:text-8xl mt-4 mb-8 text-shadow-lg">{coupleNames}</h1>
+      <p className="text-white font-sans tracking-[0.2em] text-sm uppercase">The Wedding Of</p>
+      <h1 className="text-white font-serif text-7xl md:text-8xl mt-4 mb-8 text-shadow-lg">{coupleNames}</h1>
       <div className="w-24 h-px bg-primary my-4"></div>
-      <p className="font-sans text-lg mt-4">20 . 09 . 2025</p>
+      <p className="text-white font-sans text-lg mt-4">20 . 09 . 2025</p>
       <div className="mt-8">
         <Countdown targetDate={weddingDate} />
       </div>
@@ -207,7 +207,7 @@ const CoupleSection = () => (
           <AnimateOnScroll animation="fade-in-right" className="relative z-10">
             <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-8">
               <div className="relative w-full h-[400px] md:h-auto md:aspect-[3/4] order-2 md:order-1 flex items-center justify-center">
-                  <div className="relative w-full max-w-[300px] md:max-w-none md:w-3/4 aspect-[3/4] bg-primary/80 rounded-3xl -rotate-3 transition-transform group-hover:rotate-0 duration-500 shadow-2xl">
+                  <div className="relative w-full max-w-[300px] md:max-w-none md:w-3/4 aspect-[3/4] rounded-3xl -rotate-3 transition-transform group-hover:rotate-0 duration-500 shadow-2xl">
                       <Image
                           src="https://the.invisimple.id/wp-content/uploads/elementor/thumbs/PRIA-r1qxu50pofy26yljvdfud7qei6f9whhy1kfb005u2w.jpg"
                           alt="Putra Andika Pratama"
@@ -340,7 +340,7 @@ const EventCard = ({
 
 
 const EventsSection = () => (
-    <section id="events" className="relative py-24 px-6 overflow-hidden">
+    <section id="events" className="relative py-24 px-6 overflow-hidden rounded-bl-[50]">
         <div className="absolute inset-0">
              <Image
                 src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-bg-01.jpg"
@@ -352,12 +352,13 @@ const EventsSection = () => (
             <div className="absolute inset-0 bg-background/80" />
         </div>
         <div className="relative z-10 flex flex-col items-center text-center mb-16">
-            <h2 className="font-serif text-6xl text-primary-foreground text-shadow">
+            <h2 className="text-white font-serif text-6xl text-primary-foreground text-shadow">
                 Wedding
             </h2>
-            <p className="font-sans text-2xl text-primary-foreground/80 tracking-[0.4em] uppercase">
+            <p className="text-white font-sans text-2xl text-primary-foreground tracking-[0.4em] uppercase">
                 Event
             </p>
+            <div className="w-24 h-px bg-primary my-4"></div>
         </div>
     
         <div className="max-w-4xl mx-auto grid md:grid-cols-1 gap-12">
@@ -424,7 +425,7 @@ const GallerySection = () => (
 
 
 const GuestBookSection = () => (
-    <section id="guestbook" className="py-24 px-6 bg-secondary/20">
+    <section id="guestbook" className="py-24 px-6 bg-secondary/20 rounded-tr-[50] rounded-bl-[50]">
       <SectionTitle icon={Mail} title="Wishes" subtitle="Leave Your Wishes" />
       <div className="max-w-4xl mx-auto">
         <AnimateOnScroll>
