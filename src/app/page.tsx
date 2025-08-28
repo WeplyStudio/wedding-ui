@@ -106,24 +106,26 @@ const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => vo
           fill
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
-        <div className="relative z-10 flex flex-col items-center justify-end h-full pb-20 text-primary p-4">
-          <div className="flex-grow flex flex-col items-center justify-center text-center -mt-20">
-              <p className="font-body text-sm md:text-base tracking-widest uppercase mb-4">The Wedding Of</p>
-              <h1 className="font-headline text-5xl md:text-6xl font-bold">{coupleNames}</h1>
-          </div>
-          <div className="flex flex-col items-center">
-            <p className="font-body text-sm text-muted-foreground">Kepada Yth.</p>
-            <p className="font-body text-base font-semibold text-foreground mb-2">{guestName}</p>
-            <p className="font-body text-xs text-muted-foreground/80 mb-6">*Mohon maaf jika ada kesalahan dalam penulisan nama / gelar.</p>
-            <Button onClick={onOpen} size="lg" className="rounded-full px-8 py-6 text-base shadow-lg">
-              <BookOpen className="mr-2 h-5 w-5" />
-              Buka Undangan
-            </Button>
-          </div>
-        </div>
-        <div className="absolute bottom-0 left-0 w-full h-1/4">
-            <Image src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-asset-03.png" layout="fill" objectFit="contain" alt="Floral ornament" className="opacity-70" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/70 to-transparent" />
+        <div className="relative z-10 flex flex-col items-center justify-end h-full w-full">
+            <div className="absolute bottom-0 left-0 w-full h-[30%]">
+                <Image src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-asset-03.png" layout="fill" objectFit="contain" alt="Floral ornament" className="opacity-80" objectPosition="bottom" />
+            </div>
+            <div className="flex flex-col items-center justify-end h-full pb-20 text-primary p-4 z-20">
+                <div className="flex-grow flex flex-col items-center justify-end text-center pb-8">
+                    <p className="font-body text-sm md:text-base tracking-widest uppercase mb-4">The Wedding Of</p>
+                    <h1 className="font-headline text-5xl md:text-6xl font-bold">{coupleNames}</h1>
+                </div>
+                <div className="flex flex-col items-center">
+                    <p className="font-body text-sm text-muted-foreground">Kepada Yth.</p>
+                    <p className="font-body text-base font-semibold text-foreground mb-2">{guestName}</p>
+                    <p className="font-body text-xs text-muted-foreground/80 mb-6 max-w-xs mx-auto">*Mohon maaf jika ada kesalahan dalam penulisan nama / gelar.</p>
+                    <Button onClick={onOpen} size="lg" className="rounded-full px-8 py-6 text-base shadow-lg">
+                    <BookOpen className="mr-2 h-5 w-5" />
+                    Buka Undangan
+                    </Button>
+                </div>
+            </div>
         </div>
       </div>
     </div>
