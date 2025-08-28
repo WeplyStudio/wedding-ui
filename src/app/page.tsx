@@ -16,6 +16,7 @@ import MusicPlayer from "@/components/music-player";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
 import { cn } from "@/lib/utils";
 import GuestBook from "@/components/guestbook";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 
 const weddingDate = new Date("2025-09-20T14:00:00");
@@ -524,33 +525,35 @@ const GiftDrawer = () => {
                 Klik di Sini
             </Button>
         </SheetTrigger>
-        <SheetContent side="bottom" className="w-full max-w-3xl mx-auto rounded-t-2xl p-6">
-            <SheetHeader className="text-center mb-6">
-            <SheetTitle className="font-serif text-3xl">Send a Gift</SheetTitle>
-            </SheetHeader>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="flex flex-col items-center justify-center space-y-4 p-4 border rounded-lg">
-                    <h3 className="font-sans font-semibold text-lg">Scan QRIS</h3>
-                    <Image src="https://api.qr-code-generator.com/v1/create?access-token=yvR-0_gS62v4hJd9sFVTN8YwH_I9aG4nBExA0jImFk_s1zSgrJvjS2y4d35I2b-j&qr_code_text=https%3A%2F%2Fwww.google.com&image_format=PNG&image_width=500" alt="QRIS Code" data-ai-hint="qris code" width={200} height={200} className="rounded-md" />
-                    <p className="text-sm text-muted-foreground">All e-wallets and banks supported</p>
-                </div>
-                 <div className="space-y-4">
-                    {bankAccounts.map((account) => (
-                        <Card key={account.bank} className="p-4">
-                            <div className="flex items-center justify-between">
-                                <div>
-                                    <Image src={account.logo} alt={`${account.bank} logo`} data-ai-hint={`${account.bank} logo`} width={60} height={20} objectFit="contain" />
-                                    <p className="font-semibold mt-2">{account.name}</p>
-                                    <p className="text-muted-foreground">{account.number}</p>
+        <SheetContent side="bottom" className="w-full max-w-3xl mx-auto rounded-t-2xl p-0">
+             <ScrollArea className="h-auto max-h-[90vh] p-6">
+                <SheetHeader className="text-center mb-6">
+                <SheetTitle className="font-serif text-3xl">Send a Gift</SheetTitle>
+                </SheetHeader>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="flex flex-col items-center justify-center space-y-4 p-4 border rounded-lg">
+                        <h3 className="font-sans font-semibold text-lg">Scan QRIS</h3>
+                        <Image src="https://api.qr-code-generator.com/v1/create?access-token=yvR-0_gS62v4hJd9sFVTN8YwH_I9aG4nBExA0jImFk_s1zSgrJvjS2y4d35I2b-j&qr_code_text=https%3A%2F%2Fwww.google.com&image_format=PNG&image_width=500" alt="QRIS Code" data-ai-hint="qris code" width={200} height={200} className="rounded-md" />
+                        <p className="text-sm text-muted-foreground">All e-wallets and banks supported</p>
+                    </div>
+                    <div className="space-y-4">
+                        {bankAccounts.map((account) => (
+                            <Card key={account.bank} className="p-4">
+                                <div className="flex items-center justify-between">
+                                    <div>
+                                        <Image src={account.logo} alt={`${account.bank} logo`} data-ai-hint={`${account.bank} logo`} width={60} height={20} objectFit="contain" />
+                                        <p className="font-semibold mt-2">{account.name}</p>
+                                        <p className="text-muted-foreground">{account.number}</p>
+                                    </div>
+                                    <Button variant="ghost" size="icon" onClick={() => copyToClipboard(account.number, `${account.bank} Account Number`)}>
+                                        <Copy className="h-5 w-5" />
+                                    </Button>
                                 </div>
-                                <Button variant="ghost" size="icon" onClick={() => copyToClipboard(account.number, `${account.bank} Account Number`)}>
-                                    <Copy className="h-5 w-5" />
-                                </Button>
-                            </div>
-                        </Card>
-                    ))}
+                            </Card>
+                        ))}
+                    </div>
                 </div>
-            </div>
+            </ScrollArea>
         </SheetContent>
         </Sheet>
     );
@@ -643,3 +646,4 @@ const BottomNav = () => {
     
 
     
+
