@@ -89,14 +89,21 @@ export default function EvergreenVowsPage() {
 
 const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => void }) => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [isClient, setIsClient] = useState(false);
 
     useEffect(() => {
+        setIsClient(true);
+    }, []);
+
+    useEffect(() => {
+        if (!isClient) return;
+
         const interval = setInterval(() => {
             setCurrentImageIndex(prevIndex => (prevIndex + 1) % openingImages.length);
         }, 5000); // Change image every 5 seconds
 
         return () => clearInterval(interval);
-    }, []);
+    }, [isClient]);
 
     return (
       <div className={cn(
@@ -110,17 +117,18 @@ const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => vo
                 alt="The Wedding of Putri & Putra"
                 data-ai-hint="wedding couple photo"
                 fill
+                priority={index === 0}
                 className={cn(
                     "object-cover transition-opacity duration-1000 ease-in-out",
-                    index === currentImageIndex ? "opacity-100" : "opacity-0"
+                    isClient && index === currentImageIndex ? "opacity-100" : "opacity-0"
                 )}
             />
           ))}
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
   
-          <div className="relative z-10 flex flex-col items-center justify-end h-full w-full text-center p-8">
-              <div className="flex flex-col items-center mb-8 animate-fade-in-up text-foreground" style={{ animationDuration: '1.2s' }}>
-                  <p className="font-sans text-sm tracking-[0.2em] uppercase mb-2 text-shadow">The Wedding Of</p>
+          <div className="relative z-10 flex flex-col items-center justify-end h-full w-full text-center p-8 text-primary-foreground">
+              <div className="flex flex-col items-center mb-8 animate-fade-in-up text-shadow" style={{ animationDuration: '1.2s' }}>
+                  <p className="font-sans text-sm tracking-[0.2em] uppercase mb-2">The Wedding Of</p>
                   <h1 className="font-serif text-5xl md:text-6xl font-bold text-shadow-lg leading-tight">Andika &<br/>Putri</h1>
                   <div className="w-full text-center mt-8">
                       <p className="font-sans text-lg mb-1">Dear</p>
@@ -132,7 +140,7 @@ const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => vo
               <Button 
                 onClick={onOpen} 
                 size="lg" 
-                className="w-full max-w-sm rounded-full px-10 py-7 text-lg shadow-lg bg-primary hover:bg-primary/90 text-primary-foreground font-sans animate-fade-in-up"
+                className="w-full max-w-sm rounded-full px-10 py-7 text-lg shadow-lg bg-accent hover:bg-accent/90 text-accent-foreground font-sans animate-fade-in-up"
                 style={{ animationDuration: '0.8s', animationDelay: '0.3s' }}
               >
                   <Mail className="mr-3 h-5 w-5" />
@@ -510,5 +518,7 @@ const BottomNav = () => {
 
 
 
+
+    
 
     
