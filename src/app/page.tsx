@@ -33,7 +33,7 @@ const galleryImages = [
   { src: "https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/4.jpeg", alt: "Couple smiling", hint: "couple smiling" },
   { src: "https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/5.jpeg", alt: "Couple holding hands", hint: "couple hands" },
   { src: "https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/6.jpeg", alt: "Couple in nature", hint: "couple nature" },
-  { src: "https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/7.jpeg", alt: "Couple walking on a beach", hint: "couple beach" },
+  { src: "https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/20_4_11/7.jpeg", alt: "Couple walking on a beach", hint: "couple beach" },
   { src: "https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/8.jpg", alt: "Couple under a tree", hint: "couple tree" },
   { src: "https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/Bride.jpg", alt: "Happy couple", hint: "happy couple" },
 ];
@@ -133,12 +133,12 @@ const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => vo
   
           <div className="relative z-10 flex flex-col items-center justify-end h-full w-full text-center p-8 text-foreground">
               <div className="flex flex-col items-center mb-8 animate-fade-in-up" style={{ animationDuration: '1.2s' }}>
-                  <p className="font-sans text-sm tracking-[0.2em] uppercase mb-2 text-shadow">The Wedding Of</p>
-                  <h1 className="font-serif text-5xl md:text-6xl font-bold text-shadow-lg leading-tight">Andika &<br/>Putri</h1>
+                  <p className="font-sans text-sm tracking-[0.2em] uppercase mb-2 text-shadow text-primary-foreground">The Wedding Of</p>
+                  <h1 className="font-serif text-5xl md:text-6xl font-bold text-shadow-lg leading-tight text-primary-foreground">Andika &<br/>Putri</h1>
                   <div className="w-full text-center mt-8">
-                      <p className="font-sans text-lg mb-1">Dear</p>
-                      <p className="font-serif text-xl font-bold mb-2">{guestName}</p>
-                      <p className="text-xs text-foreground/80">*Mohon maaf jika ada kesalahan dalam penulisan nama / gelar.</p>
+                      <p className="font-sans text-lg mb-1 text-primary-foreground">Dear</p>
+                      <p className="font-serif text-xl font-bold mb-2 text-primary-foreground">{guestName}</p>
+                      <p className="text-xs text-primary-foreground/80">*Mohon maaf jika ada kesalahan dalam penulisan nama / gelar.</p>
                   </div>
               </div>
               
@@ -237,7 +237,7 @@ const CoupleSection = () => (
         </AnimateOnScroll>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8 items-start">
-            <AnimateOnScroll animation="fade-in-right" className="w-full text-center md:text-right">
+            <AnimateOnScroll animation="fade-in-right" className="w-full text-center md:text-right" delay={0.2}>
                 <div className="flex flex-col items-center md:items-end">
                     <h3 className="font-serif text-4xl text-primary mb-2">Putri Cantika Sari</h3>
                     <p className="font-sans text-sm text-muted-foreground mb-1">Putri Pertama dari</p>
@@ -249,20 +249,20 @@ const CoupleSection = () => (
                         </a>
                     </Button>
                     <div className="relative w-full h-[400px] mt-8 flex items-center justify-center md:justify-end">
-                        <div className="relative w-full max-w-[300px] aspect-[3/4] bg-secondary/30 rounded-3xl rotate-3 transition-transform duration-500 shadow-2xl hover:rotate-1 hover:scale-105">
+                        <div className="relative w-full max-w-[300px] aspect-[3/4] bg-secondary/30 rounded-3xl animate-sway-left shadow-2xl">
                             <Image
                                 src="https://the.invisimple.id/wp-content/uploads/elementor/thumbs/WANITA-r1qxu50pofy26yljvdfud7qei6f9whhy1kfb005u2w.jpg"
                                 alt="Putri Cantika Sari"
                                 fill
                                 style={{ objectFit: 'cover' }}
-                                className="rounded-3xl -rotate-6 transition-transform duration-500 group-hover:rotate-0"
+                                className="rounded-3xl"
                             />
                         </div>
                     </div>
                 </div>
             </AnimateOnScroll>
 
-            <AnimateOnScroll animation="fade-in-left" className="w-full text-center md:text-left">
+            <AnimateOnScroll animation="fade-in-left" className="w-full text-center md:text-left" delay={0.2}>
                  <div className="flex flex-col items-center md:items-start">
                      <h3 className="font-serif text-4xl text-primary mb-2">Putra Andika Pratama</h3>
                     <p className="font-sans text-sm text-muted-foreground mb-1">Putra Pertama dari</p>
@@ -274,13 +274,13 @@ const CoupleSection = () => (
                         </a>
                     </Button>
                     <div className="relative w-full h-[400px] mt-8 flex items-center justify-center md:justify-start">
-                        <div className="relative w-full max-w-[300px] aspect-[3/4] rounded-3xl -rotate-3 transition-transform duration-500 shadow-2xl hover:rotate-1 hover:scale-105">
+                        <div className="relative w-full max-w-[300px] aspect-[3/4] rounded-3xl animate-sway-right shadow-2xl">
                             <Image
                                 src="https://the.invisimple.id/wp-content/uploads/elementor/thumbs/PRIA-r1qxu50pofy26yljvdfud7qei6f9whhy1kfb005u2w.jpg"
                                 alt="Putra Andika Pratama"
                                 fill
                                 style={{ objectFit: 'cover' }}
-                                className="rounded-3xl rotate-6 transition-transform duration-500 group-hover:rotate-0"
+                                className="rounded-3xl"
                             />
                         </div>
                     </div>
@@ -310,7 +310,7 @@ const EventCard = ({
     align?: 'left' | 'right';
 }) => {
     return (
-        <AnimateOnScroll className="w-full max-w-md mx-auto" animation="fade-in-up">
+        <AnimateOnScroll className="w-full max-w-md mx-auto" animation="zoom-in" delay={0.2}>
             <div className="bg-background/80 backdrop-blur-sm rounded-xl shadow-2xl overflow-hidden">
                 <div className="relative h-64 w-full" style={{ clipPath: 'ellipse(100% 55% at 50% 45%)' }}>
                     <Image
@@ -379,15 +379,17 @@ const EventsSection = () => {
     }, []);
 
     useEffect(() => {
-        const receptionStartDate = new Date("2025-09-20T18:00:00");
-        const receptionEndDate = new Date("2025-09-20T21:00:00");
+        if (typeof window !== "undefined") {
+            const receptionStartDate = new Date("2025-09-20T18:00:00");
+            const receptionEndDate = new Date("2025-09-20T21:00:00");
 
-        const formatDateForGoogleCalendar = (date: Date) => {
-            return date.toISOString().replace(/-|:|\.\d{3}/g, '');
-        };
+            const formatDateForGoogleCalendar = (date: Date) => {
+                return date.toISOString().replace(/-|:|\.\d{3}/g, '');
+            };
 
-        const link = `https://www.google.com/calendar/render?action=TEMPLATE&text=Wedding+Reception%3A+Putri+%26+Putra&dates=${formatDateForGoogleCalendar(receptionStartDate)}/${formatDateForGoogleCalendar(receptionEndDate)}&details=Join+us+to+celebrate+the+wedding+of+Putri+and+Putra!&location=The+Grand+Ballroom%2C+123+Blossom+Lane%2C+Meadowville`;
-        setGoogleCalendarLink(link);
+            const link = `https://www.google.com/calendar/render?action=TEMPLATE&text=Wedding+Reception%3A+Putri+%26+Putra&dates=${formatDateForGoogleCalendar(receptionStartDate)}/${formatDateForGoogleCalendar(receptionEndDate)}&details=Join+us+to+celebrate+the+wedding+of+Putri+and+Putra!&location=The+Grand+Ballroom%2C+123+Blossom+Lane%2C+Meadowville`;
+            setGoogleCalendarLink(link);
+        }
     }, []);
 
     return (
@@ -534,7 +536,7 @@ const GiftSection = () => {
                 <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
             </div>
             <div className="relative z-10 flex flex-col items-center">
-                <AnimateOnScroll>
+                <AnimateOnScroll animation="zoom-in" delay={0.2}>
                     <Card className="w-full max-w-md bg-background/80 border-0 shadow-2xl rounded-2xl overflow-hidden">
                         <CardContent className="p-0">
                             <div className="aspect-video">
@@ -626,7 +628,7 @@ const GuestBookSection = () => (
     <AnimateOnScroll as="section" id="guestbook" className="py-24 px-6 bg-secondary/20 rounded-bl-[50]">
       <SectionTitle subtitle="Leave Your Wishes" />
       <div className="max-w-4xl mx-auto">
-        <AnimateOnScroll>
+        <AnimateOnScroll animation="zoom-in" delay={0.2}>
              <GuestBook />
         </AnimateOnScroll>
       </div>
@@ -636,7 +638,7 @@ const GuestBookSection = () => (
 const Footer = () => (
   <AnimateOnScroll as="footer" className="py-16 text-center bg-background rounded-b-3xl">
     <div className="container mx-auto px-4 text-muted-foreground text-sm">
-        <AnimateOnScroll>
+        <AnimateOnScroll animation="fade-in-up">
             <p className="font-serif text-4xl text-primary mb-4">{coupleNames}</p>
             <p className="font-sans">&copy; {new Date().getFullYear()}. Made with love, for our loved ones.</p>
         </AnimateOnScroll>
@@ -708,6 +710,7 @@ const BottomNav = () => {
     
 
     
+
 
 
 
