@@ -455,50 +455,60 @@ const GallerySection = () => (
 
 const GiftSection = () => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  
+
     useEffect(() => {
-      const interval = setInterval(() => {
-        setCurrentImageIndex(prevIndex => (prevIndex + 1) % galleryImages.length);
-      }, 5000);
-      return () => clearInterval(interval);
+        const interval = setInterval(() => {
+            setCurrentImageIndex(prevIndex => (prevIndex + 1) % galleryImages.length);
+        }, 5000);
+        return () => clearInterval(interval);
     }, []);
-  
+
     return (
-      <section id="gift" className="relative py-24 px-6 overflow-hidden text-center">
-        <div className="absolute inset-0">
-          {galleryImages.map((image, index) => (
-            <Image
-              key={index}
-              src={image.src}
-              alt={image.alt}
-              data-ai-hint={image.hint}
-              fill
-              className={cn(
-                "object-cover transition-opacity duration-1000",
-                index === currentImageIndex ? "opacity-100" : "opacity-0"
-              )}
-            />
-          ))}
-          <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
-        </div>
-        <div className="relative z-10 flex flex-col items-center">
-            <AnimateOnScroll>
-                <Card className="w-full max-w-lg bg-background/70 border-primary/20 shadow-2xl rounded-2xl">
-                    <CardHeader>
-                    <CardTitle className="font-serif text-4xl text-primary">Wedding Gift</CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                    <p className="text-muted-foreground">
-                        Doa Restu Anda merupakan karunia yang sangat berarti bagi kami. Dan jika memberi adalah ungkapan tanda kasih, Anda dapat memberi melalui dibawah ini.
-                    </p>
-                    <GiftDrawer />
-                    </CardContent>
-                </Card>
-            </AnimateOnScroll>
-        </div>
-      </section>
+        <section id="gift" className="relative py-24 px-6 overflow-hidden text-center">
+            <div className="absolute inset-0">
+                {galleryImages.map((image, index) => (
+                    <Image
+                        key={index}
+                        src={image.src}
+                        alt={image.alt}
+                        data-ai-hint={image.hint}
+                        fill
+                        className={cn(
+                            "object-cover transition-opacity duration-1000",
+                            index === currentImageIndex ? "opacity-100" : "opacity-0"
+                        )}
+                    />
+                ))}
+                <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
+            </div>
+            <div className="relative z-10 flex flex-col items-center">
+                <AnimateOnScroll>
+                    <Card className="w-full max-w-md bg-background/80 border-0 shadow-2xl rounded-2xl overflow-hidden">
+                        <CardContent className="p-0">
+                            <div className="aspect-video">
+                                <Image
+                                    src="https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/4.jpeg"
+                                    alt="Wedding Gift"
+                                    data-ai-hint="couple gift"
+                                    width={600}
+                                    height={400}
+                                    className="object-cover w-full h-full"
+                                />
+                            </div>
+                        </CardContent>
+                        <div className="p-6 text-center">
+                            <CardTitle className="font-serif text-4xl text-primary mb-4">Wedding Gift</CardTitle>
+                            <CardDescription className="mb-6 text-muted-foreground">
+                                Doa Restu Anda merupakan karunia yang sangat berarti bagi kami. Dan jika memberi adalah ungkapan tanda kasih, Anda dapat memberi melalui dibawah ini.
+                            </CardDescription>
+                            <GiftDrawer />
+                        </div>
+                    </Card>
+                </AnimateOnScroll>
+            </div>
+        </section>
     );
-  };
+};
   
 const GiftDrawer = () => {
     const { toast } = useToast();
@@ -646,4 +656,5 @@ const BottomNav = () => {
     
 
     
+
 
