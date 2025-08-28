@@ -13,6 +13,7 @@ import MusicPlayer from "@/components/music-player";
 import RsvpForm from "@/components/rsvp-form";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
 import { cn } from "@/lib/utils";
+import GuestBook from "@/components/guestbook";
 
 
 const weddingDate = new Date("2025-09-20T14:00:00");
@@ -198,7 +199,7 @@ const CoupleSection = () => (
 
             {/* Bride */}
             <AnimateOnScroll animation="fade-in-left" className="relative z-10 grid grid-cols-1 md:grid-cols-2 items-center gap-8">
-                 <div className="text-center md:text-right order-1 md:order-2">
+                 <div className="text-center md:text-right order-1 md:order-1">
                     <h3 className="font-serif text-4xl text-primary mb-2">Putri Cantika Sari</h3>
                     <p className="font-sans text-sm text-muted-foreground mb-1">Putri Pertama dari</p>
                     <p className="font-sans font-semibold text-foreground mb-4">Bapak Abdul Rozak dan Ibu Adella Marni</p>
@@ -209,7 +210,7 @@ const CoupleSection = () => (
                         </a>
                     </Button>
                 </div>
-                <div className="relative w-full aspect-[3/4] md:aspect-auto md:h-full order-2 md:order-1">
+                <div className="relative w-full aspect-[3/4] md:aspect-auto md:h-full order-2 md:order-2">
                    <div className="absolute inset-0 bg-primary rounded-tl-[8rem] rounded-br-[2rem]">
                         <svg className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] text-secondary/20" viewBox="0 0 100 100" preserveAspectRatio="none">
                             <path d="M100,100 Q50,100 0,0 L100,0 Z" fill="currentColor"/>
@@ -324,12 +325,19 @@ const GallerySection = () => (
 const GuestBookSection = () => (
     <section id="guestbook" className="py-24 px-6 bg-secondary/20">
       <SectionTitle icon={Mail} title="Wishes & RSVP" subtitle="Leave Your Wishes" />
-      <AnimateOnScroll className="text-center max-w-xl mx-auto mb-12 text-muted-foreground font-sans">
-          <p>Your presence is our present, but your words are a gift we'll treasure forever.</p>
-      </AnimateOnScroll>
-  
-      <div className="bg-background/80 backdrop-blur-sm rounded-lg shadow-xl p-8 max-w-2xl mx-auto border border-primary/10">
-        <RsvpForm />
+      <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+        <AnimateOnScroll className="text-center md:text-left">
+            <h3 className="font-serif text-3xl mb-4 text-primary">Join our celebration</h3>
+            <p className="text-muted-foreground mb-8 font-sans">
+                Your presence is the greatest gift of all. Please let us know if you can make it and leave a message for us to cherish.
+            </p>
+            <div className="bg-background/80 backdrop-blur-sm rounded-lg shadow-xl p-8 border border-primary/10">
+                <RsvpForm />
+            </div>
+        </AnimateOnScroll>
+        <AnimateOnScroll delay={0.2}>
+             <GuestBook />
+        </AnimateOnScroll>
       </div>
     </section>
   );
