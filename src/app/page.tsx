@@ -100,7 +100,7 @@ const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => vo
     )}>
       <div className="relative h-full w-full flex items-center justify-center text-center">
         <Image
-          src="https://our-wedding.link/uploads/cover/c9c3e925d48721325d2e236531f8b4ed.jpeg"
+          src="https://media.katsudoto.id/media/public/70/56834/thumbnail/thumb-lg-676408-2000-2000-1755052004-59e8d8c19ddf135fcda341b9.png"
           alt="Elegant couple"
           fill
           className="object-cover"
