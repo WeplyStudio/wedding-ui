@@ -92,46 +92,46 @@ export default function EvergreenVowsPage() {
 }
 
 const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => void }) => {
-  return (
-    <div className={cn(
-      "fixed inset-0 z-[100] bg-background transition-all duration-1000 ease-in-out",
-      isOpen ? "opacity-0 -translate-y-full" : "opacity-100"
-    )}>
-      <div className="relative h-full w-full flex items-center justify-center text-center">
-        <Image
-          src="https://media.katsudoto.id/media/public/70/56834/thumbnail/thumb-lg-676408-2000-2000-1755052004-59e8d8c19ddf135fcda341b9.png"
-          alt="Elegant couple"
-          fill
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/70 to-transparent" />
-        <div className="relative z-10 flex flex-col items-center justify-end h-full w-full">
-             <div className="absolute bottom-[-2%] left-[-5%] w-[40%] h-[30%] opacity-80 animate-sway-left">
-                <img src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-asset-03.png" alt="Floral ornament" className="w-full h-full object-contain -scale-x-[-1] rotate-180" />
-            </div>
-             <div className="absolute bottom-[-2%] right-[-5%] w-[40%] h-[30%] opacity-80 animate-sway-right">
-                <img src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-asset-03.png" alt="Floral ornament" className="w-full h-full object-contain rotate-180" />
-            </div>
-            <div className="flex flex-col items-center justify-end h-full pb-20 text-primary p-4 z-20 max-h-[50vh]">
-                <div className="flex-grow flex flex-col items-center justify-end text-center pb-8">
-                    <p className="font-body text-sm md:text-base tracking-widest uppercase mb-4">The Wedding Of</p>
-                    <h1 className="font-headline text-5xl md:text-6xl font-bold">{coupleNames}</h1>
-                </div>
-                <div className="flex flex-col items-center">
-                    <p className="font-body text-sm text-muted-foreground">Kepada Yth.</p>
-                    <p className="font-body text-base font-semibold text-foreground mb-2">{guestName}</p>
-                    <p className="font-body text-xs text-muted-foreground/80 mb-6 max-w-xs mx-auto">*Mohon maaf jika ada kesalahan dalam penulisan nama / gelar.</p>
-                    <Button onClick={onOpen} size="lg" className="rounded-full px-8 py-6 text-base shadow-lg">
-                    <BookOpen className="mr-2 h-5 w-5" />
-                    Buka Undangan
-                    </Button>
-                </div>
-            </div>
+    return (
+      <div className={cn(
+        "fixed inset-0 z-[100] bg-background transition-all duration-1000 ease-in-out",
+        isOpen ? "opacity-0 -translate-y-full" : "opacity-100"
+      )}>
+        <div className="relative h-full w-full flex items-center justify-center text-center">
+          <Image
+            src="https://media.katsudoto.id/media/public/70/56834/thumbnail/thumb-lg-676408-2000-2000-1755052004-59e8d8c19ddf135fcda341b9.png"
+            alt="Elegant couple"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/70 to-transparent" />
+          <div className="relative z-10 flex flex-col items-center justify-end h-full w-full">
+               <div className="absolute bottom-[-2%] left-[-5%] w-[40%] h-[30%] opacity-80 animate-sway-left">
+                  <img src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-asset-03.png" alt="Floral ornament" className="w-full h-full object-contain -scale-x-[-1] rotate-180" />
+              </div>
+               <div className="absolute bottom-[-2%] right-[-5%] w-[40%] h-[30%] opacity-80 animate-sway-right">
+                  <img src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-asset-03.png" alt="Floral ornament" className="w-full h-full object-contain rotate-180" />
+              </div>
+              <div className="flex flex-col items-center justify-end h-full pb-20 text-primary p-4 z-20 max-h-[50vh]">
+                  <div className="flex-grow flex flex-col items-center justify-end text-center pb-8">
+                      <p className="font-body text-sm md:text-base tracking-widest uppercase mb-4">The Wedding Of</p>
+                      <h1 className="font-headline text-5xl md:text-6xl font-bold">{coupleNames}</h1>
+                  </div>
+                  <div className="flex flex-col items-center">
+                      <p className="font-body text-sm text-muted-foreground">Kepada Yth.</p>
+                      <p className="font-body text-base font-semibold text-foreground mb-2">{guestName}</p>
+                      <p className="font-body text-xs text-muted-foreground/80 mb-6 max-w-xs mx-auto">*Mohon maaf jika ada kesalahan dalam penulisan nama / gelar.</p>
+                      <Button onClick={onOpen} size="lg" className="rounded-full px-8 py-6 text-base shadow-lg">
+                      <BookOpen className="mr-2 h-5 w-5" />
+                      Buka Undangan
+                      </Button>
+                  </div>
+              </div>
+          </div>
         </div>
       </div>
-    </div>
-  )
-};
+    )
+  };
 
 const HeroSection = () => (
     <section id="home" className="relative min-h-screen flex flex-col items-center justify-center text-center py-24 px-4 bg-background overflow-hidden">
@@ -139,22 +139,22 @@ const HeroSection = () => (
             className="absolute inset-0 bg-cover bg-center opacity-30" 
             style={{backgroundImage: "url('https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-bg-01.jpg')"}}
         />
-        <img src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-asset-04.png" alt="Top Left Ornament" className="absolute -top-10 -left-16 w-48 opacity-70" />
-        <img src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-asset-03.png" alt="Top Right Ornament" className="absolute -top-12 -right-12 w-48 opacity-70 -scale-x-100" />
+        <img src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-asset-04.png" alt="Top Left Ornament" className="absolute top-[-5%] left-[-10%] w-48 opacity-70 transform -rotate-45" />
+        <img src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-asset-03.png" alt="Top Right Ornament" className="absolute top-[-5%] right-[-10%] w-48 opacity-70 transform rotate-45 -scale-x-100" />
         
-        <div className="relative z-10 flex flex-col items-center w-full max-w-2xl mx-auto">
+        <div className="relative z-10 flex flex-col items-center w-full max-w-3xl mx-auto">
             <AnimateOnScroll animation="fade-in-down" duration={0.8}>
                 <p className="font-body text-lg md:text-xl mb-4 tracking-widest uppercase text-primary">The Wedding Of</p>
             </AnimateOnScroll>
             
-            <AnimateOnScroll animation="zoom-in" delay={0.2} duration={0.8} className="relative w-full max-w-sm mb-6">
-                <div className="bg-white/50 p-2 rounded-2xl shadow-lg backdrop-blur-sm">
+            <AnimateOnScroll animation="zoom-in" delay={0.2} duration={0.8} className="relative w-full max-w-md mb-8">
+                <div className="bg-white/50 p-3 rounded-2xl shadow-xl backdrop-blur-md border border-white/30">
                     <Image
-                        src="https://picsum.photos/seed/wedding-couple/600/600"
+                        src="https://picsum.photos/seed/wedding-couple/800/800"
                         alt="Putri & Putra"
                         data-ai-hint="elegant couple"
-                        width={600}
-                        height={600}
+                        width={800}
+                        height={800}
                         className="object-cover rounded-xl w-full"
                         priority
                     />
@@ -162,26 +162,26 @@ const HeroSection = () => (
             </AnimateOnScroll>
             
             <AnimateOnScroll animation="fade-in-up" delay={0.4} duration={0.8}>
-                <h1 className="font-headline text-5xl md:text-7xl font-bold tracking-tight text-shadow text-primary">
+                <h1 className="font-headline text-6xl md:text-8xl font-bold tracking-tight text-shadow-lg text-primary">
                     {coupleNames}
                 </h1>
-                <p className="font-body text-lg text-muted-foreground mt-2">Minggu, 20 September 2025</p>
+                <p className="font-body text-xl text-muted-foreground mt-4">Minggu, 20 September 2025</p>
             </AnimateOnScroll>
             
-            <AnimateOnScroll animation="fade-in-up" delay={0.6} duration={0.8} className="my-8 w-full">
+            <AnimateOnScroll animation="fade-in-up" delay={0.6} duration={0.8} className="my-10 w-full max-w-2xl">
                  <Countdown targetDate={weddingDate} />
             </AnimateOnScroll>
             
             <AnimateOnScroll animation="fade-in-up" delay={0.8} duration={0.8}>
-                <Button size="lg" className="rounded-full shadow-lg">
+                <Button size="lg" className="rounded-full shadow-lg px-8 py-6 text-lg">
                     <CalendarDays className="mr-2 h-5 w-5" />
                     Simpan Tanggal
                 </Button>
             </AnimateOnScroll>
         </div>
 
-        <img src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-asset-03.png" alt="Bottom Left Ornament" className="absolute -bottom-12 -left-12 w-48 opacity-70" />
-        <img src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-asset-04.png" alt="Bottom Right Ornament" className="absolute -bottom-10 -right-16 w-48 opacity-70 -scale-x-100" />
+        <img src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-asset-03.png" alt="Bottom Left Ornament" className="absolute bottom-[-5%] left-[-10%] w-48 opacity-70 transform -rotate-45" />
+        <img src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-asset-04.png" alt="Bottom Right Ornament" className="absolute bottom-[-5%] right-[-10%] w-48 opacity-70 transform rotate-45 -scale-x-100" />
     </section>
 );
 
@@ -487,6 +487,7 @@ const Footer = () => (
     
 
     
+
 
 
 
