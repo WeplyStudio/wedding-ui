@@ -1,4 +1,5 @@
 
+
 "use client";
 
 import Image from "next/image";
@@ -181,7 +182,7 @@ const CoupleSection = () => (
                     </svg>
                 </div>
                 <div className="relative grid grid-cols-1 md:grid-cols-2 items-center gap-8 p-8">
-                    <div className="relative w-full h-[320px] md:h-[400px] order-1">
+                    <div className="relative w-full h-[480px] md:h-[560px] order-1">
                         <div className="absolute inset-0 bg-background rounded-3xl -rotate-3 transition-transform group-hover:rotate-0" />
                         <Image
                             src="https://the.invisimple.id/wp-content/uploads/elementor/thumbs/PRIA-r1qxu50pofy26yljvdfud7qei6f9whhy1kfb005u2w.jpg"
@@ -224,7 +225,7 @@ const CoupleSection = () => (
                             </a>
                         </Button>
                     </div>
-                     <div className="relative w-full h-[320px] md:h-[400px] order-1 md:order-2">
+                     <div className="relative w-full h-[480px] md:h-[560px] order-1 md:order-2">
                         <div className="absolute inset-0 bg-background rounded-3xl rotate-3 transition-transform group-hover:rotate-0" />
                         <Image
                             src="https://the.invisimple.id/wp-content/uploads/elementor/thumbs/WANITA-r1qxu50pofy26yljvdfud7qei6f9whhy1kfb005u2w.jpg"
@@ -241,55 +242,122 @@ const CoupleSection = () => (
 );
 
 
+const EventCard = ({
+    title,
+    date,
+    time,
+    location,
+    mapLink,
+    imageUrl,
+    imageHint,
+    align = 'left'
+}: {
+    title: string;
+    date: string[];
+    time: string;
+    location: string[];
+    mapLink: string;
+    imageUrl: string;
+    imageHint: string;
+    align?: 'left' | 'right';
+}) => {
+    return (
+        <AnimateOnScroll className="w-full max-w-md mx-auto" animation="fade-in-up">
+            <div className="bg-background/80 backdrop-blur-sm rounded-xl shadow-2xl overflow-hidden">
+                <div className="relative h-64 w-full" style={{ clipPath: 'ellipse(100% 55% at 50% 45%)' }}>
+                    <Image
+                        src={imageUrl}
+                        alt={title}
+                        data-ai-hint={imageHint}
+                        fill
+                        className="object-cover"
+                    />
+                </div>
+                <div className="flex">
+                    {align === 'left' && (
+                         <div className="bg-accent text-accent-foreground p-4 flex items-center justify-center">
+                            <h3 className="font-serif text-2xl" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>{title}</h3>
+                        </div>
+                    )}
+                    <div className="p-6 flex-1">
+                        <div className="flex items-center gap-4 mb-4">
+                            <p className="text-5xl font-serif text-primary">{date[0]}</p>
+                            <div className="font-sans text-muted-foreground">
+                                <p>{date[1]}</p>
+                                <p>{date[2]}</p>
+                            </div>
+                        </div>
+                        <Separator className="my-4 bg-border/50" />
+                         <div className="flex items-center gap-2 text-muted-foreground mb-4 font-sans">
+                            <Clock className="w-4 h-4 text-primary"/>
+                            <span>{time}</span>
+                        </div>
+                        <p className="font-sans text-sm uppercase text-primary/80 tracking-widest mb-2">Lokasi Acara</p>
+                        {location.map((line, i) => (
+                           <p key={i} className="font-sans text-sm text-foreground">{line}</p>
+                        ))}
+                         <Button asChild variant="outline" className="mt-6 w-full font-sans border-primary/30 hover:bg-primary hover:text-primary-foreground">
+                            <a href={mapLink} target="_blank" rel="noopener noreferrer">
+                                <MapPin className="mr-2 h-4 w-4"/>
+                                Google Maps
+                            </a>
+                        </Button>
+                    </div>
+                     {align === 'right' && (
+                         <div className="bg-accent text-accent-foreground p-4 flex items-center justify-center">
+                            <h3 className="font-serif text-2xl" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>{title}</h3>
+                        </div>
+                    )}
+                </div>
+            </div>
+        </AnimateOnScroll>
+    );
+};
+
 
 const EventsSection = () => (
-  <section id="events" className="py-24 px-6 bg-secondary/20">
-    <SectionTitle icon={GlassWater} title="Wedding Events" subtitle="Save The Date" />
+    <section id="events" className="relative py-24 px-6 overflow-hidden">
+        <div className="absolute inset-0">
+             <Image
+                src="https://our-wedding.link/wp-content/uploads/2024/07/details-bg-1.webp"
+                alt="Marble background"
+                data-ai-hint="dark marble"
+                fill
+                className="object-cover"
+            />
+            <div className="absolute inset-0 bg-background/80" />
+        </div>
+        <div className="relative z-10 flex flex-col items-center text-center mb-16">
+            <h2 className="font-serif text-6xl text-primary-foreground text-shadow">
+                Wedding
+            </h2>
+            <p className="font-sans text-2xl text-primary-foreground/80 tracking-[0.4em] uppercase">
+                Event
+            </p>
+        </div>
     
-    <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
-      <AnimateOnScroll animation="fade-in-up">
-          <Card className="shadow-xl bg-background/80 text-foreground border-primary/20 overflow-hidden text-center backdrop-blur-sm group hover:border-primary transition-all duration-300">
-              <CardHeader className="bg-primary/10">
-                  <CardTitle className="font-serif text-4xl text-primary group-hover:scale-105 transition-transform duration-300">The Ceremony</CardTitle>
-                  <CardDescription className="font-sans">Saturday, 20 September 2025</CardDescription>
-              </CardHeader>
-              <CardContent className="p-6">
-                  <div className="flex items-center justify-center gap-2 text-muted-foreground mb-4 font-sans">
-                      <Clock className="w-5 h-5 text-primary"/>
-                      <span>14:00 - 16:00</span>
-                  </div>
-                  <div className="flex items-start justify-center gap-2 text-muted-foreground font-sans">
-                      <MapPin className="w-5 h-5 text-primary mt-1"/>
-                      <span>The Evergreen Garden, 123 Blossom Lane, Meadowville</span>
-                  </div>
-                  <Button asChild variant="outline" className="mt-6 w-full font-sans border-primary/30 hover:bg-primary hover:text-primary-foreground">
-                      <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer">View on Google Maps</a>
-                  </Button>
-              </CardContent>
-          </Card>
-      </AnimateOnScroll>
-      <AnimateOnScroll animation="fade-in-up" delay={0.2}>
-           <Card className="shadow-xl bg-background/80 text-foreground border-primary/20 overflow-hidden text-center backdrop-blur-sm group hover:border-primary transition-all duration-300">
-              <CardHeader className="bg-primary/10">
-                  <CardTitle className="font-serif text-4xl text-primary group-hover:scale-105 transition-transform duration-300">The Reception</CardTitle>
-                  <CardDescription className="font-sans">Saturday, 20 September 2025</CardDescription>
-              </CardHeader>
-              <CardContent className="p-6">
-                  <div className="flex items-center justify-center gap-2 text-muted-foreground mb-4 font-sans">
-                      <Clock className="w-5 h-5 text-primary"/>
-                      <span>18:00 - 21:00</span>
-                  </div>
-                  <div className="flex items-start justify-center gap-2 text-muted-foreground font-sans">
-                      <MapPin className="w-5 h-5 text-primary mt-1"/>
-                      <span>The Grand Ballroom, 123 Blossom Lane, Meadowville</span>
-                  </div>
-                   <Button asChild variant="outline" className="mt-6 w-full font-sans border-primary/30 hover:bg-primary hover:text-primary-foreground">
-                      <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer">View on Google Maps</a>
-                  </Button>
-              </CardContent>
-          </Card>
-      </AnimateOnScroll>
-    </div>
+        <div className="max-w-4xl mx-auto grid md:grid-cols-1 gap-12">
+            <EventCard
+                title="Akad Nikah"
+                date={["20", "September", "2025"]}
+                time="14:00 - 16:00"
+                location={["The Evergreen Garden", "123 Blossom Lane, Meadowville"]}
+                mapLink="https://www.google.com/maps"
+                imageUrl="https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/Resepsi-1-1.jpg"
+                imageHint="wedding ceremony"
+                align="left"
+            />
+             <EventCard
+                title="Resepsi"
+                date={["20", "September", "2025"]}
+                time="18:00 - 21:00"
+                location={["The Grand Ballroom", "123 Blossom Lane, Meadowville"]}
+                mapLink="https://www.google.com/maps"
+                imageUrl="https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/2-1.jpeg"
+                imageHint="wedding reception"
+                align="right"
+            />
+        </div>
   </section>
 );
 
