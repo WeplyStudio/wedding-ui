@@ -115,8 +115,7 @@ const QuoteSection = () => (
 
 const CoupleSection = () => (
     <section id="couple" className="py-20 md:py-32 bg-secondary relative overflow-hidden">
-        <Image src="https://leoncelesta.katsudoto.id/media/template/exclusive/charera/original/Orn-07.png" alt="ornament" width={400} height={400} className="absolute -top-24 -left-32 opacity-30" />
-        <Image src="https://leoncelesta.katsudoto.id/media/template/exclusive/charera/original/Orn-06.png" alt="ornament" width={400} height={400} className="absolute -bottom-32 -right-24 opacity-30" />
+        <div className="absolute inset-0 bg-repeat bg-center opacity-10" style={{backgroundImage: "url('https://our-wedding.link/uploads/decoration/87df8b13d6a27e74d115e51083935293.png')"}} />
         <div className="container mx-auto px-4">
             <AnimateOnScroll animation="fade-in-down" className="text-center mb-16">
                  <h2 className="text-4xl md:text-5xl font-headline text-center text-primary mb-4">The Happy Couple</h2>
@@ -124,26 +123,40 @@ const CoupleSection = () => (
             </AnimateOnScroll>
             <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
                 <AnimateOnScroll animation="fade-in-right">
-                    <Card className="text-center p-8 border-0 shadow-lg bg-background/80 relative">
-                        <Image src="https://leoncelesta.katsudoto.id/media/template/exclusive/charera/original/Orn-11.png" alt="ornament" width={200} height={200} className="absolute -top-10 -left-10 opacity-50"/>
-                        <Avatar className="w-32 h-32 mx-auto mb-6 border-4 border-primary">
-                            <AvatarImage src="https://picsum.photos/seed/groom/200" alt="Leon" />
-                            <AvatarFallback>L</AvatarFallback>
-                        </Avatar>
-                        <CardTitle className="font-headline text-4xl text-primary">Leon Alistair</CardTitle>
-                        <CardDescription className="text-muted-foreground mt-2">The Son of Mr Jhonny Alistair & Mrs. Greny Henn</CardDescription>
-                    </Card>
+                    <div className="text-center">
+                        <div className="relative inline-block">
+                            <div className="relative w-[300px] h-[400px] mx-auto">
+                                <Image src="https://picsum.photos/seed/groom/300/400" alt="Leon" layout="fill" className="object-cover rounded-[150px_150px_0_0] z-10" />
+                                <Image src="https://our-wedding.link/uploads/decoration/f265b7468169991476f578711126786a.png" layout="fill" objectFit="contain" alt="Groom Frame" className="z-20" />
+                            </div>
+                        </div>
+                        <div className="mt-6">
+                             <div className="flex items-center justify-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 256" className="w-6 h-6 text-primary"><path fill="currentColor" d="M128 80a48 48 0 1 0 48 48a48.05 48.05 0 0 0-48-48Zm0 80a32 32 0 1 1 32-32a32 32 0 0 1-32 32Zm48-136H80a56 56 0 0 0-56 56v96a56 56 0 0 0 56 56h96a56 56 0 0 0 56-56V80a56 56 0 0 0-56-56Zm40 152a40 40 0 0 1-40 40H80a40 40 0 0 1-40-40V80a40 40 0 0 1 40-40h96a40 40 0 0 1 40 40ZM192 76a12 12 0 1 1-12-12a12 12 0 0 1 12 12Z"/></svg>
+                                <p className="font-body text-lg text-primary">LEON</p>
+                             </div>
+                             <p className="text-muted-foreground mt-4 text-sm">The Son of Mr Jhonny Alistair & Mrs. Greny Henn</p>
+                             <h3 className="font-headline text-4xl text-primary mt-2">Leon Alistair</h3>
+                        </div>
+                    </div>
                 </AnimateOnScroll>
                  <AnimateOnScroll animation="fade-in-left">
-                    <Card className="text-center p-8 border-0 shadow-lg bg-background/80 relative">
-                        <Image src="https://leoncelesta.katsudoto.id/media/template/exclusive/charera/original/Orn-11.png" alt="ornament" width={200} height={200} className="absolute -top-10 -right-10 opacity-50 scale-x-[-1]"/>
-                        <Avatar className="w-32 h-32 mx-auto mb-6 border-4 border-primary">
-                            <AvatarImage src="https://picsum.photos/seed/bride/200" alt="Celesta" />
-                            <AvatarFallback>C</AvatarFallback>
-                        </Avatar>
-                        <CardTitle className="font-headline text-4xl text-primary">Celesta Aurelia</CardTitle>
-                        <CardDescription className="text-muted-foreground mt-2">The Daughter of Mr. Henry Deon & Mrs. Kelly Penelope</CardDescription>
-                    </Card>
+                    <div className="text-center">
+                        <div className="relative inline-block">
+                            <div className="relative w-[300px] h-[400px] mx-auto">
+                                <Image src="https://picsum.photos/seed/bride/300/400" alt="Celesta" layout="fill" className="object-cover rounded-[150px_150px_0_0] z-10" />
+                                <Image src="https://our-wedding.link/uploads/decoration/f265b7468169991476f578711126786a.png" layout="fill" objectFit="contain" alt="Bride Frame" className="z-20" />
+                            </div>
+                        </div>
+                        <div className="mt-6">
+                            <div className="flex items-center justify-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 256" className="w-6 h-6 text-primary"><path fill="currentColor" d="M128 80a48 48 0 1 0 48 48a48.05 48.05 0 0 0-48-48Zm0 80a32 32 0 1 1 32-32a32 32 0 0 1-32 32Zm48-136H80a56 56 0 0 0-56 56v96a56 56 0 0 0 56 56h96a56 56 0 0 0 56-56V80a56 56 0 0 0-56-56Zm40 152a40 40 0 0 1-40 40H80a40 40 0 0 1-40-40V80a40 40 0 0 1 40-40h96a40 40 0 0 1 40 40ZM192 76a12 12 0 1 1-12-12a12 12 0 0 1 12 12Z"/></svg>
+                                <p className="font-body text-lg text-primary">CELESTA</p>
+                             </div>
+                             <p className="text-muted-foreground mt-4 text-sm">The Daughter of Mr. Henry Deon & Mrs. Kelly Penelope</p>
+                             <h3 className="font-headline text-4xl text-primary mt-2">Celesta Aurelia</h3>
+                        </div>
+                    </div>
                 </AnimateOnScroll>
             </div>
         </div>

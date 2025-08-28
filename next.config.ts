@@ -33,6 +33,12 @@ const nextConfig: NextConfig = {
         hostname: 'media.katsudoto.id',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'our-wedding.link',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
