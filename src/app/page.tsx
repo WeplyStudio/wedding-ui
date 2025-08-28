@@ -329,35 +329,55 @@ const GiftRegistrySection = () => (
 );
 
 const GuestBookSection = () => (
-  <section id="guestbook" className="py-20 md:py-32 bg-secondary">
-    <div className="container mx-auto px-4 max-w-4xl">
-      <AnimateOnScroll animation="fade-in-down">
-        <h2 className="text-4xl md:text-5xl font-headline text-center text-primary mb-16">Leave Your Wishes</h2>
-      </AnimateOnScroll>
-      <div className="space-y-10 mb-16">
-        {guestbookEntries.map((entry, index) => (
-          <AnimateOnScroll key={index} animation="fade-in-up" delay={index * 0.1}>
-            <div className="flex items-start gap-6">
-                <Avatar className="w-16 h-16 border-2 border-primary/30 shadow-md">
-                <AvatarImage src={entry.avatar} alt={entry.name} />
-                <AvatarFallback className="bg-primary/20 text-primary text-xl">{entry.name.charAt(0)}</AvatarFallback>
-                </Avatar>
-                <div className="bg-background/50 p-6 rounded-lg flex-1 shadow-lg backdrop-blur-sm">
-                <p className="font-bold text-lg text-primary">{entry.name}</p>
-                <p className="text-muted-foreground mt-2 text-base italic">"{entry.message}"</p>
-                </div>
-            </div>
-          </AnimateOnScroll>
-        ))}
+    <section id="guestbook" className="py-20 md:py-32 bg-secondary relative overflow-hidden">
+      <div 
+        className="absolute inset-0 opacity-40" 
+        style={{
+          backgroundImage: "url('https://our-wedding.link/uploads/decoration/87df8b13d6a27e74d115e51083935293.png')",
+          backgroundSize: '300px',
+        }}
+      />
+      <Image src="https://leoncelesta.katsudoto.id/media/template/exclusive/charera/original/Orn-09.png" alt="ornament" width={300} height={300} className="absolute -top-10 -right-24 opacity-50 -scale-x-100" />
+      <Image src="https://leoncelesta.katsudoto.id/media/template/exclusive/charera/original/Orn-07.png" alt="ornament" width={300} height={300} className="absolute -bottom-10 -left-24 opacity-50" />
+
+      <div className="container mx-auto px-4 max-w-4xl relative z-10">
+        <AnimateOnScroll animation="fade-in-down">
+          <h2 className="text-4xl md:text-5xl font-headline text-center text-primary mb-16">Leave Your Wishes</h2>
+        </AnimateOnScroll>
+  
+        <div className="bg-white/80 dark:bg-zinc-800/80 backdrop-blur-sm rounded-lg shadow-xl p-6 max-w-2xl mx-auto">
+          <div className="space-y-4 h-[400px] overflow-y-auto pr-4">
+            {guestbookEntries.map((entry, index) => (
+              <AnimateOnScroll key={index} animation="fade-in-up" delay={index * 0.1}>
+                 <div className={`flex items-end gap-3 ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
+                    {index % 2 === 0 && (
+                      <Avatar className="w-8 h-8 border-2 border-primary/30 shadow-md">
+                        <AvatarImage src={entry.avatar} alt={entry.name} />
+                        <AvatarFallback className="bg-primary/20 text-primary text-sm">{entry.name.charAt(0)}</AvatarFallback>
+                      </Avatar>
+                    )}
+                    <div className={`rounded-2xl p-3 max-w-xs lg:max-w-md ${index % 2 === 0 ? 'bg-white dark:bg-zinc-700 rounded-bl-none' : 'bg-[#dcf8c6] dark:bg-green-900/80 rounded-br-none'}`}>
+                      <p className="font-bold text-sm text-primary">{entry.name}</p>
+                      <p className="text-gray-800 dark:text-gray-200 mt-1 text-base">{entry.message}</p>
+                    </div>
+                    {index % 2 !== 0 && (
+                      <Avatar className="w-8 h-8 border-2 border-primary/30 shadow-md">
+                        <AvatarImage src={entry.avatar} alt={entry.name} />
+                        <AvatarFallback className="bg-primary/20 text-primary text-sm">{entry.name.charAt(0)}</AvatarFallback>
+                      </Avatar>
+                    )}
+                  </div>
+              </AnimateOnScroll>
+            ))}
+          </div>
+          <Separator className="my-6 bg-border" />
+          <div className="mt-4">
+            <GuestbookForm />
+          </div>
+        </div>
       </div>
-      <AnimateOnScroll animation="fade-in-up">
-        <Separator className="my-16 bg-border" />
-        <h3 className="text-3xl font-headline text-center text-primary mb-8">Write in our Guestbook</h3>
-        <GuestbookForm />
-      </AnimateOnScroll>
-    </div>
-  </section>
-);
+    </section>
+  );
 
 const Footer = () => (
   <footer className="py-10 bg-background border-t relative overflow-hidden">
