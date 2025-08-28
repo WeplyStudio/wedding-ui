@@ -51,11 +51,11 @@ const Countdown = ({ targetDate, className }: { targetDate: Date, className?: st
 
    if (!isClient) {
     return (
-      <div className={cn("grid grid-cols-4 gap-2 md:gap-4 text-center", className)}>
+       <div className={cn("grid grid-cols-4 gap-4 text-center", className)}>
         {['Days', 'Hours', 'Minutes', 'Seconds'].map((label) => (
-          <div key={label} className="bg-black/20 p-3 rounded-lg shadow-inner backdrop-blur-sm w-20">
-            <span className="text-3xl md:text-4xl font-bold font-headline text-white">00</span>
-            <span className="text-xs font-body text-white/80 uppercase tracking-wider block">{label}</span>
+          <div key={label} className="bg-background/10 border border-white/20 p-4 rounded-lg shadow-lg backdrop-blur-sm w-24">
+            <span className="text-4xl font-bold font-serif text-white text-shadow">00</span>
+            <span className="text-xs font-sans text-white/80 uppercase tracking-wider block mt-1">{label}</span>
           </div>
         ))}
       </div>
@@ -64,11 +64,11 @@ const Countdown = ({ targetDate, className }: { targetDate: Date, className?: st
 
 
   return (
-    <div className={cn("grid grid-cols-4 gap-2 md:gap-4 text-center", className)}>
+    <div className={cn("grid grid-cols-4 gap-4 text-center", className)}>
       {timeUnits.map(({ value, label }) => (
-        <div key={label} className="bg-black/20 p-3 rounded-lg shadow-inner backdrop-blur-sm w-20">
-          <span className="text-3xl md:text-4xl font-bold font-headline text-white">{value !== undefined ? String(value).padStart(2, '0') : '00'}</span>
-          <span className="text-xs font-body text-white/80 uppercase tracking-wider block">{label}</span>
+        <div key={label} className="bg-background/10 border border-white/20 p-4 rounded-lg shadow-lg backdrop-blur-sm w-24">
+          <span className="text-4xl font-bold font-serif text-white text-shadow">{value !== undefined ? String(value).padStart(2, '0') : '00'}</span>
+          <span className="text-xs font-sans text-white/80 uppercase tracking-wider block mt-1">{label}</span>
         </div>
       ))}
     </div>

@@ -11,7 +11,6 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import GuestbookForm from "./guestbook-form";
 
 const initialState = {
   message: "",
@@ -22,7 +21,7 @@ const initialState = {
 function SubmitButton() {
   const { pending } = useFormStatus();
   return (
-    <Button type="submit" className="w-full" disabled={pending} size="lg">
+    <Button type="submit" className="w-full font-sans" disabled={pending} size="lg">
       {pending ? "Submitting..." : "Confirm Attendance"}
     </Button>
   );
@@ -52,7 +51,7 @@ export default function RsvpForm() {
   }, [state, toast]);
 
   return (
-    <form ref={formRef} action={formAction} className="space-y-6">
+    <form ref={formRef} action={formAction} className="space-y-6 font-sans">
       <div className="space-y-2">
         <Label htmlFor="name">Your Name</Label>
         <Input id="name" name="name" placeholder="e.g., Jane Doe" required />

@@ -17,9 +17,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        body: ['var(--font-mulish)', 'sans-serif'],
-        headline: ['var(--font-playfair-display)', 'serif'],
-        code: ['monospace'],
+        sans: ['var(--font-inter)', 'sans-serif'],
+        serif: ['var(--font-cormorant-garamond)', 'serif'],
       },
       colors: {
         background: 'hsl(var(--background))',

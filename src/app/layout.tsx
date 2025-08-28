@@ -2,18 +2,19 @@ import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
 import { cn } from '@/lib/utils';
-import { Playfair_Display, Mulish } from 'next/font/google';
+import { Cormorant_Garamond, Inter } from 'next/font/google';
 
-const playfairDisplay = Playfair_Display({
+const cormorantGaramond = Cormorant_Garamond({
   subsets: ['latin'],
+  weight: ['400', '700'],
   display: 'swap',
-  variable: '--font-playfair-display',
+  variable: '--font-cormorant-garamond',
 });
 
-const mulish = Mulish({
+const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-mulish',
+  variable: '--font-inter',
 });
 
 
@@ -28,10 +29,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${playfairDisplay.variable} ${mulish.variable} dark`}>
+    <html lang="en" className={`${cormorantGaramond.variable} ${inter.variable} dark`}>
       <head>
       </head>
-      <body className={cn("font-body antialiased")}>
+      <body className={cn("font-sans antialiased")}>
         {children}
         <Toaster />
       </body>
