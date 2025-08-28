@@ -6,7 +6,7 @@ import { useState, useEffect, useRef } from "react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { Mail, Gift, Heart, Clock, CalendarDays, MapPin, Users, Video, BookOpen, Music, Play, Pause, Flower2, HeartHandshake, GlassWater, Camera } from "lucide-react";
+import { Mail, Gift, Heart, Clock, CalendarDays, MapPin, Users, Video, BookOpen, Music, Play, Pause, Flower2, HeartHandshake, GlassWater, Camera, Home, User, Calendar, GalleryHorizontal } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Countdown from "@/components/countdown";
 import MusicPlayer from "@/components/music-player";
@@ -28,19 +28,12 @@ const galleryImages = [
   { src: "https://picsum.photos/id/1011/800/1200", alt: "Happy couple", hint: "happy couple" },
 ];
 
-const guestbookEntries = [
-  {
-    name: "Aunt Carol",
-    message: "So excited for you two! Wishing you a lifetime of happiness.",
-  },
-  {
-    name: "John M.",
-    message: "Can't wait to celebrate with you! Best wishes from the Miller family.",
-  },
-  {
-    name: "Samantha Lee",
-    message: "Congratulations! Your love story is an inspiration. See you on the dance floor!",
-  },
+const navItems = [
+    { href: '#home', icon: Home, label: 'Home' },
+    { href: '#couple', icon: Heart, label: 'Couple' },
+    { href: '#events', icon: Calendar, label: 'Events' },
+    { href: '#gallery', icon: GalleryHorizontal, label: 'Gallery' },
+    { href: '#guestbook', icon: Mail, label: 'Wishes' },
 ];
 
 export default function EvergreenVowsPage() {
@@ -50,6 +43,7 @@ export default function EvergreenVowsPage() {
   const handleOpenInvitation = () => {
     setIsOpen(true);
     document.documentElement.style.overflow = 'auto';
+    document.body.style.overflow = 'auto';
     if (audioRef.current) {
       audioRef.current.muted = false;
       audioRef.current.play().catch(console.error);
@@ -59,6 +53,7 @@ export default function EvergreenVowsPage() {
   useEffect(() => {
     if (!isOpen) {
         document.documentElement.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden';
     }
   }, [isOpen]);
 
@@ -66,10 +61,10 @@ export default function EvergreenVowsPage() {
     <div className="flex flex-col items-center min-h-screen bg-background text-foreground font-sans">
         <OpeningCeremony isOpen={isOpen} onOpen={handleOpenInvitation} />
         
-        <div className={cn("w-full max-w-2xl mx-auto transition-opacity duration-1000 ease-in-out", isOpen ? "opacity-100" : "opacity-0 invisible")}>
+        <div className={cn("w-full max-w-3xl mx-auto transition-opacity duration-1000 ease-in-out", isOpen ? "opacity-100" : "opacity-0 invisible")}>
           <main className="flex-1 overflow-x-hidden">
             <HeroSection />
-            <div className="bg-background relative z-10">
+            <div className="bg-background relative z-10 -mt-24 rounded-t-3xl shadow-2xl">
                 <CoupleSection />
                 <EventsSection />
                 <GallerySection />
@@ -78,6 +73,7 @@ export default function EvergreenVowsPage() {
             </div>
           </main>
           <MusicPlayer audioRef={audioRef} />
+          <BottomNav />
         </div>
     </div>
   );
@@ -88,7 +84,7 @@ const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => vo
     return (
       <div className={cn(
         "fixed inset-0 z-[100] bg-background transition-all duration-1000 ease-in-out flex items-center justify-center",
-        isOpen ? "opacity-0 -translate-y-full" : "opacity-100"
+        isOpen ? "opacity-0 pointer-events-none" : "opacity-100"
       )}>
          <Image
             src="https://picsum.photos/seed/wedding-bg-main/1080/1920"
@@ -107,8 +103,8 @@ const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => vo
   
               <div className="absolute bottom-24 flex flex-col items-center">
                 <AnimateOnScroll animation="fade-in-up" delay={0.6}>
-                    <p className="font-sans text-lg text-foreground mb-2">Dear,</p>
-                    <p className="font-serif text-2xl font-bold text-foreground mb-6">{guestName}</p>
+                    <p className="font-sans text-lg mb-2">Dear,</p>
+                    <p className="font-serif text-2xl font-bold mb-6">{guestName}</p>
                     <Button onClick={onOpen} size="lg" className="rounded-full px-10 py-7 text-lg shadow-lg bg-primary hover:bg-primary/90 text-primary-foreground font-sans">
                         <BookOpen className="mr-3 h-6 w-6" />
                         Open Invitation
@@ -118,7 +114,7 @@ const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => vo
           </div>
       </div>
     )
-  };
+};
 
 const HeroSection = () => (
   <section id="home" className="relative h-screen flex flex-col items-center justify-center text-center p-4 text-primary-foreground">
@@ -131,12 +127,12 @@ const HeroSection = () => (
         className="object-cover"
         priority
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
     </div>
     
     <div className="relative z-10 flex flex-col items-center w-full animate-fade-in-up" style={{animationDuration: '1.2s'}}>
       <p className="font-sans tracking-[0.2em] text-sm uppercase">The Wedding Of</p>
-      <h1 className="font-serif text-7xl mt-4 mb-8">{coupleNames}</h1>
+      <h1 className="font-serif text-7xl md:text-8xl mt-4 mb-8 text-shadow-lg">{coupleNames}</h1>
       <div className="w-24 h-px bg-primary my-4"></div>
       <p className="font-sans text-lg mt-4">20 . 09 . 2025</p>
       <div className="mt-8">
@@ -166,16 +162,16 @@ const CoupleSection = () => (
         </AnimateOnScroll>
 
         <div className="grid md:grid-cols-2 gap-16 items-center max-w-4xl mx-auto">
-             <AnimateOnScroll animation="fade-in-up" className="flex flex-col items-center text-center">
-                <div className="relative w-56 h-56 rounded-full overflow-hidden shadow-2xl mb-6">
-                     <Image src="https://picsum.photos/seed/bride/400/400" alt="Putri Aurelia" layout="fill" className="object-cover" />
+             <AnimateOnScroll animation="fade-in-right" className="flex flex-col items-center text-center">
+                <div className="relative w-56 h-56 rounded-full overflow-hidden shadow-2xl mb-6 border-4 border-primary/50 p-2">
+                     <Image src="https://picsum.photos/seed/bride/400/400" alt="Putri Aurelia" layout="fill" className="object-cover rounded-full" />
                 </div>
                 <h3 className="font-serif text-4xl text-primary">Putri Aurelia</h3>
                 <p className="font-sans text-muted-foreground mt-2">The Daughter of Mr. Henry & Mrs. Kelly</p>
             </AnimateOnScroll>
-             <AnimateOnScroll animation="fade-in-up" delay={0.2} className="flex flex-col items-center text-center">
-                <div className="relative w-56 h-56 rounded-full overflow-hidden shadow-2xl mb-6">
-                    <Image src="https://picsum.photos/seed/groom/400/400" alt="Putra Alistair" layout="fill" className="object-cover" />
+             <AnimateOnScroll animation="fade-in-left" delay={0.2} className="flex flex-col items-center text-center">
+                <div className="relative w-56 h-56 rounded-full overflow-hidden shadow-2xl mb-6 border-4 border-primary/50 p-2">
+                    <Image src="https://picsum.photos/seed/groom/400/400" alt="Putra Alistair" layout="fill" className="object-cover rounded-full" />
                 </div>
                 <h3 className="font-serif text-4xl text-primary">Putra Alistair</h3>
                 <p className="font-sans text-muted-foreground mt-2">The Son of Mr. Jhonny & Mrs. Greny</p>
@@ -191,9 +187,9 @@ const EventsSection = () => (
     
     <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
       <AnimateOnScroll animation="fade-in-up">
-          <Card className="shadow-xl bg-background/80 text-foreground border-primary/20 overflow-hidden text-center backdrop-blur-sm">
-              <CardHeader>
-                  <CardTitle className="font-serif text-4xl text-primary">The Ceremony</CardTitle>
+          <Card className="shadow-xl bg-background/80 text-foreground border-primary/20 overflow-hidden text-center backdrop-blur-sm group hover:border-primary transition-all duration-300">
+              <CardHeader className="bg-primary/10">
+                  <CardTitle className="font-serif text-4xl text-primary group-hover:scale-105 transition-transform duration-300">The Ceremony</CardTitle>
                   <CardDescription className="font-sans">Saturday, 20 September 2025</CardDescription>
               </CardHeader>
               <CardContent className="p-6">
@@ -205,16 +201,16 @@ const EventsSection = () => (
                       <MapPin className="w-5 h-5 text-primary mt-1"/>
                       <span>The Evergreen Garden, 123 Blossom Lane, Meadowville</span>
                   </div>
-                  <Button asChild variant="outline" className="mt-6 w-full font-sans">
+                  <Button asChild variant="outline" className="mt-6 w-full font-sans border-primary/30 hover:bg-primary hover:text-primary-foreground">
                       <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer">View on Google Maps</a>
                   </Button>
               </CardContent>
           </Card>
       </AnimateOnScroll>
       <AnimateOnScroll animation="fade-in-up" delay={0.2}>
-           <Card className="shadow-xl bg-background/80 text-foreground border-primary/20 overflow-hidden text-center backdrop-blur-sm">
-              <CardHeader>
-                  <CardTitle className="font-serif text-4xl text-primary">The Reception</CardTitle>
+           <Card className="shadow-xl bg-background/80 text-foreground border-primary/20 overflow-hidden text-center backdrop-blur-sm group hover:border-primary transition-all duration-300">
+              <CardHeader className="bg-primary/10">
+                  <CardTitle className="font-serif text-4xl text-primary group-hover:scale-105 transition-transform duration-300">The Reception</CardTitle>
                   <CardDescription className="font-sans">Saturday, 20 September 2025</CardDescription>
               </CardHeader>
               <CardContent className="p-6">
@@ -226,7 +222,7 @@ const EventsSection = () => (
                       <MapPin className="w-5 h-5 text-primary mt-1"/>
                       <span>The Grand Ballroom, 123 Blossom Lane, Meadowville</span>
                   </div>
-                   <Button asChild variant="outline" className="mt-6 w-full font-sans">
+                   <Button asChild variant="outline" className="mt-6 w-full font-sans border-primary/30 hover:bg-primary hover:text-primary-foreground">
                       <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer">View on Google Maps</a>
                   </Button>
               </CardContent>
@@ -288,7 +284,7 @@ const GuestBookSection = () => (
   );
 
 const Footer = () => (
-  <footer className="py-16 text-center bg-background">
+  <footer className="py-16 text-center bg-background rounded-b-3xl">
     <div className="container mx-auto px-4 text-muted-foreground text-sm">
         <AnimateOnScroll>
             <p className="font-serif text-4xl text-primary mb-4">{coupleNames}</p>
@@ -297,3 +293,55 @@ const Footer = () => (
     </div>
   </footer>
 );
+
+const BottomNav = () => {
+    const [activeNav, setActiveNav] = useState('#home');
+
+    useEffect(() => {
+        const sections = navItems.map(item => document.querySelector(item.href));
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setActiveNav(`#${entry.target.id}`);
+                }
+            });
+        }, { rootMargin: '-50% 0px -50% 0px', threshold: 0.2 });
+
+        sections.forEach(section => {
+            if (section) observer.observe(section);
+        });
+
+        return () => {
+            sections.forEach(section => {
+                if (section) observer.unobserve(section);
+            });
+        };
+    }, []);
+
+    return (
+        <nav className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50">
+            <div className="bg-background/80 backdrop-blur-md shadow-2xl rounded-full px-4 py-2">
+                <ul className="flex items-center justify-center gap-x-2">
+                    {navItems.map(item => (
+                        <li key={item.href}>
+                            <a 
+                                href={item.href}
+                                onClick={() => setActiveNav(item.href)}
+                                className={cn(
+                                    "flex flex-col items-center justify-center text-center w-14 h-14 rounded-full transition-all duration-300 ease-in-out",
+                                    activeNav === item.href 
+                                        ? "bg-primary text-primary-foreground scale-110" 
+                                        : "text-muted-foreground hover:bg-accent/50 hover:text-accent-foreground"
+                                )}
+                            >
+                                <item.icon className="w-5 h-5 mb-0.5" />
+                                <span className="text-[10px] font-medium">{item.label}</span>
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </nav>
+    );
+};

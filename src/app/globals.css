@@ -33,9 +33,9 @@
   }
 
   .dark {
-    --background: 220 13% 18%; /* Deep Navy */
+    --background: 220 13% 10%; /* Deep Navy */
     --foreground: 40 33% 95%; /* Off-white Cream */
-    --card: 220 13% 22%;
+    --card: 220 13% 15%;
     --card-foreground: 40 33% 95%;
     --popover: 220 13% 15%;
     --popover-foreground: 40 33% 95%;
