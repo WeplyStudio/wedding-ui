@@ -20,12 +20,12 @@ const coupleNames = "Putri & Putra";
 const guestName = "Bapak/Ibu/Saudara/i"; // This can be dynamic in a real app
 
 const galleryImages = [
-  { src: "https://picsum.photos/id/1015/800/1200", alt: "Couple smiling", hint: "couple smiling" },
-  { src: "https://picsum.photos/id/1016/800/1200", alt: "Couple holding hands", hint: "couple hands" },
-  { src: "https://picsum.photos/id/1018/800/1200", alt: "Couple in nature", hint: "couple nature" },
-  { src: "https://picsum.photos/id/1019/800/1200", alt: "Couple walking on a beach", hint: "couple beach" },
-  { src: "https://picsum.photos/id/1025/800/1200", alt: "Couple under a tree", hint: "couple tree" },
-  { src: "https://picsum.photos/id/1011/800/1200", alt: "Happy couple", hint: "happy couple" },
+  { src: "https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/4.jpeg", alt: "Couple smiling", hint: "couple smiling" },
+  { src: "https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/5.jpeg", alt: "Couple holding hands", hint: "couple hands" },
+  { src: "https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/6.jpeg", alt: "Couple in nature", hint: "couple nature" },
+  { src: "https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/7.jpeg", alt: "Couple walking on a beach", hint: "couple beach" },
+  { src: "https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/8.jpg", alt: "Couple under a tree", hint: "couple tree" },
+  { src: "https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/Bride.jpg", alt: "Happy couple", hint: "happy couple" },
 ];
 
 const navItems = [
@@ -87,7 +87,7 @@ const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => vo
         isOpen ? "opacity-0 pointer-events-none" : "opacity-100"
       )}>
          <Image
-            src="https://picsum.photos/seed/wedding-bg-main/1080/1920"
+            src="https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/1-2.jpeg"
             alt="Elegant floral background"
             data-ai-hint="elegant floral"
             fill
@@ -120,7 +120,7 @@ const HeroSection = () => (
   <section id="home" className="relative h-screen flex flex-col items-center justify-center text-center p-4 text-primary-foreground">
     <div className="absolute inset-0">
       <Image
-        src="https://picsum.photos/seed/wedding-hero-main/1080/1920"
+        src="https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/Resepsi-1-1.jpg"
         alt="The Wedding of Putri & Putra"
         data-ai-hint="wedding couple elegant"
         fill
@@ -164,14 +164,14 @@ const CoupleSection = () => (
         <div className="grid md:grid-cols-2 gap-16 items-center max-w-4xl mx-auto">
              <AnimateOnScroll animation="fade-in-right" className="flex flex-col items-center text-center">
                 <div className="relative w-56 h-56 rounded-full overflow-hidden shadow-2xl mb-6 border-4 border-primary/50 p-2">
-                     <Image src="https://picsum.photos/seed/bride/400/400" alt="Putri Aurelia" layout="fill" className="object-cover rounded-full" />
+                     <Image src="https://the.invisimple.id/wp-content/uploads/elementor/thumbs/WANITA-r1qxu50pofy26yljvdfud7qei6f9whhy1kfb005u2w.jpg" alt="Putri Aurelia" layout="fill" className="object-cover rounded-full" />
                 </div>
                 <h3 className="font-serif text-4xl text-primary">Putri Aurelia</h3>
                 <p className="font-sans text-muted-foreground mt-2">The Daughter of Mr. Henry & Mrs. Kelly</p>
             </AnimateOnScroll>
              <AnimateOnScroll animation="fade-in-left" delay={0.2} className="flex flex-col items-center text-center">
                 <div className="relative w-56 h-56 rounded-full overflow-hidden shadow-2xl mb-6 border-4 border-primary/50 p-2">
-                    <Image src="https://picsum.photos/seed/groom/400/400" alt="Putra Alistair" layout="fill" className="object-cover rounded-full" />
+                    <Image src="https://the.invisimple.id/wp-content/uploads/elementor/thumbs/PRIA-r1qxu50pofy26yljvdfud7qei6f9whhy1kfb005u2w.jpg" alt="Putra Alistair" layout="fill" className="object-cover rounded-full" />
                 </div>
                 <h3 className="font-serif text-4xl text-primary">Putra Alistair</h3>
                 <p className="font-sans text-muted-foreground mt-2">The Son of Mr. Jhonny & Mrs. Greny</p>
@@ -254,7 +254,7 @@ const GallerySection = () => (
                       alt={image.alt}
                       data-ai-hint={image.hint}
                       width={400}
-                      height={500}
+                      height={600}
                       className="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-500 ease-in-out"
                   />
                   </CardContent>
