@@ -2,7 +2,6 @@
 
 import { useRef, useEffect, useState, ReactNode } from 'react';
 import { cn } from '@/lib/utils';
-import { useScroll } from '@/hooks/use-scroll';
 
 interface AnimateOnScrollProps {
   children: ReactNode;
@@ -11,6 +10,7 @@ interface AnimateOnScrollProps {
   duration?: number;
   threshold?: number;
   className?: string;
+  as?: React.ElementType;
 }
 
 export function AnimateOnScroll({
@@ -20,25 +20,35 @@ export function AnimateOnScroll({
   duration = 0.5,
   threshold = 0.1,
   className,
+  as: Component = 'div',
 }: AnimateOnScrollProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
-  const { scrollY } = useScroll();
 
   useEffect(() => {
-    if (!ref.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold }
+    );
 
-    const top = ref.current.offsetTop - window.innerHeight * (1 - threshold);
-    const bottom = ref.current.offsetTop + ref.current.offsetHeight * threshold;
-    
-    if (scrollY >= top && scrollY <= bottom) {
-      setIsVisible(true);
+    if (ref.current) {
+      observer.observe(ref.current);
     }
-  }, [scrollY, threshold]);
 
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, [threshold]);
 
   return (
-    <div
+    <Component
       ref={ref}
       className={cn(
         'transition-opacity',
@@ -53,6 +63,6 @@ export function AnimateOnScroll({
       }}
     >
       {children}
-    </div>
+    </Component>
   );
 }
