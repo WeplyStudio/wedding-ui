@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
+import { cn } from '@/lib/utils';
 
 type TimeUnit = {
   value: number;
@@ -23,14 +24,13 @@ const calculateTimeLeft = (targetDate: Date): Record<string, number> => {
   return timeLeft;
 };
 
-const Countdown = ({ targetDate }: { targetDate: Date }) => {
+const Countdown = ({ targetDate, className }: { targetDate: Date, className?: string }) => {
   const [timeLeft, setTimeLeft] = useState<Record<string, number>>({});
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
     
-    // Set initial time left
     setTimeLeft(calculateTimeLeft(targetDate));
 
     const timer = setInterval(() => {
@@ -40,37 +40,33 @@ const Countdown = ({ targetDate }: { targetDate: Date }) => {
     return () => clearInterval(timer);
   }, [targetDate]);
 
-  if (!isClient) {
+  const timeUnits: TimeUnit[] = [
+    { value: timeLeft.days, label: 'Hari' },
+    { value: timeLeft.hours, label: 'Jam' },
+    { value: timeLeft.minutes, label: 'Menit' },
+    { value: timeLeft.seconds, label: 'Detik' },
+  ];
+
+   if (!isClient) {
     return (
-      <div className="flex justify-center gap-4 md:gap-8">
-        {[
-          { value: 0, label: 'Days' },
-          { value: 0, label: 'Hours' },
-          { value: 0, label: 'Minutes' },
-          { value: 0, label: 'Seconds' },
-        ].map(({ value, label }) => (
-          <div key={label} className="flex flex-col items-center p-2 rounded-lg min-w-[80px] md:min-w-[100px]">
-            <span className="text-5xl md:text-7xl font-headline font-bold">{value}</span>
-            <span className="text-sm md:text-base font-body uppercase tracking-wider mt-1">{label}</span>
+      <div className={cn("grid grid-cols-4 gap-2 md:gap-4 text-center", className)}>
+        {['Hari', 'Jam', 'Menit', 'Detik'].map((label) => (
+          <div key={label} className="bg-primary/10 p-3 rounded-lg shadow-inner">
+            <span className="text-3xl md:text-4xl font-bold font-headline text-primary">0</span>
+            <span className="text-xs md:text-sm font-body text-muted-foreground uppercase tracking-wider block">{label}</span>
           </div>
         ))}
       </div>
     );
   }
 
-  const timeUnits: TimeUnit[] = [
-    { value: timeLeft.days, label: 'Days' },
-    { value: timeLeft.hours, label: 'Hours' },
-    { value: timeLeft.minutes, label: 'Minutes' },
-    { value: timeLeft.seconds, label: 'Seconds' },
-  ];
 
   return (
-    <div className="flex justify-center gap-4 md:gap-8">
+    <div className={cn("grid grid-cols-4 gap-2 md:gap-4 text-center", className)}>
       {timeUnits.map(({ value, label }) => (
-        <div key={label} className="flex flex-col items-center p-2 rounded-lg min-w-[80px] md:min-w-[100px]">
-          <span className="text-5xl md:text-7xl font-headline font-bold">{value !== undefined ? value : 0}</span>
-          <span className="text-sm md:text-base font-body uppercase tracking-wider mt-1">{label}</span>
+        <div key={label} className="bg-primary/10 p-3 rounded-lg shadow-inner">
+          <span className="text-3xl md:text-4xl font-bold font-headline text-primary">{value !== undefined ? String(value).padStart(2, '0') : '00'}</span>
+          <span className="text-xs md:text-sm font-body text-muted-foreground uppercase tracking-wider block">{label}</span>
         </div>
       ))}
     </div>

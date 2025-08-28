@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Mail, Gift, Heart, Clock, BookOpen, Music, Play, Pause, GlassWater } from "lucide-react";
+import { Mail, Gift, Heart, Clock, BookOpen, Music, Play, Pause, GlassWater, CalendarDays } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Countdown from "@/components/countdown";
 import MusicPlayer from "@/components/music-player";
@@ -109,7 +109,7 @@ const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => vo
         <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/70 to-transparent" />
         <div className="relative z-10 flex flex-col items-center justify-end h-full w-full">
             <div className="absolute bottom-[-2%] left-[-5%] w-[40%] h-[30%] opacity-80 animate-sway-left">
-                <img src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-asset-03.png" alt="Floral ornament" className="w-full h-full object-contain rotate-180 -scale-x-100" />
+                <img src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-asset-03.png" alt="Floral ornament" className="w-full h-full object-contain -scale-x-[-1] rotate-180" />
             </div>
              <div className="absolute bottom-[-2%] right-[-5%] w-[40%] h-[30%] opacity-80 animate-sway-right">
                 <img src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-asset-03.png" alt="Floral ornament" className="w-full h-full object-contain rotate-180" />
@@ -136,35 +136,57 @@ const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => vo
 };
 
 const HeroSection = () => (
-  <section id="home" className="relative h-screen flex items-center justify-center text-center text-primary-foreground">
-    <Image
-      src="https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/1-2.jpeg"
-      alt="A beautiful fairytale castle"
-      data-ai-hint="fairytale castle"
-      fill
-      className="object-cover"
-      priority
-    />
-    <div className="absolute inset-0 bg-black/30" />
-    <div className="relative z-20 p-4 flex flex-col items-center">
-        <AnimateOnScroll animation="fade-in-up" delay={0.2} duration={0.8}>
-            <p className="font-body text-lg md:text-xl mb-4 tracking-widest uppercase text-white/90">The Wedding Of</p>
-        </AnimateOnScroll>
-        <AnimateOnScroll animation="fade-in-up" delay={0.4} duration={0.8}>
-            <h1 className="font-headline text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight text-shadow-lg text-white">
-                {coupleNames}
-            </h1>
-        </AnimateOnScroll>
-        <AnimateOnScroll animation="fade-in" delay={0.8} duration={1}>
-            <Separator className="my-8 bg-white/50 w-1/3 mx-auto" />
-        </AnimateOnScroll>
-        <AnimateOnScroll animation="fade-in-up" delay={1} duration={0.8}>
-            <Countdown targetDate={weddingDate} />
-        </AnimateOnScroll>
-    </div>
-     <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-background to-transparent" />
-  </section>
+    <section id="home" className="relative min-h-screen flex flex-col items-center justify-center text-center py-24 px-4 bg-background overflow-hidden">
+        <div 
+            className="absolute inset-0 bg-cover bg-center opacity-30" 
+            style={{backgroundImage: "url('https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-bg-01.jpg')"}}
+        />
+        <img src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-asset-04.png" alt="Top Left Ornament" className="absolute -top-10 -left-16 w-48 opacity-70" />
+        <img src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-asset-03.png" alt="Top Right Ornament" className="absolute -top-12 -right-12 w-48 opacity-70 -scale-x-100" />
+        
+        <div className="relative z-10 flex flex-col items-center w-full max-w-2xl mx-auto">
+            <AnimateOnScroll animation="fade-in-down" duration={0.8}>
+                <p className="font-body text-lg md:text-xl mb-4 tracking-widest uppercase text-primary">The Wedding Of</p>
+            </AnimateOnScroll>
+            
+            <AnimateOnScroll animation="zoom-in" delay={0.2} duration={0.8} className="relative w-full max-w-sm mb-6">
+                <div className="bg-white/50 p-2 rounded-2xl shadow-lg backdrop-blur-sm">
+                    <Image
+                        src="https://picsum.photos/seed/wedding-couple/600/600"
+                        alt="Putri & Putra"
+                        data-ai-hint="elegant couple"
+                        width={600}
+                        height={600}
+                        className="object-cover rounded-xl w-full"
+                        priority
+                    />
+                </div>
+            </AnimateOnScroll>
+            
+            <AnimateOnScroll animation="fade-in-up" delay={0.4} duration={0.8}>
+                <h1 className="font-headline text-5xl md:text-7xl font-bold tracking-tight text-shadow text-primary">
+                    {coupleNames}
+                </h1>
+                <p className="font-body text-lg text-muted-foreground mt-2">Minggu, 20 September 2025</p>
+            </AnimateOnScroll>
+            
+            <AnimateOnScroll animation="fade-in-up" delay={0.6} duration={0.8} className="my-8 w-full">
+                 <Countdown targetDate={weddingDate} />
+            </AnimateOnScroll>
+            
+            <AnimateOnScroll animation="fade-in-up" delay={0.8} duration={0.8}>
+                <Button size="lg" className="rounded-full shadow-lg">
+                    <CalendarDays className="mr-2 h-5 w-5" />
+                    Simpan Tanggal
+                </Button>
+            </AnimateOnScroll>
+        </div>
+
+        <img src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-asset-03.png" alt="Bottom Left Ornament" className="absolute -bottom-12 -left-12 w-48 opacity-70" />
+        <img src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-asset-04.png" alt="Bottom Right Ornament" className="absolute -bottom-10 -right-16 w-48 opacity-70 -scale-x-100" />
+    </section>
 );
+
 
 const QuoteSection = () => (
     <section id="quote" className="py-20 md:py-32 bg-background relative overflow-hidden">
@@ -467,6 +489,7 @@ const Footer = () => (
     
 
     
+
 
 
 
