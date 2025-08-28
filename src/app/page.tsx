@@ -107,7 +107,7 @@ const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => vo
           <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/70 to-transparent" />
           <div className="relative z-10 flex flex-col items-center justify-end h-full w-full">
                <div className="absolute bottom-[-2%] left-[-5%] w-[40%] h-[30%] opacity-80 animate-sway-left">
-                  <img src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-asset-03.png" alt="Floral ornament" className="w-full h-full object-contain -scale-x-[-1] rotate-180" />
+                  <img src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-asset-03.png" alt="Floral ornament" className="w-full h-full object-contain transform -scale-x-100 rotate-180" />
               </div>
                <div className="absolute bottom-[-2%] right-[-5%] w-[40%] h-[30%] opacity-80 animate-sway-right">
                   <img src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-asset-03.png" alt="Floral ornament" className="w-full h-full object-contain rotate-180" />
@@ -136,46 +136,49 @@ const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => vo
 const HeroSection = () => (
     <section id="home" className="relative min-h-screen flex flex-col items-center justify-center text-center py-24 px-4 bg-background overflow-hidden">
         <div 
-            className="absolute inset-0 bg-cover bg-center opacity-30" 
+            className="absolute inset-0 bg-cover bg-center opacity-20" 
             style={{backgroundImage: "url('https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-bg-01.jpg')"}}
         />
         <img src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-asset-04.png" alt="Top Left Ornament" className="absolute top-[-5%] left-[-10%] w-48 opacity-70 transform -rotate-45" />
         <img src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-asset-03.png" alt="Top Right Ornament" className="absolute top-[-5%] right-[-10%] w-48 opacity-70 transform rotate-45 -scale-x-100" />
         
-        <div className="relative z-10 flex flex-col items-center w-full max-w-3xl mx-auto">
-            <AnimateOnScroll animation="fade-in-down" duration={0.8}>
+        <div className="relative z-10 flex flex-col items-center w-full max-w-4xl mx-auto">
+            <AnimateOnScroll animation="fade-in-down" duration={1}>
                 <p className="font-body text-lg md:text-xl mb-4 tracking-widest uppercase text-primary">The Wedding Of</p>
             </AnimateOnScroll>
             
-            <AnimateOnScroll animation="zoom-in" delay={0.2} duration={0.8} className="relative w-full max-w-md mb-8">
-                <div className="bg-white/50 p-3 rounded-2xl shadow-xl backdrop-blur-md border border-white/30">
+            <AnimateOnScroll animation="zoom-in" delay={0.2} duration={1} className="relative w-full flex justify-center items-center my-8">
+                <div className="absolute w-[450px] h-[450px] border-4 border-primary/20 rounded-full animate-spin-slow"></div>
+                <div className="absolute w-[400px] h-[400px] bg-white/30 rounded-full backdrop-blur-sm"></div>
+                <div className="relative w-[350px] h-[350px] rounded-full overflow-hidden shadow-2xl border-8 border-white">
                     <Image
                         src="https://picsum.photos/seed/wedding-couple/800/800"
                         alt="Putri & Putra"
                         data-ai-hint="elegant couple"
-                        width={800}
-                        height={800}
-                        className="object-cover rounded-xl w-full"
+                        width={350}
+                        height={350}
+                        className="object-cover w-full h-full"
                         priority
                     />
                 </div>
             </AnimateOnScroll>
             
-            <AnimateOnScroll animation="fade-in-up" delay={0.4} duration={0.8}>
+            <AnimateOnScroll animation="fade-in-up" delay={0.4} duration={1}>
                 <h1 className="font-headline text-6xl md:text-8xl font-bold tracking-tight text-shadow-lg text-primary">
                     {coupleNames}
                 </h1>
-                <p className="font-body text-xl text-muted-foreground mt-4">Minggu, 20 September 2025</p>
+                <p className="font-body text-xl text-muted-foreground mt-4">We are getting married!</p>
+                <p className="font-headline text-3xl text-primary mt-2">20 September 2025</p>
             </AnimateOnScroll>
             
-            <AnimateOnScroll animation="fade-in-up" delay={0.6} duration={0.8} className="my-10 w-full max-w-2xl">
+            <AnimateOnScroll animation="fade-in-up" delay={0.6} duration={1} className="my-10 w-full max-w-2xl">
                  <Countdown targetDate={weddingDate} />
             </AnimateOnScroll>
             
-            <AnimateOnScroll animation="fade-in-up" delay={0.8} duration={0.8}>
-                <Button size="lg" className="rounded-full shadow-lg px-8 py-6 text-lg">
+            <AnimateOnScroll animation="fade-in-up" delay={0.8} duration={1}>
+                <Button size="lg" className="rounded-full shadow-lg px-8 py-6 text-lg transform hover:scale-105 transition-transform duration-300">
                     <CalendarDays className="mr-2 h-5 w-5" />
-                    Simpan Tanggal
+                    Save The Date
                 </Button>
             </AnimateOnScroll>
         </div>
@@ -487,6 +490,7 @@ const Footer = () => (
     
 
     
+
 
 
 

@@ -117,6 +117,11 @@
       0%, 100% { transform: rotate(5deg) translateX(5%); }
       50% { transform: rotate(-5deg) translateX(-5%); }
     }
+    
+    @keyframes spin-slow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
 
     .animate-fade-in { animation: fade-in forwards; }
     .animate-fade-in-down { animation: fade-in-down forwards; }
@@ -126,4 +131,5 @@
     .animate-zoom-in { animation: zoom-in forwards; }
     .animate-sway-left { animation: sway-left 8s ease-in-out infinite; }
     .animate-sway-right { animation: sway-right 8s ease-in-out infinite; }
+    .animate-spin-slow { animation: spin-slow 20s linear infinite; }
 }
