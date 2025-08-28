@@ -153,98 +153,93 @@ const SectionTitle = ({ icon: Icon, title, subtitle }: { icon: React.ElementType
 )
 
 const CoupleSection = () => (
-    <section id="couple" className="relative py-24 px-4 sm:px-6 bg-background overflow-hidden">
+    <section id="couple" className="relative py-24 px-4 sm:px-6 bg-primary/10 overflow-hidden">
         <div className="max-w-4xl mx-auto">
+            {/* Intro and Verse */}
             <AnimateOnScroll animation="fade-in-up" className="relative text-center text-foreground z-10 mb-16">
-                <div className="absolute -top-12 -bottom-12 -left-20 -right-20 md:-left-4 md:-right-4">
-                   <svg className="w-full h-full" viewBox="0 0 375 280" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                        <path d="M375 0C375 44.1828 291.034 80 187.5 80C83.9657 80 0 44.1828 0 0V200C0 244.183 83.9657 280 187.5 280C291.034 280 375 244.183 375 200V0Z" className="fill-secondary/30"/>
+                <div className="absolute -top-16 -bottom-16 -left-8 -right-8 md:-left-4 md:-right-4">
+                    <svg className="w-full h-full" viewBox="0 0 375 280" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                        <path d="M0 80C0 35.8172 35.8172 0 80 0H375V280H80C35.8172 280 0 244.183 0 200V80Z" className="fill-background"/>
                     </svg>
                 </div>
                 <div className="relative p-8 md:p-12">
-                    <p className="font-sans text-sm text-muted-foreground leading-relaxed max-w-xl mx-auto">
-                        "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."
+                    <h2 className="font-serif text-5xl text-primary mb-6">Kedua Mempelai</h2>
+                    <p className="font-sans text-base text-muted-foreground leading-relaxed mb-4">
+                        Assalamu'alaikum Warahmatullahi Wabarakatuh
                     </p>
-                    <p className="font-serif text-lg mt-4 font-semibold">Q.S Ar-Rum : 21</p>
+                    <p className="font-sans text-sm text-muted-foreground/80 leading-relaxed max-w-xl mx-auto">
+                        Maha Suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan. Ya Allah semoga ridho-Mu tercurah mengiringi pernikahan kami.
+                    </p>
                 </div>
             </AnimateOnScroll>
 
-            <AnimateOnScroll animation="fade-in-up" delay={0.2} className="text-center mb-20">
-                <h2 className="font-serif text-5xl text-primary mb-2">Kedua Mempelai</h2>
-                <p className="font-sans text-base text-muted-foreground leading-relaxed mb-4">
-                    Assalamu'alaikum Warahmatullahi Wabarakatuh
-                </p>
-                <p className="font-sans text-sm text-muted-foreground/80 leading-relaxed max-w-xl mx-auto">
-                    Maha Suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan. Ya Allah semoga ridho-Mu tercurah mengiringi pernikahan kami.
-                </p>
+            {/* Groom */}
+            <AnimateOnScroll animation="fade-in-right" className="relative z-10 mb-16 md:mb-0">
+                <div className="absolute inset-0 -top-12 -bottom-12 -left-12 -right-12">
+                    <svg className="w-full h-full" viewBox="0 0 400 480" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                        <path d="M400 0H50C22.3858 0 0 22.3858 0 50V430C0 457.614 22.3858 480 50 480H400V0Z" className="fill-primary/80"/>
+                    </svg>
+                </div>
+                <div className="relative grid grid-cols-1 md:grid-cols-2 items-center gap-8 p-8">
+                    <div className="relative w-full h-[320px] md:h-[400px] order-1">
+                        <div className="absolute inset-0 bg-background rounded-3xl -rotate-3 transition-transform group-hover:rotate-0" />
+                        <Image
+                            src="https://the.invisimple.id/wp-content/uploads/elementor/thumbs/PRIA-r1qxu50pofy26yljvdfud7qei6f9whhy1kfb005u2w.jpg"
+                            alt="Putra Andika Pratama"
+                            layout="fill"
+                            objectFit="contain"
+                            className="drop-shadow-2xl rounded-3xl p-4 rotate-3 transition-transform group-hover:rotate-0"
+                        />
+                    </div>
+                    <div className="md:col-span-1 text-center md:text-left text-primary-foreground order-2">
+                        <h3 className="font-serif text-4xl mb-2">Putra Andika Pratama</h3>
+                        <p className="font-sans text-sm opacity-80 mb-1">Putra Pertama dari</p>
+                        <p className="font-sans font-semibold mb-4">Bapak Deni Bastian dan Ibu Aisha Dania</p>
+                        <Button asChild variant="outline" className="rounded-full bg-transparent border-primary-foreground/50 hover:bg-primary-foreground hover:text-primary transition-all duration-300 group">
+                            <a href="https://www.instagram.com/user_ig_pria" target="_blank" rel="noopener noreferrer">
+                                <Instagram className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
+                                @user_ig_pria
+                            </a>
+                        </Button>
+                    </div>
+                </div>
             </AnimateOnScroll>
 
-            <div className="relative space-y-8 md:space-y-0">
-                {/* Groom */}
-                <AnimateOnScroll animation="fade-in-right" className="relative z-10">
-                    <div className="absolute inset-0 -top-8 -bottom-8">
-                        <svg className="w-full h-full" viewBox="0 0 390 480" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                            <path d="M390 410C390 448.66 302.704 480 195 480C87.2959 480 0 448.66 0 410V0H390V410Z" className="fill-primary/80"/>
-                        </svg>
+            {/* Bride */}
+            <AnimateOnScroll animation="fade-in-left" className="relative z-0 md:-mt-24">
+                 <div className="absolute inset-0 -top-12 -bottom-12 -left-12 -right-12">
+                    <svg className="w-full h-full" viewBox="0 0 400 480" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                       <path d="M0 480H350C377.614 480 400 457.614 400 430V50C400 22.3858 377.614 0 350 0H0V480Z" className="fill-secondary/50"/>
+                    </svg>
+                </div>
+                <div className="relative grid grid-cols-1 md:grid-cols-2 items-center gap-8 p-8 md:pt-32">
+                    <div className="md:col-span-1 text-center md:text-right order-2 md:order-1">
+                        <h3 className="font-serif text-4xl text-primary mb-2">Putri Cantika Sari</h3>
+                        <p className="font-sans text-sm text-muted-foreground mb-1">Putri Pertama dari</p>
+                        <p className="font-sans font-semibold text-foreground mb-4">Bapak Abdul Rozak dan Ibu Adella Marni</p>
+                        <Button asChild variant="outline" className="rounded-full border-primary/30 hover:bg-primary hover:text-primary-foreground transition-all duration-300 group">
+                            <a href="https://www.instagram.com/user_ig_wanita" target="_blank" rel="noopener noreferrer">
+                                <Instagram className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
+                                @user_ig_wanita
+                            </a>
+                        </Button>
                     </div>
-                    <div className="relative grid grid-cols-1 md:grid-cols-5 items-center gap-8 p-8">
-                        <div className="relative w-full h-[400px] md:h-[480px] md:col-span-2">
-                            <Image
-                                src="https://the.invisimple.id/wp-content/uploads/elementor/thumbs/PRIA-r1qxu50pofy26yljvdfud7qei6f9whhy1kfb005u2w.jpg"
-                                alt="Putra Andika Pratama"
-                                layout="fill"
-                                objectFit="contain"
-                                className="drop-shadow-2xl"
-                            />
-                        </div>
-                        <div className="md:col-span-3 text-center md:text-left text-primary-foreground">
-                            <h3 className="font-serif text-4xl mb-2">Putra Andika Pratama</h3>
-                            <p className="font-sans text-sm opacity-80 mb-1">Putra Pertama dari</p>
-                            <p className="font-sans font-semibold mb-4">Bapak Deni Bastian dan Ibu Aisha Dania</p>
-                            <Button asChild variant="outline" className="rounded-full bg-transparent border-primary-foreground/50 hover:bg-primary-foreground hover:text-primary transition-all duration-300 group">
-                                <a href="https://www.instagram.com/user_ig_pria" target="_blank" rel="noopener noreferrer">
-                                    <Instagram className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
-                                    @user_ig_pria
-                                </a>
-                            </Button>
-                        </div>
+                     <div className="relative w-full h-[320px] md:h-[400px] order-1 md:order-2">
+                        <div className="absolute inset-0 bg-background rounded-3xl rotate-3 transition-transform group-hover:rotate-0" />
+                        <Image
+                            src="https://the.invisimple.id/wp-content/uploads/elementor/thumbs/WANITA-r1qxu50pofy26yljvdfud7qei6f9whhy1kfb005u2w.jpg"
+                            alt="Putri Cantika Sari"
+                            layout="fill"
+                            objectFit="contain"
+                            className="drop-shadow-2xl rounded-3xl p-4 -rotate-3 transition-transform group-hover:rotate-0"
+                        />
                     </div>
-                </AnimateOnScroll>
-
-                {/* Bride */}
-                <AnimateOnScroll animation="fade-in-left" className="relative z-0 md:-mt-16">
-                     <div className="absolute inset-0 -top-8 -bottom-8">
-                        <svg className="w-full h-full" viewBox="0 0 390 480" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                            <path d="M0 70C0 31.3401 87.2959 0 195 0C302.704 0 390 31.3401 390 70V480H0V70Z" className="fill-secondary/50"/>
-                        </svg>
-                    </div>
-                    <div className="relative grid grid-cols-1 md:grid-cols-5 items-center gap-8 p-8 md:pt-24">
-                        <div className="md:col-span-3 text-center md:text-right order-2 md:order-1">
-                            <h3 className="font-serif text-4xl text-primary mb-2">Putri Cantika Sari</h3>
-                            <p className="font-sans text-sm text-muted-foreground mb-1">Putri Pertama dari</p>
-                            <p className="font-sans font-semibold text-foreground mb-4">Bapak Abdul Rozak dan Ibu Adella Marni</p>
-                            <Button asChild variant="outline" className="rounded-full border-primary/30 hover:bg-primary hover:text-primary-foreground transition-all duration-300 group">
-                                <a href="https://www.instagram.com/user_ig_wanita" target="_blank" rel="noopener noreferrer">
-                                    <Instagram className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
-                                    @user_ig_wanita
-                                </a>
-                            </Button>
-                        </div>
-                        <div className="relative w-full h-[400px] md:h-[480px] md:col-span-2 order-1 md:order-2">
-                            <Image
-                                src="https://the.invisimple.id/wp-content/uploads/elementor/thumbs/WANITA-r1qxu50pofy26yljvdfud7qei6f9whhy1kfb005u2w.jpg"
-                                alt="Putri Cantika Sari"
-                                layout="fill"
-                                objectFit="contain"
-                                className="drop-shadow-2xl"
-                            />
-                        </div>
-                    </div>
-                </AnimateOnScroll>
-            </div>
+                </div>
+            </AnimateOnScroll>
         </div>
     </section>
 );
+
 
 
 const EventsSection = () => (
@@ -409,5 +404,3 @@ const BottomNav = () => {
         </nav>
     );
 };
-
-    
