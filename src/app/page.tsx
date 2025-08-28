@@ -154,10 +154,9 @@ const SectionTitle = ({ icon: Icon, title, subtitle }: { icon: React.ElementType
 
 const CoupleSection = () => (
     <section id="couple" className="relative py-24 px-4 sm:px-6 bg-background overflow-hidden">
-        <div className="max-w-3xl mx-auto space-y-8">
-
-            <AnimateOnScroll animation="fade-in-up" className="relative text-center text-foreground z-10">
-                <div className="absolute -top-12 -bottom-12 left-0 right-0">
+        <div className="max-w-4xl mx-auto">
+            <AnimateOnScroll animation="fade-in-up" className="relative text-center text-foreground z-10 mb-16">
+                <div className="absolute -top-12 -bottom-12 -left-20 -right-20 md:-left-4 md:-right-4">
                    <svg className="w-full h-full" viewBox="0 0 375 280" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
                         <path d="M375 0C375 44.1828 291.034 80 187.5 80C83.9657 80 0 44.1828 0 0V200C0 244.183 83.9657 280 187.5 280C291.034 280 375 244.183 375 200V0Z" className="fill-secondary/30"/>
                     </svg>
@@ -169,29 +168,27 @@ const CoupleSection = () => (
                     <p className="font-serif text-lg mt-4 font-semibold">Q.S Ar-Rum : 21</p>
                 </div>
             </AnimateOnScroll>
-            
-            <div className="relative text-center">
-                <AnimateOnScroll animation="fade-in-up" delay={0.2}>
-                    <h2 className="font-serif text-5xl text-primary mb-2">Kedua Mempelai</h2>
-                    <p className="font-sans text-base text-muted-foreground leading-relaxed mb-4">
-                        Assalamu'alaikum Warahmatullahi Wabarakatuh
-                    </p>
-                    <p className="font-sans text-sm text-muted-foreground/80 leading-relaxed max-w-xl mx-auto">
-                        Maha Suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan. Ya Allah semoga ridho-Mu tercurah mengiringi pernikahan kami.
-                    </p>
-                </AnimateOnScroll>
-            </div>
 
-            <div className="relative space-y-8">
+            <AnimateOnScroll animation="fade-in-up" delay={0.2} className="text-center mb-20">
+                <h2 className="font-serif text-5xl text-primary mb-2">Kedua Mempelai</h2>
+                <p className="font-sans text-base text-muted-foreground leading-relaxed mb-4">
+                    Assalamu'alaikum Warahmatullahi Wabarakatuh
+                </p>
+                <p className="font-sans text-sm text-muted-foreground/80 leading-relaxed max-w-xl mx-auto">
+                    Maha Suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan. Ya Allah semoga ridho-Mu tercurah mengiringi pernikahan kami.
+                </p>
+            </AnimateOnScroll>
+
+            <div className="relative space-y-8 md:space-y-0">
                 {/* Groom */}
                 <AnimateOnScroll animation="fade-in-right" className="relative z-10">
-                    <div className="absolute -inset-4">
+                    <div className="absolute inset-0 -top-8 -bottom-8">
                         <svg className="w-full h-full" viewBox="0 0 390 480" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
                             <path d="M390 410C390 448.66 302.704 480 195 480C87.2959 480 0 448.66 0 410V0H390V410Z" className="fill-primary/80"/>
                         </svg>
                     </div>
                     <div className="relative grid grid-cols-1 md:grid-cols-5 items-center gap-8 p-8">
-                        <div className="relative w-full h-[400px] md:col-span-2">
+                        <div className="relative w-full h-[400px] md:h-[480px] md:col-span-2">
                             <Image
                                 src="https://the.invisimple.id/wp-content/uploads/elementor/thumbs/PRIA-r1qxu50pofy26yljvdfud7qei6f9whhy1kfb005u2w.jpg"
                                 alt="Putra Andika Pratama"
@@ -215,13 +212,13 @@ const CoupleSection = () => (
                 </AnimateOnScroll>
 
                 {/* Bride */}
-                <AnimateOnScroll animation="fade-in-left" className="relative z-0 -mt-16">
-                     <div className="absolute -inset-4">
+                <AnimateOnScroll animation="fade-in-left" className="relative z-0 md:-mt-16">
+                     <div className="absolute inset-0 -top-8 -bottom-8">
                         <svg className="w-full h-full" viewBox="0 0 390 480" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
                             <path d="M0 70C0 31.3401 87.2959 0 195 0C302.704 0 390 31.3401 390 70V480H0V70Z" className="fill-secondary/50"/>
                         </svg>
                     </div>
-                    <div className="relative grid grid-cols-1 md:grid-cols-5 items-center gap-8 p-8 pt-24">
+                    <div className="relative grid grid-cols-1 md:grid-cols-5 items-center gap-8 p-8 md:pt-24">
                         <div className="md:col-span-3 text-center md:text-right order-2 md:order-1">
                             <h3 className="font-serif text-4xl text-primary mb-2">Putri Cantika Sari</h3>
                             <p className="font-sans text-sm text-muted-foreground mb-1">Putri Pertama dari</p>
@@ -233,7 +230,7 @@ const CoupleSection = () => (
                                 </a>
                             </Button>
                         </div>
-                        <div className="relative w-full h-[400px] md:col-span-2 order-1 md:order-2">
+                        <div className="relative w-full h-[400px] md:h-[480px] md:col-span-2 order-1 md:order-2">
                             <Image
                                 src="https://the.invisimple.id/wp-content/uploads/elementor/thumbs/WANITA-r1qxu50pofy26yljvdfud7qei6f9whhy1kfb005u2w.jpg"
                                 alt="Putri Cantika Sari"
@@ -412,3 +409,5 @@ const BottomNav = () => {
         </nav>
     );
 };
+
+    
