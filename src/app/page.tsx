@@ -118,7 +118,7 @@ const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => vo
           ))}
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
   
-          <div className="relative z-10 flex flex-col items-center justify-end h-full w-full text-center text-primary-foreground p-8">
+          <div className="relative z-10 flex flex-col items-center justify-end h-full w-full text-center p-8">
               <div className="flex flex-col items-center mb-8 animate-fade-in-up text-foreground" style={{ animationDuration: '1.2s' }}>
                   <p className="font-sans text-sm tracking-[0.2em] uppercase mb-2 text-shadow">The Wedding Of</p>
                   <h1 className="font-serif text-5xl md:text-6xl font-bold text-shadow-lg leading-tight">Andika &<br/>Putri</h1>
@@ -199,7 +199,7 @@ const SectionTitle = ({ icon: Icon, title, subtitle }: { icon: React.ElementType
 const CoupleSection = () => (
     <section id="couple" className="relative py-24 px-4 sm:px-6 bg-primary/5 overflow-hidden">
       <div className="max-w-4xl mx-auto">
-        <AnimateOnScroll animation="fade-in-up" className="relative text-center text-foreground z-10 mb-16">
+          <AnimateOnScroll animation="fade-in-up" className="relative text-center text-foreground z-10 mb-16">
               <div className="absolute -inset-8 md:-inset-4">
                 <svg className="w-full h-full" viewBox="0 0 375 280" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
                   <path d="M0 80C0 35.8172 35.8172 0 80 0H375V280H80C35.8172 280 0 244.183 0 200V80Z" className="fill-background"/>
@@ -509,3 +509,6 @@ const BottomNav = () => {
     
 
 
+
+
+    
