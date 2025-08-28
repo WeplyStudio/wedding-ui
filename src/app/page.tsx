@@ -208,19 +208,8 @@ const CoupleSection = () => (
     <section id="couple" className="relative py-24 px-4 sm:px-6 bg-primary/5 overflow-hidden">
       <div className="max-w-4xl mx-auto">
           <AnimateOnScroll animation="fade-in-up" className="relative text-center text-foreground z-10 mb-16">
-              <div className="absolute -inset-8 md:-inset-4">
-                <svg className="w-full h-full" viewBox="0 0 375 280" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                  <path d="M0 80C0 35.8172 35.8172 0 80 0H375V280H80C35.8172 280 0 244.183 0 200V80Z" className="fill-background"/>
-                </svg>
-              </div>
-              <div className="relative p-8 md:p-12">
+              <div className="relative p-4 md:p-12">
                 <h2 className="font-serif text-5xl text-primary mb-6">Kedua Mempelai</h2>
-                <p className="font-sans text-base text-muted-foreground leading-relaxed mb-4">
-                  Assalamu'alaikum Warahmatullahi Wabarakatuh
-                </p>
-                <p className="font-sans text-sm text-muted-foreground/80 leading-relaxed max-w-xl mx-auto">
-                  Maha Suci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan. Ya Allah semoga ridho-Mu tercurah mengiringi pernikahan kami.
-                </p>
               </div>
           </AnimateOnScroll>
 
@@ -401,40 +390,62 @@ const EventsSection = () => (
 );
 
 
+const PhotoGrid = () => (
+    <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8">
+        {galleryImages.map((image, index) => (
+            <AnimateOnScroll key={index} delay={index * 0.1} animation="zoom-in">
+                 <div className="overflow-hidden rounded-lg shadow-lg group">
+                    <Image
+                        src={image.src}
+                        alt={image.alt}
+                        data-ai-hint={image.hint}
+                        width={400}
+                        height={400}
+                        className="object-cover w-full h-full aspect-square transform group-hover:scale-105 transition-transform duration-300 ease-in-out"
+                    />
+                </div>
+            </AnimateOnScroll>
+        ))}
+    </div>
+);
+
 const GallerySection = () => (
-  <section id="gallery" className="py-24 px-6">
-    <SectionTitle icon={Camera} title="Our Moments" subtitle="A Glimpse of Our Journey" />
-    <AnimateOnScroll animation="fade-in-up">
-      <Carousel
-          opts={{
-          align: "start",
-          loop: true,
-          }}
-          className="w-full max-w-5xl mx-auto"
-      >
-          <CarouselContent className="-ml-4">
-          {galleryImages.map((image, index) => (
-              <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
-              <Card className="overflow-hidden group shadow-lg border-0 rounded-lg">
-                  <CardContent className="p-0 aspect-[3/4]">
-                  <Image
-                      src={image.src}
-                      alt={image.alt}
-                      data-ai-hint={image.hint}
-                      width={400}
-                      height={600}
-                      className="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-500 ease-in-out"
-                  />
-                  </CardContent>
-              </Card>
-              </CarouselItem>
-          ))}
-          </CarouselContent>
-          <CarouselPrevious className="ml-2 bg-background/50 hover:bg-background" />
-          <CarouselNext className="mr-2 bg-background/50 hover:bg-background" />
-      </Carousel>
-    </AnimateOnScroll>
-  </section>
+    <section id="gallery" className="py-24 px-6">
+        <SectionTitle icon={Camera} title="Our Moments" subtitle="A Glimpse of Our Journey" />
+        <AnimateOnScroll animation="fade-in-up">
+            <Carousel
+                opts={{
+                    align: "start",
+                    loop: true,
+                }}
+                className="w-full max-w-5xl mx-auto"
+            >
+                <CarouselContent className="-ml-4">
+                    {galleryImages.map((image, index) => (
+                        <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                            <Card className="overflow-hidden group shadow-lg border-0 rounded-lg">
+                                <CardContent className="p-0 aspect-[3/4]">
+                                    <Image
+                                        src={image.src}
+                                        alt={image.alt}
+                                        data-ai-hint={image.hint}
+                                        width={400}
+                                        height={600}
+                                        className="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-500 ease-in-out"
+                                    />
+                                </CardContent>
+                            </Card>
+                        </CarouselItem>
+                    ))}
+                </CarouselContent>
+                <CarouselPrevious className="ml-2 bg-background/50 hover:bg-background" />
+                <CarouselNext className="mr-2 bg-background/50 hover:bg-background" />
+            </Carousel>
+        </AnimateOnScroll>
+        <div className="max-w-5xl mx-auto">
+             <PhotoGrid />
+        </div>
+    </section>
 );
 
 
@@ -518,6 +529,8 @@ const BottomNav = () => {
 
 
 
+
+    
 
     
 
