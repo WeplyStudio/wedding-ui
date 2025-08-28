@@ -7,8 +7,10 @@ import { useState, useEffect, useRef } from "react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { Mail, Gift, Heart, Clock, CalendarDays, MapPin, Users, Video, BookOpen, Music, Play, Pause, Flower2, HeartHandshake, GlassWater, Camera, Home, User, Calendar, GalleryHorizontal, Instagram } from "lucide-react";
+import { Mail, Gift, Heart, Clock, CalendarDays, MapPin, Users, Video, BookOpen, Music, Play, Pause, Flower2, HeartHandshake, GlassWater, Camera, Home, User, Calendar, GalleryHorizontal, Instagram, Wallet, Copy } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { useToast } from "@/hooks/use-toast";
 import Countdown from "@/components/countdown";
 import MusicPlayer from "@/components/music-player";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
@@ -40,6 +42,7 @@ const navItems = [
     { href: '#couple', icon: Heart, label: 'Couple' },
     { href: '#events', icon: Calendar, label: 'Events' },
     { href: '#gallery', icon: GalleryHorizontal, label: 'Gallery' },
+    { href: '#gift', icon: Gift, label: 'Gift'},
     { href: '#guestbook', icon: Mail, label: 'Wishes' },
 ];
 
@@ -75,6 +78,7 @@ export default function EvergreenVowsPage() {
                 <CoupleSection />
                 <EventsSection />
                 <GallerySection />
+                <GiftSection />
                 <GuestBookSection />
                 <Footer />
             </div>
@@ -448,6 +452,110 @@ const GallerySection = () => (
     </section>
 );
 
+const GiftSection = () => {
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setCurrentImageIndex(prevIndex => (prevIndex + 1) % galleryImages.length);
+      }, 5000);
+      return () => clearInterval(interval);
+    }, []);
+  
+    return (
+      <section id="gift" className="relative py-24 px-6 overflow-hidden text-center">
+        <div className="absolute inset-0">
+          {galleryImages.map((image, index) => (
+            <Image
+              key={index}
+              src={image.src}
+              alt={image.alt}
+              data-ai-hint={image.hint}
+              fill
+              className={cn(
+                "object-cover transition-opacity duration-1000",
+                index === currentImageIndex ? "opacity-100" : "opacity-0"
+              )}
+            />
+          ))}
+          <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
+        </div>
+        <div className="relative z-10 flex flex-col items-center">
+            <AnimateOnScroll>
+                <Card className="w-full max-w-lg bg-background/70 border-primary/20 shadow-2xl rounded-2xl">
+                    <CardHeader>
+                    <CardTitle className="font-serif text-4xl text-primary">Wedding Gift</CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                    <p className="text-muted-foreground">
+                        Doa Restu Anda merupakan karunia yang sangat berarti bagi kami. Dan jika memberi adalah ungkapan tanda kasih, Anda dapat memberi melalui dibawah ini.
+                    </p>
+                    <GiftDrawer />
+                    </CardContent>
+                </Card>
+            </AnimateOnScroll>
+        </div>
+      </section>
+    );
+  };
+  
+const GiftDrawer = () => {
+    const { toast } = useToast();
+
+    const copyToClipboard = (text: string, label: string) => {
+        navigator.clipboard.writeText(text);
+        toast({
+        title: "Copied to clipboard!",
+        description: `${label} copied: ${text}`,
+        });
+    };
+
+    const bankAccounts = [
+        { bank: "BCA", name: "Putra Andika Pratama", number: "1234567890", logo: "/bca-logo.png" },
+        { bank: "BNI", name: "Putri Cantika Sari", number: "0987654321", logo: "/bni-logo.png" },
+        { bank: "BRI", name: "Putra & Putri", number: "1122334455", logo: "/bri-logo.png" },
+    ]
+
+    return (
+        <Sheet>
+        <SheetTrigger asChild>
+            <Button className="w-full font-sans" size="lg">
+                <Wallet className="mr-2 h-5 w-5" />
+                Klik di Sini
+            </Button>
+        </SheetTrigger>
+        <SheetContent side="bottom" className="w-full max-w-3xl mx-auto rounded-t-2xl p-6">
+            <SheetHeader className="text-center mb-6">
+            <SheetTitle className="font-serif text-3xl">Send a Gift</SheetTitle>
+            </SheetHeader>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="flex flex-col items-center justify-center space-y-4 p-4 border rounded-lg">
+                    <h3 className="font-sans font-semibold text-lg">Scan QRIS</h3>
+                    <Image src="https://api.qr-code-generator.com/v1/create?access-token=yvR-0_gS62v4hJd9sFVTN8YwH_I9aG4nBExA0jImFk_s1zSgrJvjS2y4d35I2b-j&qr_code_text=https%3A%2F%2Fwww.google.com&image_format=PNG&image_width=500" alt="QRIS Code" data-ai-hint="qris code" width={200} height={200} className="rounded-md" />
+                    <p className="text-sm text-muted-foreground">All e-wallets and banks supported</p>
+                </div>
+                 <div className="space-y-4">
+                    {bankAccounts.map((account) => (
+                        <Card key={account.bank} className="p-4">
+                            <div className="flex items-center justify-between">
+                                <div>
+                                    <Image src={account.logo} alt={`${account.bank} logo`} data-ai-hint={`${account.bank} logo`} width={60} height={20} objectFit="contain" />
+                                    <p className="font-semibold mt-2">{account.name}</p>
+                                    <p className="text-muted-foreground">{account.number}</p>
+                                </div>
+                                <Button variant="ghost" size="icon" onClick={() => copyToClipboard(account.number, `${account.bank} Account Number`)}>
+                                    <Copy className="h-5 w-5" />
+                                </Button>
+                            </div>
+                        </Card>
+                    ))}
+                </div>
+            </div>
+        </SheetContent>
+        </Sheet>
+    );
+};
+  
 
 const GuestBookSection = () => (
     <section id="guestbook" className="py-24 px-6 bg-secondary/20 rounded-tr-[50] rounded-bl-[50]">

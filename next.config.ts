@@ -45,6 +45,12 @@ const nextConfig: NextConfig = {
         hostname: 'the.invisimple.id',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'api.qr-code-generator.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
