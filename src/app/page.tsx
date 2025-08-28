@@ -318,7 +318,7 @@ const EventsSection = () => (
     <section id="events" className="relative py-24 px-6 overflow-hidden">
         <div className="absolute inset-0">
              <Image
-                src="https://our-wedding.link/wp-content/uploads/2024/07/details-bg-1.webp"
+                src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-bg-01.jpg"
                 alt="Marble background"
                 data-ai-hint="dark marble"
                 fill
