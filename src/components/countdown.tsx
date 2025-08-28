@@ -34,6 +34,7 @@ const Countdown = ({ targetDate, className }: { targetDate: Date, className?: st
   useEffect(() => {
     setIsClient(true);
     
+    // Set initial time left to avoid flash of 00s
     setTimeLeft(calculateTimeLeft(targetDate));
 
     const timer = setInterval(() => {
@@ -51,12 +52,13 @@ const Countdown = ({ targetDate, className }: { targetDate: Date, className?: st
   ];
 
    if (!isClient) {
+    // Render a placeholder or initial state on the server
     return (
-       <div className={cn("flex justify-center gap-3 sm:gap-4", className)}>
+       <div className={cn("flex justify-center gap-2 md:gap-4", className)}>
         {['Days', 'Hours', 'Minutes', 'Seconds'].map((label) => (
-          <div key={label} className="bg-black/20 border border-white/20 p-3 rounded-lg shadow-lg backdrop-blur-sm w-[72px] sm:w-24 flex flex-col items-center justify-center">
-            <span className="text-3xl sm:text-4xl font-bold font-serif text-white text-shadow">00</span>
-            <span className="text-[10px] sm:text-xs font-sans text-white/80 uppercase tracking-wider block mt-1">{label}</span>
+          <div key={label} className="bg-black/20 border border-white/20 p-2 rounded-lg shadow-lg backdrop-blur-sm w-16 md:w-20 flex flex-col items-center justify-center">
+            <span className="text-2xl md:text-4xl font-bold font-serif text-white text-shadow">00</span>
+            <span className="text-[10px] md:text-xs font-sans text-white/80 uppercase tracking-wider mt-1">{label}</span>
           </div>
         ))}
       </div>
@@ -65,11 +67,11 @@ const Countdown = ({ targetDate, className }: { targetDate: Date, className?: st
 
 
   return (
-    <div className={cn("flex justify-center gap-3 sm:gap-4", className)}>
+    <div className={cn("flex justify-center gap-2 md:gap-4", className)}>
       {timeUnits.map(({ value, label }) => (
-        <div key={label} className="bg-black/20 border border-white/20 p-3 rounded-lg shadow-lg backdrop-blur-sm w-[72px] sm:w-24 flex flex-col items-center justify-center">
-          <span className="text-3xl sm:text-4xl font-bold font-serif text-white text-shadow">{value !== undefined ? String(value).padStart(2, '0') : '00'}</span>
-          <span className="text-[10px] sm:text-xs font-sans text-white/80 uppercase tracking-wider block mt-1">{label}</span>
+        <div key={label} className="bg-black/20 border border-white/20 p-2 rounded-lg shadow-lg backdrop-blur-sm w-16 md:w-20 flex flex-col items-center justify-center">
+          <span className="text-2xl md:text-4xl font-bold font-serif text-white text-shadow">{value !== undefined ? String(value).padStart(2, '0') : '00'}</span>
+          <span className="text-[10px] md:text-xs font-sans text-white/80 uppercase tracking-wider mt-1">{label}</span>
         </div>
       ))}
     </div>

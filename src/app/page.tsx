@@ -118,14 +118,14 @@ const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => vo
           ))}
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
   
-          <div className="relative z-10 flex flex-col items-center justify-end h-full w-full text-center text-white p-8">
+          <div className="relative z-10 flex flex-col items-center justify-end h-full w-full text-center text-primary-foreground p-8">
               <div className="flex flex-col items-center mb-8 animate-fade-in-up" style={{ animationDuration: '1.2s' }}>
                   <p className="font-sans text-sm tracking-[0.2em] uppercase mb-2 text-shadow">The Wedding Of</p>
                   <h1 className="font-serif text-5xl md:text-6xl font-bold text-shadow-lg leading-tight">Andika &<br/>Putri</h1>
                   <div className="w-full text-center mt-8">
                       <p className="font-sans text-lg mb-1">Dear</p>
                       <p className="font-serif text-xl font-bold mb-2">{guestName}</p>
-                      <p className="text-xs text-white/80">*Mohon maaf jika ada kesalahan dalam penulisan nama / gelar.</p>
+                      <p className="text-xs text-primary-foreground/80">*Mohon maaf jika ada kesalahan dalam penulisan nama / gelar.</p>
                   </div>
               </div>
               
@@ -143,31 +143,48 @@ const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => vo
     )
 };
 
-const HeroSection = () => (
-  <section id="home" className="relative h-screen flex flex-col items-center justify-center text-center p-4 text-primary-foreground">
-    <div className="absolute inset-0">
-      <Image
-        src="https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/Resepsi-1-1.jpg"
-        alt="The Wedding of Putri & Putra"
-        data-ai-hint="wedding couple elegant"
-        fill
-        className="object-cover"
-        priority
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
-    </div>
-    
-    <div className="relative z-10 flex flex-col items-center w-full animate-fade-in-up" style={{animationDuration: '1.2s'}}>
-      <p className="text-white font-sans tracking-[0.2em] text-sm uppercase">The Wedding Of</p>
-      <h1 className="text-white font-serif text-7xl md:text-8xl mt-4 mb-8 text-shadow-lg">{coupleNames}</h1>
-      <div className="w-24 h-px bg-primary my-4"></div>
-      <p className="text-white font-sans text-lg mt-4">20 . 09 . 2025</p>
-      <div className="mt-8">
-        <Countdown targetDate={weddingDate} />
-      </div>
-    </div>
-  </section>
-);
+const HeroSection = () => {
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImageIndex(prevIndex => (prevIndex + 1) % galleryImages.length);
+        }, 3000); // Change image every 3 seconds
+
+        return () => clearInterval(interval);
+    }, []);
+
+    return (
+        <section id="home" className="relative h-screen flex flex-col items-center justify-end text-center p-4 text-white">
+            <div className="absolute inset-0">
+                 {galleryImages.map((image, index) => (
+                    <Image
+                        key={image.src}
+                        src={image.src}
+                        alt={image.alt}
+                        data-ai-hint={image.hint}
+                        fill
+                        className={cn(
+                            "object-cover transition-opacity duration-1000 ease-in-out",
+                            index === currentImageIndex ? "opacity-100" : "opacity-0"
+                        )}
+                        priority={index === 0}
+                    />
+                ))}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+            </div>
+            
+            <div className="relative z-10 flex flex-col items-center w-full pb-16 animate-fade-in-up" style={{animationDuration: '1.2s'}}>
+                <p className="font-sans tracking-[0.2em] text-sm uppercase">The Wedding Of</p>
+                <h1 className="font-serif text-6xl md:text-7xl mt-2 mb-4 text-shadow-lg">{coupleNames}</h1>
+                <p className="font-sans text-lg">20 . 09 . 2025</p>
+                <div className="mt-8 w-full max-w-md">
+                    <Countdown targetDate={weddingDate} />
+                </div>
+            </div>
+        </section>
+    );
+};
 
 const SectionTitle = ({ icon: Icon, title, subtitle }: { icon: React.ElementType, title: string, subtitle: string }) => (
     <AnimateOnScroll className="flex flex-col items-center text-center mb-12">
@@ -182,9 +199,7 @@ const SectionTitle = ({ icon: Icon, title, subtitle }: { icon: React.ElementType
 const CoupleSection = () => (
     <section id="couple" className="relative py-24 px-4 sm:px-6 bg-primary/5 overflow-hidden">
       <div className="max-w-4xl mx-auto">
-        {/* Intro and Verse */}
-        <div className="relative mb-16">
-          <AnimateOnScroll animation="fade-in-up" className="relative text-center text-foreground z-10">
+        <AnimateOnScroll animation="fade-in-up" className="relative text-center text-foreground z-10 mb-16">
               <div className="absolute -inset-8 md:-inset-4">
                 <svg className="w-full h-full" viewBox="0 0 375 280" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
                   <path d="M0 80C0 35.8172 35.8172 0 80 0H375V280H80C35.8172 280 0 244.183 0 200V80Z" className="fill-background"/>
@@ -200,66 +215,57 @@ const CoupleSection = () => (
                 </p>
               </div>
           </AnimateOnScroll>
-        </div>
 
-        {/* Groom */}
-        <div className="relative mb-24 md:mb-12">
-          <AnimateOnScroll animation="fade-in-right" className="relative z-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-8">
-              <div className="relative w-full h-[400px] md:h-auto md:aspect-[3/4] order-2 md:order-1 flex items-center justify-center">
-                  <div className="relative w-full max-w-[300px] md:max-w-none md:w-3/4 aspect-[3/4] rounded-3xl -rotate-3 transition-transform group-hover:rotate-0 duration-500 shadow-2xl">
-                      <Image
-                          src="https://the.invisimple.id/wp-content/uploads/elementor/thumbs/PRIA-r1qxu50pofy26yljvdfud7qei6f9whhy1kfb005u2w.jpg"
-                          alt="Putra Andika Pratama"
-                          layout="fill"
-                          objectFit="cover"
-                          className="rounded-3xl rotate-6 transition-transform group-hover:rotate-0 duration-500"
-                      />
-                  </div>
-              </div>
-              <div className="md:col-span-1 text-center md:text-left text-foreground order-1 md:order-2">
-                  <h3 className="font-serif text-4xl text-primary mb-2">Putra Andika Pratama</h3>
-                  <p className="font-sans text-sm text-muted-foreground mb-1">Putra Pertama dari</p>
-                  <p className="font-sans font-semibold mb-4">Bapak Deni Bastian dan Ibu Aisha Dania</p>
-                  <Button asChild variant="outline" className="rounded-full bg-transparent border-primary/30 hover:bg-primary hover:text-primary-foreground transition-all duration-300 group">
-                      <a href="https://www.instagram.com/user_ig_pria" target="_blank" rel="noopener noreferrer">
-                          <Instagram className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
-                          @user_ig_pria
-                      </a>
-                  </Button>
-              </div>
-            </div>
-          </AnimateOnScroll>
-        </div>
-        
-        {/* Bride */}
-        <div className="relative md:mt-12">
-          <AnimateOnScroll animation="fade-in-left" className="relative z-0">
-            <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-8">
-              <div className="md:col-span-1 text-center md:text-right text-foreground order-1 md:order-2">
-                  <h3 className="font-serif text-4xl text-primary mb-2">Putri Cantika Sari</h3>
-                  <p className="font-sans text-sm text-muted-foreground mb-1">Putri Pertama dari</p>
-                  <p className="font-sans font-semibold mb-4">Bapak Abdul Rozak dan Ibu Adella Marni</p>
-                  <Button asChild variant="outline" className="rounded-full border-primary/30 hover:bg-primary hover:text-primary-foreground transition-all duration-300 group">
-                      <a href="https://www.instagram.com/user_ig_wanita" target="_blank" rel="noopener noreferrer">
-                          <Instagram className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
-                          @user_ig_wanita
-                      </a>
-                  </Button>
-              </div>
-              <div className="relative w-full h-[400px] md:h-auto md:aspect-[3/4] order-2 md:order-1 flex items-center justify-center">
-                  <div className="relative w-full max-w-[300px] md:max-w-none md:w-3/4 aspect-[3/4] bg-secondary/30 rounded-3xl rotate-3 transition-transform group-hover:rotate-0 duration-500 shadow-2xl">
-                      <Image
-                          src="https://the.invisimple.id/wp-content/uploads/elementor/thumbs/WANITA-r1qxu50pofy26yljvdfud7qei6f9whhy1kfb005u2w.jpg"
-                          alt="Putri Cantika Sari"
-                          layout="fill"
-                          objectFit="cover"
-                          className="rounded-3xl -rotate-6 transition-transform group-hover:rotate-0 duration-500"
-                      />
-                  </div>
-              </div>
-            </div>
-          </AnimateOnScroll>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8 items-center">
+            <AnimateOnScroll animation="fade-in-right" className="w-full">
+                <div className="md:text-right text-center">
+                    <h3 className="font-serif text-4xl text-primary mb-2">Putri Cantika Sari</h3>
+                    <p className="font-sans text-sm text-muted-foreground mb-1">Putri Pertama dari</p>
+                    <p className="font-sans font-semibold mb-4">Bapak Abdul Rozak dan Ibu Adella Marni</p>
+                    <Button asChild variant="outline" className="rounded-full border-primary/30 hover:bg-primary hover:text-primary-foreground transition-all duration-300 group">
+                        <a href="https://www.instagram.com/user_ig_wanita" target="_blank" rel="noopener noreferrer">
+                            <Instagram className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
+                            @user_ig_wanita
+                        </a>
+                    </Button>
+                </div>
+                 <div className="relative w-full h-[400px] mt-8 flex items-center justify-center">
+                    <div className="relative w-full max-w-[300px] md:w-3/4 aspect-[3/4] bg-secondary/30 rounded-3xl rotate-3 transition-transform duration-500 shadow-2xl">
+                        <Image
+                            src="https://the.invisimple.id/wp-content/uploads/elementor/thumbs/WANITA-r1qxu50pofy26yljvdfud7qei6f9whhy1kfb005u2w.jpg"
+                            alt="Putri Cantika Sari"
+                            layout="fill"
+                            objectFit="cover"
+                            className="rounded-3xl -rotate-6 transition-transform duration-500"
+                        />
+                    </div>
+                </div>
+            </AnimateOnScroll>
+
+            <AnimateOnScroll animation="fade-in-left" className="w-full">
+                <div className="text-center md:text-left">
+                     <h3 className="font-serif text-4xl text-primary mb-2">Putra Andika Pratama</h3>
+                    <p className="font-sans text-sm text-muted-foreground mb-1">Putra Pertama dari</p>
+                    <p className="font-sans font-semibold mb-4">Bapak Deni Bastian dan Ibu Aisha Dania</p>
+                    <Button asChild variant="outline" className="rounded-full bg-transparent border-primary/30 hover:bg-primary hover:text-primary-foreground transition-all duration-300 group">
+                        <a href="https://www.instagram.com/user_ig_pria" target="_blank" rel="noopener noreferrer">
+                            <Instagram className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
+                            @user_ig_pria
+                        </a>
+                    </Button>
+                </div>
+                <div className="relative w-full h-[400px] mt-8 flex items-center justify-center">
+                    <div className="relative w-full max-w-[300px] md:w-3/4 aspect-[3/4] rounded-3xl -rotate-3 transition-transform duration-500 shadow-2xl">
+                        <Image
+                            src="https://the.invisimple.id/wp-content/uploads/elementor/thumbs/PRIA-r1qxu50pofy26yljvdfud7qei6f9whhy1kfb005u2w.jpg"
+                            alt="Putra Andika Pratama"
+                            layout="fill"
+                            objectFit="cover"
+                            className="rounded-3xl rotate-6 transition-transform duration-500"
+                        />
+                    </div>
+                </div>
+            </AnimateOnScroll>
         </div>
       </div>
     </section>
@@ -501,3 +507,4 @@ const BottomNav = () => {
     
 
     
+
