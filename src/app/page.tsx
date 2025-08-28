@@ -199,9 +199,8 @@ const HeroSection = () => {
     );
 };
 
-const SectionTitle = ({ title, subtitle }: { title: string, subtitle: string }) => (
+const SectionTitle = ({ subtitle }: { subtitle: string }) => (
     <AnimateOnScroll className="flex flex-col items-center text-center mb-12">
-        <p className="font-sans tracking-[0.2em] text-sm uppercase text-primary mb-2">{title}</p>
         <h2 className="font-serif text-5xl">{subtitle}</h2>
     </AnimateOnScroll>
 )
@@ -305,7 +304,7 @@ const EventCard = ({
     date: string[];
     time: string;
     location: string[];
-    buttons: { text: string; href: string; icon: React.ElementType; disabled?: boolean }[];
+    buttons: { text: string; href?: string; icon: React.ElementType; disabled?: boolean }[];
     imageUrl: string;
     imageHint: string;
     align?: 'left' | 'right';
@@ -369,16 +368,20 @@ const EventCard = ({
 
 
 const EventsSection = () => {
-    const receptionStartDate = new Date("2025-09-20T18:00:00");
-    const receptionEndDate = new Date("2025-09-20T21:00:00");
-    
-    // Format dates for Google Calendar URL (YYYYMMDDTHHMMSSZ)
-    const formatDateForGoogleCalendar = (date: Date) => {
-        return date.toISOString().replace(/-|:|\.\d{3}/g, '');
-    };
+    const [googleCalendarLink, setGoogleCalendarLink] = useState<string | undefined>(undefined);
 
-    const googleCalendarLink = `https://www.google.com/calendar/render?action=TEMPLATE&text=Wedding+Reception%3A+Putri+%26+Putra&dates=${formatDateForGoogleCalendar(receptionStartDate)}/${formatDateForGoogleCalendar(receptionEndDate)}&details=Join+us+to+celebrate+the+wedding+of+Putri+and+Putra!&location=The+Grand+Ballroom%2C+123+Blossom+Lane%2C+Meadowville`;
-    
+    useEffect(() => {
+        const receptionStartDate = new Date("2025-09-20T18:00:00");
+        const receptionEndDate = new Date("2025-09-20T21:00:00");
+
+        const formatDateForGoogleCalendar = (date: Date) => {
+            return date.toISOString().replace(/-|:|\.\d{3}/g, '');
+        };
+
+        const link = `https://www.google.com/calendar/render?action=TEMPLATE&text=Wedding+Reception%3A+Putri+%26+Putra&dates=${formatDateForGoogleCalendar(receptionStartDate)}/${formatDateForGoogleCalendar(receptionEndDate)}&details=Join+us+to+celebrate+the+wedding+of+Putri+and+Putra!&location=The+Grand+Ballroom%2C+123+Blossom+Lane%2C+Meadowville`;
+        setGoogleCalendarLink(link);
+    }, []);
+
     return (
         <section id="events" className="relative py-24 px-6 overflow-hidden rounded-bl-[50]">
             <div className="absolute inset-0">
@@ -407,7 +410,7 @@ const EventsSection = () => {
                     date={["20", "September", "2025"]}
                     time="14:00 - 16:00"
                     location={["The Evergreen Garden", "123 Blossom Lane, Meadowville"]}
-                    buttons={[{ text: "Google Maps", href: "https://www.google.com/maps", icon: MapPin, disabled: true }]}
+                    buttons={[{ text: "Google Maps", icon: MapPin, disabled: true }]}
                     imageUrl="https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/Resepsi-1-1.jpg"
                     imageHint="wedding ceremony"
                     align="left"
@@ -451,7 +454,7 @@ const PhotoGrid = () => (
 
 const GallerySection = () => (
     <section id="gallery" className="py-24 px-6">
-        <SectionTitle title="Our Moments" subtitle="A Glimpse of Our Journey" />
+        <SectionTitle subtitle="A Glimpse of Our Journey" />
         <AnimateOnScroll animation="fade-in-up">
             <Carousel
                 opts={{
@@ -607,7 +610,7 @@ const GiftDrawer = () => {
 
 const GuestBookSection = () => (
     <section id="guestbook" className="py-24 px-6 bg-secondary/20 rounded-bl-[50]">
-      <SectionTitle title="Wishes" subtitle="Leave Your Wishes" />
+      <SectionTitle subtitle="Leave Your Wishes" />
       <div className="max-w-4xl mx-auto">
         <AnimateOnScroll>
              <GuestBook />
@@ -691,6 +694,7 @@ const BottomNav = () => {
     
 
     
+
 
 
 
