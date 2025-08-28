@@ -109,10 +109,10 @@ const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => vo
         <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/70 to-transparent" />
         <div className="relative z-10 flex flex-col items-center justify-end h-full w-full">
             <div className="absolute bottom-[-2%] left-[-5%] w-[40%] h-[30%] opacity-80 animate-sway-left">
-                <Image src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-asset-03.png" layout="fill" objectFit="contain" alt="Floral ornament" className="rotate-180 -scale-x-100" />
+                <img src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-asset-03.png" alt="Floral ornament" className="w-full h-full object-contain rotate-180 -scale-x-100" />
             </div>
              <div className="absolute bottom-[-2%] right-[-5%] w-[40%] h-[30%] opacity-80 animate-sway-right">
-                <Image src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-asset-03.png" layout="fill" objectFit="contain" alt="Floral ornament" className="rotate-180" />
+                <img src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-asset-03.png" alt="Floral ornament" className="w-full h-full object-contain rotate-180" />
             </div>
             <div className="flex flex-col items-center justify-end h-full pb-20 text-primary p-4 z-20 max-h-[50vh]">
                 <div className="flex-grow flex flex-col items-center justify-end text-center pb-8">
@@ -138,26 +138,25 @@ const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => vo
 const HeroSection = () => (
   <section id="home" className="relative h-screen flex items-center justify-center text-center text-primary-foreground">
     <Image
-      src="https://media.katsudoto.id/media/public/70/56834/thumbnail/thumb-lg-676408-2000-2000-1755052004-59e8d8c19ddf135fcda341b9.png"
+      src="https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/1-2.jpeg"
       alt="A beautiful fairytale castle"
       data-ai-hint="fairytale castle"
       fill
       className="object-cover"
       priority
     />
-    <div className="absolute inset-0 bg-background/30 backdrop-blur-sm" />
-    <Image src="https://leoncelesta.katsudoto.id/media/template/exclusive/charera/original/Orn-52.png" alt="ornament" layout="fill" objectFit="contain" className="z-10 opacity-80" />
+    <div className="absolute inset-0 bg-black/30" />
     <div className="relative z-20 p-4 flex flex-col items-center">
         <AnimateOnScroll animation="fade-in-up" delay={0.2} duration={0.8}>
-            <p className="font-body text-lg md:text-xl mb-4 tracking-widest uppercase">The Wedding Of</p>
+            <p className="font-body text-lg md:text-xl mb-4 tracking-widest uppercase text-white/90">The Wedding Of</p>
         </AnimateOnScroll>
         <AnimateOnScroll animation="fade-in-up" delay={0.4} duration={0.8}>
-            <h1 className="font-headline text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight text-shadow-lg">
+            <h1 className="font-headline text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight text-shadow-lg text-white">
                 {coupleNames}
             </h1>
         </AnimateOnScroll>
         <AnimateOnScroll animation="fade-in" delay={0.8} duration={1}>
-            <Separator className="my-8 bg-primary-foreground/50 w-1/3 mx-auto" />
+            <Separator className="my-8 bg-white/50 w-1/3 mx-auto" />
         </AnimateOnScroll>
         <AnimateOnScroll animation="fade-in-up" delay={1} duration={0.8}>
             <Countdown targetDate={weddingDate} />
@@ -468,6 +467,7 @@ const Footer = () => (
     
 
     
+
 
 
 
