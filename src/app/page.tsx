@@ -106,7 +106,7 @@ const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => vo
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/70 to-transparent" />
         <div className="relative z-10 flex flex-col items-center justify-end h-full w-full">
-            <div className="absolute bottom-[-2%] left-[-5%] w-[40%] h-[30%] opacity-80 animate-sway-left">
+             <div className="absolute bottom-[-2%] left-[-5%] w-[40%] h-[30%] opacity-80 animate-sway-left">
                 <img src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-asset-03.png" alt="Floral ornament" className="w-full h-full object-contain -scale-x-[-1] rotate-180" />
             </div>
              <div className="absolute bottom-[-2%] right-[-5%] w-[40%] h-[30%] opacity-80 animate-sway-right">
@@ -487,6 +487,7 @@ const Footer = () => (
     
 
     
+
 
 
 
