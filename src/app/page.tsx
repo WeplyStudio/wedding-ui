@@ -131,21 +131,21 @@ const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => vo
           ))}
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
   
-          <div className="relative z-10 flex flex-col items-center justify-end h-full w-full text-center p-8 text-primary-foreground">
+          <div className="relative z-10 flex flex-col items-center justify-end h-full w-full text-center p-8 text-foreground">
               <div className="flex flex-col items-center mb-8 animate-fade-in-up text-shadow" style={{ animationDuration: '1.2s' }}>
                   <p className="font-sans text-sm tracking-[0.2em] uppercase mb-2">The Wedding Of</p>
                   <h1 className="font-serif text-5xl md:text-6xl font-bold text-shadow-lg leading-tight">Andika &<br/>Putri</h1>
                   <div className="w-full text-center mt-8">
                       <p className="font-sans text-lg mb-1">Dear</p>
                       <p className="font-serif text-xl font-bold mb-2">{guestName}</p>
-                      <p className="text-xs text-primary-foreground/80">*Mohon maaf jika ada kesalahan dalam penulisan nama / gelar.</p>
+                      <p className="text-xs text-foreground/80">*Mohon maaf jika ada kesalahan dalam penulisan nama / gelar.</p>
                   </div>
               </div>
               
               <Button 
                 onClick={onOpen} 
                 size="lg" 
-                className="w-full max-w-sm rounded-full px-10 py-7 text-lg shadow-lg bg-accent hover:bg-accent/90 text-accent-foreground font-sans animate-fade-in-up"
+                className="w-full max-w-sm rounded-full px-10 py-7 text-lg shadow-lg bg-primary hover:bg-primary/90 text-primary-foreground font-sans animate-fade-in-up"
                 style={{ animationDuration: '0.8s', animationDelay: '0.3s' }}
               >
                   <Mail className="mr-3 h-5 w-5" />
@@ -213,14 +213,25 @@ const CoupleSection = () => (
     <section id="couple" className="relative py-24 px-4 sm:px-6 bg-primary/5 overflow-hidden">
       <div className="max-w-4xl mx-auto">
           <AnimateOnScroll animation="fade-in-up" className="relative text-center text-foreground z-10 mb-16">
-              <div className="relative p-4 md:p-12">
-                <h2 className="font-serif text-5xl text-primary mb-6">Kedua Mempelai</h2>
-              </div>
+             <div className="relative inline-block">
+                <svg viewBox="0 0 400 150" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
+                    <path d="M0 50 Q 50 0, 100 50 T 200 50 T 300 50 T 400 50 V 100 Q 350 150, 300 100 T 200 100 T 100 100 T 0 100 V 50 Z" fill="hsl(var(--card))" />
+                    <text x="200" y="70" fontFamily="serif" fontSize="24" fill="hsl(var(--primary))" textAnchor="middle" className="font-serif">
+                        Kedua Mempelai
+                    </text>
+                     <text x="200" y="100" fontFamily="sans-serif" fontSize="12" fill="hsl(var(--muted-foreground))" textAnchor="middle" className="font-sans">
+                        Maha suci Allah yang telah menciptakan makhluk-Nya
+                    </text>
+                     <text x="200" y="115" fontFamily="sans-serif" fontSize="12" fill="hsl(var(--muted-foreground))" textAnchor="middle" className="font-sans">
+                        berpasang-pasangan.
+                    </text>
+                </svg>
+            </div>
           </AnimateOnScroll>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8 items-center">
-            <AnimateOnScroll animation="fade-in-right" className="w-full text-center">
-                <div className="md:text-right">
+            <AnimateOnScroll animation="fade-in-right" className="w-full text-center md:text-right">
+                <div className="flex flex-col items-center md:items-end">
                     <h3 className="font-serif text-4xl text-primary mb-2">Putri Cantika Sari</h3>
                     <p className="font-sans text-sm text-muted-foreground mb-1">Putri Pertama dari</p>
                     <p className="font-sans font-semibold mb-4">Bapak Abdul Rozak dan Ibu Adella Marni</p>
@@ -230,22 +241,22 @@ const CoupleSection = () => (
                             @user_ig_wanita
                         </a>
                     </Button>
-                </div>
-                 <div className="relative w-full h-[400px] mt-8 flex items-center justify-center">
-                    <div className="relative w-full max-w-[300px] md:w-3/4 aspect-[3/4] bg-secondary/30 rounded-3xl rotate-3 transition-transform duration-500 shadow-2xl">
-                        <Image
-                            src="https://the.invisimple.id/wp-content/uploads/elementor/thumbs/WANITA-r1qxu50pofy26yljvdfud7qei6f9whhy1kfb005u2w.jpg"
-                            alt="Putri Cantika Sari"
-                            fill
-                            objectFit="cover"
-                            className="rounded-3xl -rotate-6 transition-transform duration-500"
-                        />
+                    <div className="relative w-full h-[400px] mt-8 flex items-center justify-center md:justify-end">
+                        <div className="relative w-full max-w-[300px] aspect-[3/4] bg-secondary/30 rounded-3xl rotate-3 transition-transform duration-500 shadow-2xl">
+                            <Image
+                                src="https://the.invisimple.id/wp-content/uploads/elementor/thumbs/WANITA-r1qxu50pofy26yljvdfud7qei6f9whhy1kfb005u2w.jpg"
+                                alt="Putri Cantika Sari"
+                                fill
+                                objectFit="cover"
+                                className="rounded-3xl -rotate-6 transition-transform duration-500"
+                            />
+                        </div>
                     </div>
                 </div>
             </AnimateOnScroll>
 
             <AnimateOnScroll animation="fade-in-left" className="w-full text-center md:text-left">
-                 <div className="md:order-2">
+                 <div className="flex flex-col items-center md:items-start">
                      <h3 className="font-serif text-4xl text-primary mb-2">Putra Andika Pratama</h3>
                     <p className="font-sans text-sm text-muted-foreground mb-1">Putra Pertama dari</p>
                     <p className="font-sans font-semibold mb-4">Bapak Deni Bastian dan Ibu Aisha Dania</p>
@@ -255,16 +266,16 @@ const CoupleSection = () => (
                             @user_ig_pria
                         </a>
                     </Button>
-                </div>
-                <div className="relative w-full h-[400px] mt-8 flex items-center justify-center md:order-1">
-                    <div className="relative w-full max-w-[300px] md:w-3/4 aspect-[3/4] rounded-3xl -rotate-3 transition-transform duration-500 shadow-2xl">
-                        <Image
-                            src="https://the.invisimple.id/wp-content/uploads/elementor/thumbs/PRIA-r1qxu50pofy26yljvdfud7qei6f9whhy1kfb005u2w.jpg"
-                            alt="Putra Andika Pratama"
-                            fill
-                            objectFit="cover"
-                            className="rounded-3xl rotate-6 transition-transform duration-500"
-                        />
+                    <div className="relative w-full h-[400px] mt-8 flex items-center justify-center md:justify-start">
+                        <div className="relative w-full max-w-[300px] aspect-[3/4] rounded-3xl -rotate-3 transition-transform duration-500 shadow-2xl">
+                            <Image
+                                src="https://the.invisimple.id/wp-content/uploads/elementor/thumbs/PRIA-r1qxu50pofy26yljvdfud7qei6f9whhy1kfb005u2w.jpg"
+                                alt="Putra Andika Pratama"
+                                fill
+                                objectFit="cover"
+                                className="rounded-3xl rotate-6 transition-transform duration-500"
+                            />
+                        </div>
                     </div>
                 </div>
             </AnimateOnScroll>
@@ -571,7 +582,7 @@ const GiftDrawer = () => {
   
 
 const GuestBookSection = () => (
-    <section id="guestbook" className="py-24 px-6 bg-secondary/20 rounded-tr-[50] rounded-bl-[50]">
+    <section id="guestbook" className="py-24 px-6 bg-secondary/20 rounded-bl-[50]">
       <SectionTitle icon={Mail} title="Wishes" subtitle="Leave Your Wishes" />
       <div className="max-w-4xl mx-auto">
         <AnimateOnScroll>
@@ -619,15 +630,15 @@ const BottomNav = () => {
 
     return (
         <nav className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50">
-            <div className="bg-background/80 backdrop-blur-md shadow-2xl rounded-full px-4 py-2">
-                <ul className="flex items-center justify-center gap-x-2">
+            <div className="bg-background/80 backdrop-blur-md shadow-2xl rounded-full px-3 py-2">
+                <ul className="flex items-center justify-center gap-x-1">
                     {navItems.map(item => (
                         <li key={item.href}>
                             <a 
                                 href={item.href}
                                 onClick={() => setActiveNav(item.href)}
                                 className={cn(
-                                    "flex flex-col items-center justify-center text-center w-14 h-14 rounded-full transition-all duration-300 ease-in-out",
+                                    "flex flex-col items-center justify-center text-center w-12 h-12 rounded-full transition-all duration-300 ease-in-out",
                                     activeNav === item.href 
                                         ? "bg-primary text-primary-foreground scale-110" 
                                         : "text-muted-foreground hover:bg-accent/50 hover:text-accent-foreground"
@@ -656,5 +667,6 @@ const BottomNav = () => {
     
 
     
+
 
 
