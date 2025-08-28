@@ -10,7 +10,6 @@ import { Mail, Gift, Heart, Clock, CalendarDays, MapPin, Users, Video, BookOpen,
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Countdown from "@/components/countdown";
 import MusicPlayer from "@/components/music-player";
-import RsvpForm from "@/components/rsvp-form";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
 import { cn } from "@/lib/utils";
 import GuestBook from "@/components/guestbook";
@@ -324,18 +323,9 @@ const GallerySection = () => (
 
 const GuestBookSection = () => (
     <section id="guestbook" className="py-24 px-6 bg-secondary/20">
-      <SectionTitle icon={Mail} title="Wishes & RSVP" subtitle="Leave Your Wishes" />
-      <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-        <AnimateOnScroll className="text-center md:text-left">
-            <h3 className="font-serif text-3xl mb-4 text-primary">Join our celebration</h3>
-            <p className="text-muted-foreground mb-8 font-sans">
-                Your presence is the greatest gift of all. Please let us know if you can make it and leave a message for us to cherish.
-            </p>
-            <div className="bg-background/80 backdrop-blur-sm rounded-lg shadow-xl p-8 border border-primary/10">
-                <RsvpForm />
-            </div>
-        </AnimateOnScroll>
-        <AnimateOnScroll delay={0.2}>
+      <SectionTitle icon={Mail} title="Wishes" subtitle="Leave Your Wishes" />
+      <div className="max-w-4xl mx-auto">
+        <AnimateOnScroll>
              <GuestBook />
         </AnimateOnScroll>
       </div>
