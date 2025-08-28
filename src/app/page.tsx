@@ -1,4 +1,5 @@
 
+
 "use client";
 
 import Image from "next/image";
@@ -18,6 +19,12 @@ import GuestBook from "@/components/guestbook";
 const weddingDate = new Date("2025-09-20T14:00:00");
 const coupleNames = "Putri & Putra";
 const guestName = "Bapak/Ibu/Saudara/i"; // This can be dynamic in a real app
+
+const openingImages = [
+    "https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/Bride.jpg",
+    "https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/Groom.jpg",
+    "https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/4.jpeg",
+];
 
 const galleryImages = [
   { src: "https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/4.jpeg", alt: "Couple smiling", hint: "couple smiling" },
@@ -81,36 +88,56 @@ export default function EvergreenVowsPage() {
 
 
 const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => void }) => {
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImageIndex(prevIndex => (prevIndex + 1) % openingImages.length);
+        }, 5000); // Change image every 5 seconds
+
+        return () => clearInterval(interval);
+    }, []);
+
     return (
       <div className={cn(
-        "fixed inset-0 z-[100] bg-background transition-all duration-1000 ease-in-out flex items-center justify-center",
+        "fixed inset-0 z-[100] transition-all duration-1000 ease-in-out flex items-center justify-center",
         isOpen ? "opacity-0 pointer-events-none" : "opacity-100"
       )}>
-         <Image
-            src="https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/1-2.jpeg"
-            alt="Elegant floral background"
-            data-ai-hint="elegant floral"
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
+          {openingImages.map((src, index) => (
+            <Image
+                key={src}
+                src={src}
+                alt="The Wedding of Putri & Putra"
+                data-ai-hint="wedding couple photo"
+                fill
+                className={cn(
+                    "object-cover transition-opacity duration-1000 ease-in-out",
+                    index === currentImageIndex ? "opacity-100" : "opacity-0"
+                )}
+            />
+          ))}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
   
-          <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-primary-foreground p-8">
-              <AnimateOnScroll animation="fade-in-down" delay={0.2} className="flex flex-col items-center">
-                <p className="font-sans text-sm tracking-[0.2em] uppercase mb-4">The Wedding Of</p>
-                <h1 className="font-serif text-6xl md:text-7xl font-bold">{coupleNames}</h1>
-              </AnimateOnScroll>
-  
-              <div className="absolute bottom-24 flex flex-col items-center">
-                <AnimateOnScroll animation="fade-in-up" delay={0.6}>
-                    <p className="font-sans text-lg mb-2">Dear,</p>
-                    <p className="font-serif text-2xl font-bold mb-6">{guestName}</p>
-                    <Button onClick={onOpen} size="lg" className="rounded-full px-10 py-7 text-lg shadow-lg bg-primary hover:bg-primary/90 text-primary-foreground font-sans">
-                        <BookOpen className="mr-3 h-6 w-6" />
-                        Open Invitation
-                    </Button>
-                </AnimateOnScroll>
+          <div className="relative z-10 flex flex-col items-center justify-end h-full w-full text-center text-white p-8">
+              <div className="flex flex-col items-center mb-8 animate-fade-in-up" style={{ animationDuration: '1.2s' }}>
+                  <p className="font-sans text-sm tracking-[0.2em] uppercase mb-2 text-shadow">The Wedding Of</p>
+                  <h1 className="font-serif text-5xl md:text-6xl font-bold text-shadow-lg leading-tight">Andika &<br/>Putri</h1>
+                  <div className="w-full text-center mt-8">
+                      <p className="font-sans text-lg mb-1">Dear</p>
+                      <p className="font-serif text-xl font-bold mb-2">{guestName}</p>
+                      <p className="text-xs text-white/80">*Mohon maaf jika ada kesalahan dalam penulisan nama / gelar.</p>
+                  </div>
               </div>
+              
+              <Button 
+                onClick={onOpen} 
+                size="lg" 
+                className="w-full max-w-sm rounded-full px-10 py-7 text-lg shadow-lg bg-accent/80 backdrop-blur-sm hover:bg-accent text-accent-foreground font-sans animate-fade-in-up"
+                style={{ animationDuration: '1.2s', animationDelay: '0.3s' }}
+              >
+                  <Mail className="mr-3 h-5 w-5" />
+                  Buka Undangan
+              </Button>
           </div>
       </div>
     )
