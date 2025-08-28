@@ -1,9 +1,13 @@
+
+"use client";
+
 import Image from "next/image";
+import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Mail, Gift, Heart, Clock } from "lucide-react";
+import { Mail, Gift, Heart, Clock, BookOpen, Music, Play, Pause } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Countdown from "@/components/countdown";
 import MusicPlayer from "@/components/music-player";
@@ -13,9 +17,12 @@ import Header from "@/components/header";
 import { Logo } from "@/components/logo";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
 import { Calendar } from "@/components/ui/calendar";
+import { cn } from "@/lib/utils";
+
 
 const weddingDate = new Date("2025-09-20T14:00:00");
 const coupleNames = "Leon & Celesta";
+const guestName = "Tamu Undangan"; // This can be dynamic in a real app
 
 const galleryImages = [
   { src: "https://picsum.photos/id/1015/800/1200", alt: "Couple smiling", hint: "couple smiling" },
@@ -44,25 +51,85 @@ const guestbookEntries = [
 ];
 
 export default function EvergreenVowsPage() {
+  const [isOpen, setIsOpen] = useState(false);
+  const audioRef = useState<HTMLAudioElement | null>(null);
+
+  const handleOpenInvitation = () => {
+    setIsOpen(true);
+    document.documentElement.style.overflow = 'auto';
+    if(audioRef.current) {
+        audioRef.current.muted = false;
+        audioRef.current.play().catch(console.error);
+    }
+  };
+
+  useEffect(() => {
+    document.documentElement.style.overflow = 'hidden';
+  }, []);
+
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground">
-      <Header />
-      <main className="flex-1 overflow-x-hidden">
-        <HeroSection />
-        <QuoteSection />
-        <CoupleSection />
-        <EventsSection />
-        <VenueSection />
-        <GallerySection />
-        <GiftRegistrySection />
-        <RsvpSection />
-        <GuestBookSection />
-      </main>
-      <Footer />
-      <MusicPlayer />
+      
+      <OpeningCeremony isOpen={isOpen} onOpen={handleOpenInvitation} />
+      
+      <div className={cn("transition-opacity duration-1000 ease-in-out", isOpen ? "opacity-100" : "opacity-0 invisible")}>
+        <Header />
+        <main className="flex-1 overflow-x-hidden">
+          <HeroSection />
+          <QuoteSection />
+          <CoupleSection />
+          <EventsSection />
+          <VenueSection />
+          <GallerySection />
+          <GiftRegistrySection />
+          <RsvpSection />
+          <GuestBookSection />
+        </main>
+        <Footer />
+        <MusicPlayer audioRef={audioRef} />
+      </div>
     </div>
   );
 }
+
+const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => void }) => {
+  return (
+    <div className={cn(
+      "fixed inset-0 z-[100] bg-background transition-all duration-1000 ease-in-out",
+      isOpen ? "opacity-0 -translate-y-full" : "opacity-100"
+    )}>
+      <div className="relative h-full w-full flex items-center justify-center text-center">
+        <Image
+          src="https://media.katsudoto.id/media/public/70/56834/thumbnail/thumb-lg-676408-2000-2000-1755052004-59e8d8c19ddf135fcda341b9.png"
+          alt="Elegant couple"
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
+        <div className="relative z-10 flex flex-col items-center justify-end h-full pb-20 text-primary p-4">
+          <div className="flex-grow flex flex-col items-center justify-center text-center">
+              <p className="font-body text-lg md:text-xl tracking-widest uppercase mb-2">The Wedding Of</p>
+              <h1 className="font-headline text-6xl md:text-8xl font-bold">{coupleNames.split(' & ')[0]}</h1>
+              <h1 className="font-headline text-6xl md:text-8xl font-bold">&</h1>
+              <h1 className="font-headline text-6xl md:text-8xl font-bold">{coupleNames.split(' & ')[1]}</h1>
+          </div>
+          <div className="flex flex-col items-center">
+            <p className="font-body text-sm text-muted-foreground">Kepada Yth.</p>
+            <p className="font-body text-lg font-semibold text-foreground mb-2">{guestName}</p>
+            <p className="font-body text-xs text-muted-foreground/80 mb-6">*Mohon maaf jika ada kesalahan dalam penulisan nama / gelar.</p>
+            <Button onClick={onOpen} size="lg" className="rounded-full px-8 py-6 text-base shadow-lg">
+              <BookOpen className="mr-2 h-5 w-5" />
+              Buka Undangan
+            </Button>
+          </div>
+        </div>
+        <div className="absolute bottom-0 left-0 w-full h-1/4">
+            <Image src="https://leoncelesta.katsudoto.id/media/template/exclusive/charera/original/Orn-42.png" layout="fill" objectFit="contain" alt="Floral ornament" className="opacity-40" />
+        </div>
+      </div>
+    </div>
+  )
+};
 
 const HeroSection = () => (
   <section id="home" className="relative h-screen flex items-center justify-center text-center text-primary-foreground">

@@ -2,6 +2,21 @@ import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
 import { cn } from '@/lib/utils';
+import { Alegreya, PT_Sans } from 'next/font/google';
+
+const alegreya = Alegreya({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-alegreya',
+});
+
+const ptSans = PT_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-pt-sans',
+  weight: ['400', '700'],
+});
+
 
 export const metadata: Metadata = {
   title: 'Evergreen Vows',
@@ -14,11 +29,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${alegreya.variable} ${ptSans.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@400;700&family=Ovo&display=swap" rel="stylesheet" />
       </head>
       <body className={cn("font-body antialiased")}>
         {children}

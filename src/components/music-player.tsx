@@ -1,43 +1,57 @@
+
 "use client";
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, RefObject } from 'react';
 import { Music, Play, Pause } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-const MusicPlayer = () => {
-  const audioRef = useRef<HTMLAudioElement>(null);
+const MusicPlayer = ({ audioRef }: { audioRef: RefObject<HTMLAudioElement | null> }) => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const internalAudioRef = useRef<HTMLAudioElement>(null);
+
+   useEffect(() => {
+    if(audioRef) {
+      (audioRef as any).current = internalAudioRef.current;
+    }
+  }, [audioRef]);
 
   const togglePlayPause = () => {
-    const prevValue = isPlaying;
-    setIsPlaying(!prevValue);
-    if (!prevValue) {
-      audioRef.current?.play();
+    const audio = internalAudioRef.current;
+    if (!audio) return;
+
+    if (isPlaying) {
+      audio.pause();
     } else {
-      audioRef.current?.pause();
+      audio.play().catch(console.error);
     }
+    setIsPlaying(!isPlaying);
   };
 
   useEffect(() => {
-    // Attempt to autoplay, might be blocked by browser policy
-    // but works if user has interacted with the site before.
-    // Start muted to comply with most autoplay policies.
-    if(audioRef.current) {
-        audioRef.current.muted = true;
-        audioRef.current.play().then(() => {
-            setIsPlaying(true);
-            if(audioRef.current) audioRef.current.muted = false; // Unmute after play starts
-        }).catch((error) => {
-            console.log("Autoplay was prevented:", error);
-            // Autoplay was prevented, user will have to click to play.
-            setIsPlaying(false);
-        });
+    const audio = internalAudioRef.current;
+    if(!audio) return;
+    
+    const handlePlay = () => setIsPlaying(true);
+    const handlePause = () => setIsPlaying(false);
+
+    audio.addEventListener('play', handlePlay);
+    audio.addEventListener('pause', handlePause);
+
+    // Initial check in case autoplay was successful
+    if(!audio.paused) {
+      setIsPlaying(true);
     }
+    
+    return () => {
+      audio.removeEventListener('play', handlePlay);
+      audio.removeEventListener('pause', handlePause);
+    }
+
   }, []);
 
   return (
     <>
-      <audio ref={audioRef} loop>
+      <audio ref={internalAudioRef} loop>
         <source src="/wedding-music.mp3" type="audio/mpeg" />
         Your browser does not support the audio element.
       </audio>
