@@ -199,13 +199,8 @@ const HeroSection = () => {
     );
 };
 
-const SectionTitle = ({ icon: Icon, title, subtitle }: { icon?: React.ElementType, title: string, subtitle: string }) => (
+const SectionTitle = ({ title, subtitle }: { title: string, subtitle: string }) => (
     <AnimateOnScroll className="flex flex-col items-center text-center mb-12">
-        {Icon && (
-            <div className="mb-4">
-                <Icon className="w-12 h-12 text-primary" />
-            </div>
-        )}
         <p className="font-sans tracking-[0.2em] text-sm uppercase text-primary mb-2">{title}</p>
         <h2 className="font-serif text-5xl">{subtitle}</h2>
     </AnimateOnScroll>
@@ -296,13 +291,12 @@ const CoupleSection = () => (
       </section>
 );
 
-
 const EventCard = ({
     title,
     date,
     time,
     location,
-    mapLink,
+    buttons,
     imageUrl,
     imageHint,
     align = 'left'
@@ -311,7 +305,7 @@ const EventCard = ({
     date: string[];
     time: string;
     location: string[];
-    mapLink: string;
+    buttons: { text: string; href: string; icon: React.ElementType; disabled?: boolean }[];
     imageUrl: string;
     imageHint: string;
     align?: 'left' | 'right';
@@ -351,12 +345,16 @@ const EventCard = ({
                         {location.map((line, i) => (
                            <p key={i} className="font-sans text-sm text-foreground">{line}</p>
                         ))}
-                         <Button asChild variant="outline" className="mt-6 w-full font-sans border-primary/30 hover:bg-primary hover:text-primary-foreground">
-                            <a href={mapLink} target="_blank" rel="noopener noreferrer">
-                                <MapPin className="mr-2 h-4 w-4"/>
-                                Google Maps
-                            </a>
-                        </Button>
+                        <div className="mt-6 flex flex-col sm:flex-row gap-2">
+                           {buttons.map((button, i) => (
+                                <Button key={i} asChild variant="outline" className="w-full font-sans border-primary/30 hover:bg-primary hover:text-primary-foreground" disabled={button.disabled}>
+                                    <a href={button.disabled ? undefined : button.href} target="_blank" rel="noopener noreferrer">
+                                        <button.icon className="mr-2 h-4 w-4"/>
+                                        {button.text}
+                                    </a>
+                                </Button>
+                           ))}
+                        </div>
                     </div>
                      {align === 'right' && (
                          <div className="bg-accent text-accent-foreground p-4 flex items-center justify-center">
@@ -370,53 +368,67 @@ const EventCard = ({
 };
 
 
-const EventsSection = () => (
-    <section id="events" className="relative py-24 px-6 overflow-hidden rounded-bl-[50]">
-        <div className="absolute inset-0">
-             <Image
-                src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-bg-01.jpg"
-                alt="Marble background"
-                data-ai-hint="dark marble"
-                fill
-                className="object-cover"
-            />
-            <div className="absolute inset-0 bg-background/80" />
-        </div>
-        <div className="relative z-10 flex flex-col items-center text-center mb-16">
-            <h2 className="text-white font-serif text-6xl text-primary-foreground text-shadow">
-                Wedding
-            </h2>
-            <p className="text-white font-sans text-2xl text-primary-foreground tracking-[0.4em] uppercase">
-                Event
-            </p>
-            <div className="w-24 h-px bg-primary my-4"></div>
-        </div>
+const EventsSection = () => {
+    const receptionStartDate = new Date("2025-09-20T18:00:00");
+    const receptionEndDate = new Date("2025-09-20T21:00:00");
     
-        <div className="max-w-4xl mx-auto grid md:grid-cols-1 gap-12">
-            <EventCard
-                title="Akad Nikah"
-                date={["20", "September", "2025"]}
-                time="14:00 - 16:00"
-                location={["The Evergreen Garden", "123 Blossom Lane, Meadowville"]}
-                mapLink="https://www.google.com/maps"
-                imageUrl="https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/Resepsi-1-1.jpg"
-                imageHint="wedding ceremony"
-                align="left"
-            />
-             <EventCard
-                title="Resepsi"
-                date={["20", "September", "2025"]}
-                time="18:00 - 21:00"
-                location={["The Grand Ballroom", "123 Blossom Lane, Meadowville"]}
-                mapLink="https://www.google.com/maps"
-                imageUrl="https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/Resepsi-1.jpg"
-                imageHint="wedding reception"
-                align="right"
-            />
-        </div>
-  </section>
-);
+    // Format dates for Google Calendar URL (YYYYMMDDTHHMMSSZ)
+    const formatDateForGoogleCalendar = (date: Date) => {
+        return date.toISOString().replace(/-|:|\.\d{3}/g, '');
+    };
 
+    const googleCalendarLink = `https://www.google.com/calendar/render?action=TEMPLATE&text=Wedding+Reception%3A+Putri+%26+Putra&dates=${formatDateForGoogleCalendar(receptionStartDate)}/${formatDateForGoogleCalendar(receptionEndDate)}&details=Join+us+to+celebrate+the+wedding+of+Putri+and+Putra!&location=The+Grand+Ballroom%2C+123+Blossom+Lane%2C+Meadowville`;
+    
+    return (
+        <section id="events" className="relative py-24 px-6 overflow-hidden rounded-bl-[50]">
+            <div className="absolute inset-0">
+                 <Image
+                    src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-bg-01.jpg"
+                    alt="Marble background"
+                    data-ai-hint="dark marble"
+                    fill
+                    className="object-cover"
+                />
+                <div className="absolute inset-0 bg-background/80" />
+            </div>
+            <div className="relative z-10 flex flex-col items-center text-center mb-16">
+                <h2 className="text-white font-serif text-6xl text-primary-foreground text-shadow">
+                    Wedding
+                </h2>
+                <p className="text-white font-sans text-2xl text-primary-foreground tracking-[0.4em] uppercase">
+                    Event
+                </p>
+                <div className="w-24 h-px bg-primary my-4"></div>
+            </div>
+        
+            <div className="max-w-4xl mx-auto grid md:grid-cols-1 gap-12">
+                <EventCard
+                    title="Akad Nikah"
+                    date={["20", "September", "2025"]}
+                    time="14:00 - 16:00"
+                    location={["The Evergreen Garden", "123 Blossom Lane, Meadowville"]}
+                    buttons={[{ text: "Google Maps", href: "https://www.google.com/maps", icon: MapPin, disabled: true }]}
+                    imageUrl="https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/Resepsi-1-1.jpg"
+                    imageHint="wedding ceremony"
+                    align="left"
+                />
+                 <EventCard
+                    title="Resepsi"
+                    date={["20", "September", "2025"]}
+                    time="18:00 - 21:00"
+                    location={["The Grand Ballroom", "123 Blossom Lane, Meadowville"]}
+                    buttons={[
+                        { text: "Google Maps", href: "https://www.google.com/maps", icon: MapPin },
+                        { text: "Add to Calendar", href: googleCalendarLink, icon: CalendarDays }
+                    ]}
+                    imageUrl="https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/Resepsi-1.jpg"
+                    imageHint="wedding reception"
+                    align="right"
+                />
+            </div>
+      </section>
+    );
+};
 
 const PhotoGrid = () => (
     <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8">
@@ -679,6 +691,7 @@ const BottomNav = () => {
     
 
     
+
 
 
 
