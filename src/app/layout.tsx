@@ -2,19 +2,20 @@ import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
 import { cn } from '@/lib/utils';
-import { Alegreya, PT_Sans } from 'next/font/google';
+import { Ovo, Cormorant_Upright } from 'next/font/google';
 
-const alegreya = Alegreya({
+const cormorantUpright = Cormorant_Upright({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-alegreya',
+  variable: '--font-cormorant-upright',
+  weight: ['400', '700'],
 });
 
-const ptSans = PT_Sans({
+const ovo = Ovo({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-pt-sans',
-  weight: ['400', '700'],
+  variable: '--font-ovo',
+  weight: '400',
 });
 
 
@@ -29,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${alegreya.variable} ${ptSans.variable}`}>
+    <html lang="en" className={`${cormorantUpright.variable} ${ovo.variable}`}>
       <head>
       </head>
       <body className={cn("font-body antialiased")}>

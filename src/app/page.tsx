@@ -21,8 +21,8 @@ import { cn } from "@/lib/utils";
 
 
 const weddingDate = new Date("2025-09-20T14:00:00");
-const coupleNames = "Leon & Celesta";
-const guestName = "Tamu Undangan"; // This can be dynamic in a real app
+const coupleNames = "Putri & Putra";
+const guestName = "Bapak/Ibu/Saudara/i"; // This can be dynamic in a real app
 
 const galleryImages = [
   { src: "https://picsum.photos/id/1015/800/1200", alt: "Couple smiling", hint: "couple smiling" },
@@ -100,22 +100,20 @@ const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => vo
     )}>
       <div className="relative h-full w-full flex items-center justify-center text-center">
         <Image
-          src="https://media.katsudoto.id/media/public/70/56834/thumbnail/thumb-lg-676408-2000-2000-1755052004-59e8d8c19ddf135fcda341b9.png"
+          src="https://our-wedding.link/uploads/cover/c9c3e925d48721325d2e236531f8b4ed.jpeg"
           alt="Elegant couple"
           fill
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
         <div className="relative z-10 flex flex-col items-center justify-end h-full pb-20 text-primary p-4">
-          <div className="flex-grow flex flex-col items-center justify-center text-center">
-              <p className="font-body text-lg md:text-xl tracking-widest uppercase mb-2">The Wedding Of</p>
-              <h1 className="font-headline text-6xl md:text-8xl font-bold">{coupleNames.split(' & ')[0]}</h1>
-              <h1 className="font-headline text-6xl md:text-8xl font-bold">&</h1>
-              <h1 className="font-headline text-6xl md:text-8xl font-bold">{coupleNames.split(' & ')[1]}</h1>
+          <div className="flex-grow flex flex-col items-center justify-center text-center -mt-20">
+              <p className="font-body text-base md:text-lg tracking-widest uppercase mb-4">The Wedding Of</p>
+              <h1 className="font-headline text-5xl md:text-6xl font-bold">{coupleNames}</h1>
           </div>
           <div className="flex flex-col items-center">
             <p className="font-body text-sm text-muted-foreground">Kepada Yth.</p>
-            <p className="font-body text-lg font-semibold text-foreground mb-2">{guestName}</p>
+            <p className="font-body text-base font-semibold text-foreground mb-2">{guestName}</p>
             <p className="font-body text-xs text-muted-foreground/80 mb-6">*Mohon maaf jika ada kesalahan dalam penulisan nama / gelar.</p>
             <Button onClick={onOpen} size="lg" className="rounded-full px-8 py-6 text-base shadow-lg">
               <BookOpen className="mr-2 h-5 w-5" />
@@ -124,7 +122,7 @@ const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => vo
           </div>
         </div>
         <div className="absolute bottom-0 left-0 w-full h-1/4">
-            <Image src="https://leoncelesta.katsudoto.id/media/template/exclusive/charera/original/Orn-42.png" layout="fill" objectFit="contain" alt="Floral ornament" className="opacity-40" />
+            <Image src="https://our-wedding.link/uploads/decoration/2d3b2043224f808726cf34a36279f046.png" layout="fill" objectFit="contain" alt="Floral ornament" className="opacity-70" />
         </div>
       </div>
     </div>

@@ -17,8 +17,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        body: ['Ovo', 'serif'],
-        headline: ['Cormorant Upright', 'serif'],
+        body: ['var(--font-ovo)', 'serif'],
+        headline: ['var(--font-cormorant-upright)', 'serif'],
         code: ['monospace'],
       },
       colors: {
