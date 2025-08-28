@@ -39,6 +39,12 @@ const nextConfig: NextConfig = {
         hostname: 'our-wedding.link',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'the.invisimple.id',
+        port: '',
+        pathname: '/**',
       }
     ],
   },

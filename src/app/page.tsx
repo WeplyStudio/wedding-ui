@@ -1,4 +1,5 @@
 
+
 "use client";
 
 import Image from "next/image";
@@ -108,7 +109,7 @@ const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => vo
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
         <div className="relative z-10 flex flex-col items-center justify-end h-full pb-20 text-primary p-4">
           <div className="flex-grow flex flex-col items-center justify-center text-center -mt-20">
-              <p className="font-body text-base md:text-lg tracking-widest uppercase mb-4">The Wedding Of</p>
+              <p className="font-body text-sm md:text-base tracking-widest uppercase mb-4">The Wedding Of</p>
               <h1 className="font-headline text-5xl md:text-6xl font-bold">{coupleNames}</h1>
           </div>
           <div className="flex flex-col items-center">
@@ -122,7 +123,7 @@ const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => vo
           </div>
         </div>
         <div className="absolute bottom-0 left-0 w-full h-1/4">
-            <Image src="https://our-wedding.link/uploads/decoration/2d3b2043224f808726cf34a36279f046.png" layout="fill" objectFit="contain" alt="Floral ornament" className="opacity-70" />
+            <Image src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-asset-03.png" layout="fill" objectFit="contain" alt="Floral ornament" className="opacity-70" />
         </div>
       </div>
     </div>
