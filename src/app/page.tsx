@@ -65,7 +65,7 @@ export default function EvergreenVowsPage() {
 }
 
 const HeroSection = () => (
-  <section id="home" className="relative h-screen flex items-center justify-center text-center text-primary">
+  <section id="home" className="relative h-screen flex items-center justify-center text-center text-primary-foreground">
     <Image
       src="https://media.katsudoto.id/media/public/70/56834/thumbnail/thumb-lg-676408-2000-2000-1755052004-59e8d8c19ddf135fcda341b9.png"
       alt="A beautiful fairytale castle"
@@ -75,7 +75,8 @@ const HeroSection = () => (
       priority
     />
     <div className="absolute inset-0 bg-background/30 backdrop-blur-sm" />
-    <div className="relative z-10 p-4 flex flex-col items-center">
+    <Image src="https://leoncelesta.katsudoto.id/media/template/exclusive/charera/original/Orn-52.png" alt="ornament" layout="fill" objectFit="contain" className="z-10 opacity-80" />
+    <div className="relative z-20 p-4 flex flex-col items-center">
         <AnimateOnScroll animation="fade-in-up" delay={0.2} duration={0.8}>
             <p className="font-body text-lg md:text-xl mb-4 tracking-widest uppercase">The Wedding Of</p>
         </AnimateOnScroll>
@@ -85,7 +86,7 @@ const HeroSection = () => (
             </h1>
         </AnimateOnScroll>
         <AnimateOnScroll animation="fade-in" delay={0.8} duration={1}>
-            <Separator className="my-8 bg-primary/50 w-1/3 mx-auto" />
+            <Separator className="my-8 bg-primary-foreground/50 w-1/3 mx-auto" />
         </AnimateOnScroll>
         <AnimateOnScroll animation="fade-in-up" delay={1} duration={0.8}>
             <Countdown targetDate={weddingDate} />
@@ -97,44 +98,50 @@ const HeroSection = () => (
 
 const QuoteSection = () => (
     <section id="quote" className="py-20 md:py-32 bg-background relative overflow-hidden">
-        <Image src="https://leoncelesta.katsudoto.id/media/template/exclusive/charera/original/Orn-01.png" alt="ornament" width={300} height={300} className="absolute -top-24 -left-24 opacity-50" />
-        <Image src="https://leoncelesta.katsudoto.id/media/template/exclusive/charera/original/Orn-01.png" alt="ornament" width={300} height={300} className="absolute -bottom-24 -right-24 opacity-50" />
+        <Image src="https://leoncelesta.katsudoto.id/media/template/exclusive/charera/original/Orn-02.png" alt="ornament" width={300} height={300} className="absolute -top-10 -left-24 opacity-50 -rotate-45" />
+        <Image src="https://leoncelesta.katsudoto.id/media/template/exclusive/charera/original/Orn-03.png" alt="ornament" width={300} height={300} className="absolute -top-10 -right-24 opacity-50 rotate-45" />
         <div className="container mx-auto px-4 max-w-3xl text-center">
             <AnimateOnScroll animation="fade-in-up">
-                <p className="font-headline text-3xl md:text-4xl text-foreground leading-relaxed">
+                <Image src="https://leoncelesta.katsudoto.id/media/template/exclusive/charera/original/Orn-01.png" alt="ornament" width={150} height={150} className="mx-auto mb-8 opacity-70" />
+                <p className="font-headline text-3xl md:text-4xl text-primary leading-relaxed">
                 "A successful marriage requires falling in love many times, always with the same person."
                 </p>
                 <p className="font-body text-lg text-muted-foreground mt-6">- Mignon McLaughlin -</p>
             </AnimateOnScroll>
         </div>
+        <Image src="https://leoncelesta.katsudoto.id/media/template/exclusive/charera/original/Orn-08.png" alt="ornament" width={200} height={200} className="absolute -bottom-24 left-1/2 -translate-x-1/2 opacity-40" />
     </section>
 )
 
 const CoupleSection = () => (
-    <section id="couple" className="py-20 md:py-32 bg-secondary">
+    <section id="couple" className="py-20 md:py-32 bg-secondary relative overflow-hidden">
+        <Image src="https://leoncelesta.katsudoto.id/media/template/exclusive/charera/original/Orn-07.png" alt="ornament" width={400} height={400} className="absolute -top-24 -left-32 opacity-30" />
+        <Image src="https://leoncelesta.katsudoto.id/media/template/exclusive/charera/original/Orn-06.png" alt="ornament" width={400} height={400} className="absolute -bottom-32 -right-24 opacity-30" />
         <div className="container mx-auto px-4">
             <AnimateOnScroll animation="fade-in-down" className="text-center mb-16">
-                 <h2 className="text-4xl md:text-5xl font-headline text-center text-foreground mb-4">The Happy Couple</h2>
+                 <h2 className="text-4xl md:text-5xl font-headline text-center text-primary mb-4">The Happy Couple</h2>
                  <p className="text-lg text-muted-foreground">With joyful hearts, we invite you to share in our celebration of love.</p>
             </AnimateOnScroll>
             <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
                 <AnimateOnScroll animation="fade-in-right">
-                    <Card className="text-center p-8 border-0 shadow-lg bg-background/80">
+                    <Card className="text-center p-8 border-0 shadow-lg bg-background/80 relative">
+                        <Image src="https://leoncelesta.katsudoto.id/media/template/exclusive/charera/original/Orn-11.png" alt="ornament" width={200} height={200} className="absolute -top-10 -left-10 opacity-50"/>
                         <Avatar className="w-32 h-32 mx-auto mb-6 border-4 border-primary">
                             <AvatarImage src="https://picsum.photos/seed/groom/200" alt="Leon" />
                             <AvatarFallback>L</AvatarFallback>
                         </Avatar>
-                        <CardTitle className="font-headline text-4xl text-foreground">Leon Alistair</CardTitle>
+                        <CardTitle className="font-headline text-4xl text-primary">Leon Alistair</CardTitle>
                         <CardDescription className="text-muted-foreground mt-2">The Son of Mr Jhonny Alistair & Mrs. Greny Henn</CardDescription>
                     </Card>
                 </AnimateOnScroll>
                  <AnimateOnScroll animation="fade-in-left">
-                    <Card className="text-center p-8 border-0 shadow-lg bg-background/80">
+                    <Card className="text-center p-8 border-0 shadow-lg bg-background/80 relative">
+                        <Image src="https://leoncelesta.katsudoto.id/media/template/exclusive/charera/original/Orn-11.png" alt="ornament" width={200} height={200} className="absolute -top-10 -right-10 opacity-50 scale-x-[-1]"/>
                         <Avatar className="w-32 h-32 mx-auto mb-6 border-4 border-primary">
                             <AvatarImage src="https://picsum.photos/seed/bride/200" alt="Celesta" />
                             <AvatarFallback>C</AvatarFallback>
                         </Avatar>
-                        <CardTitle className="font-headline text-4xl text-foreground">Celesta Aurelia</CardTitle>
+                        <CardTitle className="font-headline text-4xl text-primary">Celesta Aurelia</CardTitle>
                         <CardDescription className="text-muted-foreground mt-2">The Daughter of Mr. Henry Deon & Mrs. Kelly Penelope</CardDescription>
                     </Card>
                 </AnimateOnScroll>
@@ -149,14 +156,14 @@ const EventsSection = () => (
      <Image src="https://leoncelesta.katsudoto.id/media/template/exclusive/charera/original/Orn-46.png" alt="ornament" width={150} height={150} className="absolute bottom-10 left-10 opacity-30 -scale-x-100" />
     <div className="container mx-auto px-4">
       <AnimateOnScroll animation="fade-in-down">
-        <h2 className="text-4xl md:text-5xl font-headline text-center text-foreground mb-16">Schedule of Events</h2>
+        <h2 className="text-4xl md:text-5xl font-headline text-center text-primary mb-16">Schedule of Events</h2>
       </AnimateOnScroll>
       <div className="flex flex-col md:flex-row items-center justify-center gap-12 md:gap-16 lg:gap-24">
         <AnimateOnScroll animation='fade-in-right' className="w-full max-w-sm">
             <Card className="shadow-xl overflow-hidden border-2 border-primary/20 bg-background/50 backdrop-blur-sm">
                 <CardContent className="p-0">
                     <Calendar mode="single" selected={weddingDate} disabled className="p-4 w-full" classNames={{
-                        head_cell: "text-secondary-foreground/80",
+                        head_cell: "text-primary/80",
                         day_selected: "bg-primary text-primary-foreground",
                         day_today: "text-primary font-bold ring-1 ring-primary"
                     }}/>
@@ -166,25 +173,25 @@ const EventsSection = () => (
         <div className="space-y-10 max-w-md">
             <AnimateOnScroll animation='fade-in-left' delay={0.2}>
                 <div className="flex items-start gap-6">
-                    <div className="bg-primary/20 text-primary p-4 rounded-full shadow-inner">
+                    <div className="bg-primary/10 text-primary p-4 rounded-full shadow-inner">
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-rings"><path d="M7 15a2 2 0 0 0-2-2H3a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-2Z"></path><path d="M17 15a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-2Z"></path><path d="M17 13V9a5 5 0 0 0-5-5H7"></path></svg>
                     </div>
                     <div>
-                        <h3 className="text-3xl font-headline text-foreground">The Ceremony</h3>
+                        <h3 className="text-3xl font-headline text-primary">The Ceremony</h3>
                         <p className="text-lg text-muted-foreground mt-1">2:00 PM</p>
-                        <p className="text-secondary-foreground/80 mt-3">Join us as we exchange vows and begin our new chapter together in a beautiful garden setting.</p>
+                        <p className="text-foreground/80 mt-3">Join us as we exchange vows and begin our new chapter together in a beautiful garden setting.</p>
                     </div>
                 </div>
             </AnimateOnScroll>
             <AnimateOnScroll animation='fade-in-left' delay={0.4}>
                 <div className="flex items-start gap-6">
-                    <div className="bg-primary/20 text-primary p-4 rounded-full shadow-inner">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-glass-water"><path d="M15.2 3.2c.1-.4.5-.8.9-.8H18c.9 0 1.6.5 1.8 1.4l-1.3 8.2c-.1.7-.7 1.2-1.4 1.2H6.8c-.7 0-1.3-.5-1.4-1.2L4 3.8c.2-.9.9-1.4 1.8-1.4h2c.4 0 .7.3.9.8l1.6 5.1 1.6-5.1Z"></path><path d="M4 14h16"></path></svg>
+                    <div className="bg-primary/10 text-primary p-4 rounded-full shadow-inner">
+                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-glass-water"><path d="M15.2 3.2c.1-.4.5-.8.9-.8H18c.9 0 1.6.5 1.8 1.4l-1.3 8.2c-.1.7-.7 1.2-1.4 1.2H6.8c-.7 0-1.3-.5-1.4-1.2L4 3.8c.2-.9.9-1.4 1.8-1.4h2c.4 0 .7.3.9.8l1.6 5.1 1.6-5.1Z"></path><path d="M4 14h16"></path></svg>
                     </div>
                     <div>
-                        <h3 className="text-3xl font-headline text-foreground">The Reception</h3>
+                        <h3 className="text-3xl font-headline text-primary">The Reception</h3>
                         <p className="text-lg text-muted-foreground mt-1">4:00 PM onwards</p>
-                        <p className="text-secondary-foreground/80 mt-3">Let's celebrate with dinner, drinks, and dancing under the stars!</p>
+                        <p className="text-foreground/80 mt-3">Let's celebrate with dinner, drinks, and dancing under the stars!</p>
                     </div>
                 </div>
             </AnimateOnScroll>
@@ -195,10 +202,12 @@ const EventsSection = () => (
 );
 
 const VenueSection = () => (
-  <section id="venue" className="py-20 md:py-32">
+  <section id="venue" className="py-20 md:py-32 bg-secondary relative overflow-hidden">
+     <Image src="https://leoncelesta.katsudoto.id/media/template/exclusive/charera/original/Orn-34.png" alt="ornament" width={200} height={200} className="absolute -top-10 -left-16 opacity-50"/>
+     <Image src="https://leoncelesta.katsudoto.id/media/template/exclusive/charera/original/Orn-34.png" alt="ornament" width={200} height={200} className="absolute -bottom-10 -right-16 opacity-50 -scale-x-100"/>
     <div className="container mx-auto px-4 text-center">
         <AnimateOnScroll animation="fade-in-down">
-            <h2 className="text-4xl md:text-5xl font-headline mb-4 text-foreground">The Venue</h2>
+            <h2 className="text-4xl md:text-5xl font-headline mb-4 text-primary">The Venue</h2>
             <p className="text-xl text-muted-foreground mb-12">The Evergreen Garden, 123 Blossom Lane, Meadowville</p>
         </AnimateOnScroll>
         <AnimateOnScroll animation="zoom-in">
@@ -220,10 +229,12 @@ const VenueSection = () => (
 );
 
 const GallerySection = () => (
-  <section id="gallery" className="py-20 md:py-32 bg-secondary">
+  <section id="gallery" className="py-20 md:py-32 bg-background relative overflow-hidden">
+    <Image src="https://leoncelesta.katsudoto.id/media/template/exclusive/charera/original/Orn-40.png" alt="ornament" width={300} height={300} className="absolute -top-24 -left-20 opacity-20" />
+    <Image src="https://leoncelesta.katsudoto.id/media/template/exclusive/charera/original/Orn-40.png" alt="ornament" width={300} height={300} className="absolute -bottom-24 -right-20 opacity-20 -scale-x-100" />
     <div className="container mx-auto px-4 text-center">
       <AnimateOnScroll animation="fade-in-down">
-        <h2 className="text-4xl md:text-5xl font-headline mb-16 text-foreground">Our Moments</h2>
+        <h2 className="text-4xl md:text-5xl font-headline mb-16 text-primary">Our Moments</h2>
       </AnimateOnScroll>
       <AnimateOnScroll animation="fade-in-up">
         <Carousel
@@ -260,13 +271,15 @@ const GallerySection = () => (
 );
 
 const RsvpSection = () => (
-  <section id="rsvp" className="py-20 md:py-32">
+  <section id="rsvp" className="py-20 md:py-32 bg-secondary">
     <div className="container mx-auto px-4">
       <AnimateOnScroll animation="zoom-in" className="max-w-2xl mx-auto">
-        <Card className="shadow-xl bg-secondary/50 border-primary/20 backdrop-blur-sm rounded-2xl">
+        <Card className="shadow-xl bg-background/80 border-primary/20 backdrop-blur-sm rounded-2xl relative overflow-hidden">
+            <Image src="https://leoncelesta.katsudoto.id/media/template/exclusive/charera/original/Orn-33.png" alt="ornament" width={250} height={250} className="absolute -top-10 -left-20 opacity-40"/>
+            <Image src="https://leoncelesta.katsudoto.id/media/template/exclusive/charera/original/Orn-33.png" alt="ornament" width={250} height={250} className="absolute -bottom-10 -right-20 opacity-40 scale-x-[-1]"/>
             <CardHeader className="text-center p-8">
                 <Mail className="w-16 h-16 mx-auto text-primary" />
-                <CardTitle className="font-headline text-5xl mt-6 text-foreground">Kindly RSVP</CardTitle>
+                <CardTitle className="font-headline text-5xl mt-6 text-primary">Kindly RSVP</CardTitle>
                 <p className="text-muted-foreground pt-2 text-lg">Please respond by August 20th, 2025.</p>
             </CardHeader>
             <CardContent className="p-8">
@@ -279,11 +292,13 @@ const RsvpSection = () => (
 );
 
 const GiftRegistrySection = () => (
-  <section id="gifts" className="py-20 md:py-32 bg-background">
+  <section id="gifts" className="py-20 md:py-32 bg-background relative overflow-hidden">
+     <Image src="https://leoncelesta.katsudoto.id/media/template/exclusive/charera/original/Orn-45.png" alt="ornament" width={200} height={200} className="absolute top-0 left-0 opacity-50"/>
+     <Image src="https://leoncelesta.katsudoto.id/media/template/exclusive/charera/original/Orn-45.png" alt="ornament" width={200} height={200} className="absolute bottom-0 right-0 opacity-50 -scale-x-100"/>
     <div className="container mx-auto px-4 text-center max-w-3xl">
       <AnimateOnScroll animation="fade-in-down">
         <Gift className="w-16 h-16 mx-auto text-primary mb-6" />
-        <h2 className="text-4xl md:text-5xl font-headline mb-6 text-foreground">Gift Registry</h2>
+        <h2 className="text-4xl md:text-5xl font-headline mb-6 text-primary">Gift Registry</h2>
         <p className="text-muted-foreground mb-10 text-lg leading-relaxed">
             Your presence at our wedding is the only gift we need! However, if you wish to give a gift,
             a contribution to our honeymoon fund would be warmly appreciated.
@@ -304,7 +319,7 @@ const GuestBookSection = () => (
   <section id="guestbook" className="py-20 md:py-32 bg-secondary">
     <div className="container mx-auto px-4 max-w-4xl">
       <AnimateOnScroll animation="fade-in-down">
-        <h2 className="text-4xl md:text-5xl font-headline text-center text-foreground mb-16">Leave Your Wishes</h2>
+        <h2 className="text-4xl md:text-5xl font-headline text-center text-primary mb-16">Leave Your Wishes</h2>
       </AnimateOnScroll>
       <div className="space-y-10 mb-16">
         {guestbookEntries.map((entry, index) => (
@@ -315,7 +330,7 @@ const GuestBookSection = () => (
                 <AvatarFallback className="bg-primary/20 text-primary text-xl">{entry.name.charAt(0)}</AvatarFallback>
                 </Avatar>
                 <div className="bg-background/50 p-6 rounded-lg flex-1 shadow-lg backdrop-blur-sm">
-                <p className="font-bold text-lg text-foreground">{entry.name}</p>
+                <p className="font-bold text-lg text-primary">{entry.name}</p>
                 <p className="text-muted-foreground mt-2 text-base italic">"{entry.message}"</p>
                 </div>
             </div>
@@ -324,7 +339,7 @@ const GuestBookSection = () => (
       </div>
       <AnimateOnScroll animation="fade-in-up">
         <Separator className="my-16 bg-border" />
-        <h3 className="text-3xl font-headline text-center text-foreground mb-8">Write in our Guestbook</h3>
+        <h3 className="text-3xl font-headline text-center text-primary mb-8">Write in our Guestbook</h3>
         <GuestbookForm />
       </AnimateOnScroll>
     </div>
@@ -332,7 +347,9 @@ const GuestBookSection = () => (
 );
 
 const Footer = () => (
-  <footer className="py-10 bg-background border-t">
+  <footer className="py-10 bg-background border-t relative overflow-hidden">
+     <Image src="https://leoncelesta.katsudoto.id/media/template/exclusive/charera/original/Orn-43.png" alt="ornament" width={300} height={300} className="absolute -bottom-24 -left-20 opacity-20"/>
+     <Image src="https://leoncelesta.katsudoto.id/media/template/exclusive/charera/original/Orn-43.png" alt="ornament" width={300} height={300} className="absolute -bottom-24 -right-20 opacity-20 -scale-x-100"/>
     <div className="container mx-auto px-4 text-center text-muted-foreground">
         <AnimateOnScroll animation="fade-in">
             <div className="flex items-center justify-center gap-3 mb-4">
