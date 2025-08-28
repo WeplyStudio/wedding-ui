@@ -2,25 +2,23 @@ import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
 import { cn } from '@/lib/utils';
-import { Ovo, Cormorant_Upright } from 'next/font/google';
+import { Playfair_Display, Mulish } from 'next/font/google';
 
-const cormorantUpright = Cormorant_Upright({
+const playfairDisplay = Playfair_Display({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-cormorant-upright',
-  weight: ['400', '700'],
+  variable: '--font-playfair-display',
 });
 
-const ovo = Ovo({
+const mulish = Mulish({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-ovo',
-  weight: '400',
+  variable: '--font-mulish',
 });
 
 
 export const metadata: Metadata = {
-  title: 'Evergreen Vows',
+  title: 'The Wedding of Putri & Putra',
   description: 'Join us to celebrate our wedding!',
 };
 
@@ -30,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${cormorantUpright.variable} ${ovo.variable}`}>
+    <html lang="en" className={`${playfairDisplay.variable} ${mulish.variable} dark`}>
       <head>
       </head>
       <body className={cn("font-body antialiased")}>

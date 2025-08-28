@@ -11,6 +11,7 @@ import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import GuestbookForm from "./guestbook-form";
 
 const initialState = {
   message: "",
@@ -22,7 +23,7 @@ function SubmitButton() {
   const { pending } = useFormStatus();
   return (
     <Button type="submit" className="w-full" disabled={pending} size="lg">
-      {pending ? "Submitting..." : "Submit RSVP"}
+      {pending ? "Submitting..." : "Confirm Attendance"}
     </Button>
   );
 }
@@ -63,11 +64,11 @@ export default function RsvpForm() {
         <RadioGroup name="attending" onValueChange={setAttending} className="flex gap-4">
           <div className="flex items-center space-x-2">
             <RadioGroupItem value="yes" id="yes" />
-            <Label htmlFor="yes">Joyfully Attending</Label>
+            <Label htmlFor="yes">Yes, I'll be there!</Label>
           </div>
           <div className="flex items-center space-x-2">
             <RadioGroupItem value="no" id="no" />
-            <Label htmlFor="no">Regretfully Decline</Label>
+            <Label htmlFor="no">Sorry, can't make it</Label>
           </div>
         </RadioGroup>
         {state.errors?.attending && <p className="text-sm text-destructive mt-1">{state.errors.attending[0]}</p>}
@@ -75,13 +76,13 @@ export default function RsvpForm() {
 
       {attending === "yes" && (
         <div className="space-y-2 animate-in fade-in duration-500">
-          <Label htmlFor="guests">Number of Guests (including yourself)</Label>
+          <Label htmlFor="guests">Number of Guests</Label>
           <Select name="guests" defaultValue="1">
             <SelectTrigger>
               <SelectValue placeholder="Select number of guests" />
             </SelectTrigger>
             <SelectContent>
-              {[1, 2, 3, 4, 5].map(num => (
+              {[1, 2].map(num => (
                 <SelectItem key={num} value={String(num)}>{num}</SelectItem>
               ))}
             </SelectContent>
@@ -89,13 +90,13 @@ export default function RsvpForm() {
           {state.errors?.guests && <p className="text-sm text-destructive mt-1">{state.errors.guests[0]}</p>}
         </div>
       )}
-
+      
       <div className="space-y-2">
-        <Label htmlFor="message">Message (Optional)</Label>
-        <Textarea id="message" name="message" placeholder="Leave a message for the couple..." />
+        <Label htmlFor="message">Leave a Message</Label>
+        <Textarea id="message" name="message" placeholder="Share your well wishes for the couple..." />
         {state.errors?.message && <p className="text-sm text-destructive mt-1">{state.errors.message[0]}</p>}
       </div>
-      
+
       <SubmitButton />
     </form>
   );

@@ -19,6 +19,8 @@ const calculateTimeLeft = (targetDate: Date): Record<string, number> => {
       minutes: Math.floor((difference / 1000 / 60) % 60),
       seconds: Math.floor((difference / 1000) % 60),
     };
+  } else {
+    timeLeft = { days: 0, hours: 0, minutes: 0, seconds: 0 };
   }
 
   return timeLeft;
@@ -41,19 +43,19 @@ const Countdown = ({ targetDate, className }: { targetDate: Date, className?: st
   }, [targetDate]);
 
   const timeUnits: TimeUnit[] = [
-    { value: timeLeft.days, label: 'Hari' },
-    { value: timeLeft.hours, label: 'Jam' },
-    { value: timeLeft.minutes, label: 'Menit' },
-    { value: timeLeft.seconds, label: 'Detik' },
+    { value: timeLeft.days, label: 'Days' },
+    { value: timeLeft.hours, label: 'Hours' },
+    { value: timeLeft.minutes, label: 'Minutes' },
+    { value: timeLeft.seconds, label: 'Seconds' },
   ];
 
    if (!isClient) {
     return (
       <div className={cn("grid grid-cols-4 gap-2 md:gap-4 text-center", className)}>
-        {['Hari', 'Jam', 'Menit', 'Detik'].map((label) => (
-          <div key={label} className="bg-primary/10 p-3 rounded-lg shadow-inner">
-            <span className="text-3xl md:text-4xl font-bold font-headline text-primary">0</span>
-            <span className="text-xs md:text-sm font-body text-muted-foreground uppercase tracking-wider block">{label}</span>
+        {['Days', 'Hours', 'Minutes', 'Seconds'].map((label) => (
+          <div key={label} className="bg-black/20 p-3 rounded-lg shadow-inner backdrop-blur-sm w-20">
+            <span className="text-3xl md:text-4xl font-bold font-headline text-white">00</span>
+            <span className="text-xs font-body text-white/80 uppercase tracking-wider block">{label}</span>
           </div>
         ))}
       </div>
@@ -64,9 +66,9 @@ const Countdown = ({ targetDate, className }: { targetDate: Date, className?: st
   return (
     <div className={cn("grid grid-cols-4 gap-2 md:gap-4 text-center", className)}>
       {timeUnits.map(({ value, label }) => (
-        <div key={label} className="bg-primary/10 p-3 rounded-lg shadow-inner">
-          <span className="text-3xl md:text-4xl font-bold font-headline text-primary">{value !== undefined ? String(value).padStart(2, '0') : '00'}</span>
-          <span className="text-xs md:text-sm font-body text-muted-foreground uppercase tracking-wider block">{label}</span>
+        <div key={label} className="bg-black/20 p-3 rounded-lg shadow-inner backdrop-blur-sm w-20">
+          <span className="text-3xl md:text-4xl font-bold font-headline text-white">{value !== undefined ? String(value).padStart(2, '0') : '00'}</span>
+          <span className="text-xs font-body text-white/80 uppercase tracking-wider block">{label}</span>
         </div>
       ))}
     </div>
