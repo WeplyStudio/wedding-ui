@@ -114,8 +114,8 @@
     }
 
     @keyframes sway-right {
-      0%, 100% { transform: rotate(5deg) translateX(5%) scaleX(-1); }
-      50% { transform: rotate(-5deg) translateX(-5%) scaleX(-1); }
+      0%, 100% { transform: rotate(5deg) translateX(5%); }
+      50% { transform: rotate(-5deg) translateX(-5%); }
     }
 
     .animate-fade-in { animation: fade-in forwards; }

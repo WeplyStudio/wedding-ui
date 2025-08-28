@@ -112,7 +112,7 @@ const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => vo
                 <Image src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-asset-03.png" layout="fill" objectFit="contain" alt="Floral ornament" />
             </div>
              <div className="absolute bottom-[-2%] right-[-5%] w-[40%] h-[30%] opacity-80 animate-sway-right">
-                <Image src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-asset-03.png" layout="fill" objectFit="contain" alt="Floral ornament" className="transform -scale-x-100" />
+                <Image src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-asset-03.png" layout="fill" objectFit="contain" alt="Floral ornament" />
             </div>
             <div className="flex flex-col items-center justify-end h-full pb-20 text-primary p-4 z-20">
                 <div className="flex-grow flex flex-col items-center justify-end text-center pb-8">
@@ -468,5 +468,6 @@ const Footer = () => (
     
 
     
+
 
 
