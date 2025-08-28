@@ -14,7 +14,6 @@ import Countdown from "@/components/countdown";
 import MusicPlayer from "@/components/music-player";
 import RsvpForm from "@/components/rsvp-form";
 import GuestbookForm from "@/components/guestbook-form";
-import Header from "@/components/header";
 import { Logo } from "@/components/logo";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
 import { Calendar } from "@/components/ui/calendar";
@@ -74,7 +73,6 @@ export default function EvergreenVowsPage() {
       <OpeningCeremony isOpen={isOpen} onOpen={handleOpenInvitation} />
       
       <div className={cn("transition-opacity duration-1000 ease-in-out", isOpen ? "opacity-100" : "opacity-0 invisible")}>
-        <Header />
         <main className="flex-1 overflow-x-hidden">
           <HeroSection />
           <QuoteSection />
@@ -489,6 +487,7 @@ const Footer = () => (
     
 
     
+
 
 
 
