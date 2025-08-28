@@ -391,7 +391,7 @@ const EventsSection = () => {
     }, []);
 
     return (
-        <section id="events" className="relative py-24 px-6 overflow-hidden">
+        <AnimateOnScroll as="section" id="events" className="relative py-24 px-6 overflow-hidden">
              <div className="absolute inset-0">
                 {galleryImages.map((image, index) => (
                     <Image
@@ -443,7 +443,7 @@ const EventsSection = () => {
                     align="right"
                 />
             </div>
-      </section>
+      </AnimateOnScroll>
     );
 };
 
@@ -467,7 +467,7 @@ const PhotoGrid = () => (
 );
 
 const GallerySection = () => (
-    <section id="gallery" className="py-24 px-6">
+    <AnimateOnScroll as="section" id="gallery" className="py-24 px-6">
         <SectionTitle subtitle="A Glimpse of Our Journey" />
         <AnimateOnScroll animation="fade-in-up">
             <Carousel
@@ -502,7 +502,7 @@ const GallerySection = () => (
         <div className="max-w-5xl mx-auto">
              <PhotoGrid />
         </div>
-    </section>
+    </AnimateOnScroll>
 );
 
 const GiftSection = () => {
@@ -516,7 +516,7 @@ const GiftSection = () => {
     }, []);
 
     return (
-        <section id="gift" className="relative py-24 px-6 overflow-hidden text-center">
+        <AnimateOnScroll as="section" id="gift" className="relative py-24 px-6 overflow-hidden text-center">
             <div className="absolute inset-0">
                 {galleryImages.map((image, index) => (
                     <Image
@@ -558,7 +558,7 @@ const GiftSection = () => {
                     </Card>
                 </AnimateOnScroll>
             </div>
-        </section>
+        </AnimateOnScroll>
     );
 };
   
@@ -623,25 +623,25 @@ const GiftDrawer = () => {
   
 
 const GuestBookSection = () => (
-    <section id="guestbook" className="py-24 px-6 bg-secondary/20 rounded-bl-[50]">
+    <AnimateOnScroll as="section" id="guestbook" className="py-24 px-6 bg-secondary/20 rounded-bl-[50]">
       <SectionTitle subtitle="Leave Your Wishes" />
       <div className="max-w-4xl mx-auto">
         <AnimateOnScroll>
              <GuestBook />
         </AnimateOnScroll>
       </div>
-    </section>
+    </AnimateOnScroll>
   );
 
 const Footer = () => (
-  <footer className="py-16 text-center bg-background rounded-b-3xl">
+  <AnimateOnScroll as="footer" className="py-16 text-center bg-background rounded-b-3xl">
     <div className="container mx-auto px-4 text-muted-foreground text-sm">
         <AnimateOnScroll>
             <p className="font-serif text-4xl text-primary mb-4">{coupleNames}</p>
             <p className="font-sans">&copy; {new Date().getFullYear()}. Made with love, for our loved ones.</p>
         </AnimateOnScroll>
     </div>
-  </footer>
+  </AnimateOnScroll>
 );
 
 const BottomNav = () => {
@@ -708,6 +708,7 @@ const BottomNav = () => {
     
 
     
+
 
 
 
