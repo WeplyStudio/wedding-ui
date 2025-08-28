@@ -7,7 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Mail, Gift, Heart, Clock, BookOpen, Music, Play, Pause } from "lucide-react";
+import { Mail, Gift, Heart, Clock, BookOpen, Music, Play, Pause, GlassWater } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Countdown from "@/components/countdown";
 import MusicPlayer from "@/components/music-player";
@@ -198,10 +198,10 @@ const CoupleSection = () => (
                         <div className="mt-6">
                              <div className="flex items-center justify-center gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 256" className="w-6 h-6 text-primary"><path fill="currentColor" d="M128 80a48 48 0 1 0 48 48a48.05 48.05 0 0 0-48-48Zm0 80a32 32 0 1 1 32-32a32 32 0 0 1-32 32Zm48-136H80a56 56 0 0 0-56 56v96a56 56 0 0 0 56 56h96a56 56 0 0 0 56-56V80a56 56 0 0 0-56-56Zm40 152a40 40 0 0 1-40 40H80a40 40 0 0 1-40-40V80a40 40 0 0 1 40-40h96a40 40 0 0 1 40 40ZM192 76a12 12 0 1 1-12-12a12 12 0 0 1 12 12Z"/></svg>
-                                <p className="font-body text-lg text-primary">LEON</p>
+                                <p className="font-body text-lg text-primary">Putra</p>
                              </div>
                              <p className="text-muted-foreground mt-4 text-sm">The Son of Mr Jhonny Alistair & Mrs. Greny Henn</p>
-                             <h3 className="font-headline text-4xl text-primary mt-2">Leon Alistair</h3>
+                             <h3 className="font-headline text-4xl text-primary mt-2">Putra Alistair</h3>
                         </div>
                     </div>
                 </AnimateOnScroll>
@@ -216,10 +216,10 @@ const CoupleSection = () => (
                         <div className="mt-6">
                             <div className="flex items-center justify-center gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 256 256" className="w-6 h-6 text-primary"><path fill="currentColor" d="M128 80a48 48 0 1 0 48 48a48.05 48.05 0 0 0-48-48Zm0 80a32 32 0 1 1 32-32a32 32 0 0 1-32 32Zm48-136H80a56 56 0 0 0-56 56v96a56 56 0 0 0 56 56h96a56 56 0 0 0 56-56V80a56 56 0 0 0-56-56Zm40 152a40 40 0 0 1-40 40H80a40 40 0 0 1-40-40V80a40 40 0 0 1 40-40h96a40 40 0 0 1 40 40ZM192 76a12 12 0 1 1-12-12a12 12 0 0 1 12 12Z"/></svg>
-                                <p className="font-body text-lg text-primary">CELESTA</p>
+                                <p className="font-body text-lg text-primary">Putri</p>
                              </div>
                              <p className="text-muted-foreground mt-4 text-sm">The Daughter of Mr. Henry Deon & Mrs. Kelly Penelope</p>
-                             <h3 className="font-headline text-4xl text-primary mt-2">Celesta Aurelia</h3>
+                             <h3 className="font-headline text-4xl text-primary mt-2">Putri Aurelia</h3>
                         </div>
                     </div>
                 </AnimateOnScroll>
@@ -264,7 +264,7 @@ const EventsSection = () => (
             <AnimateOnScroll animation='fade-in-left' delay={0.4}>
                 <div className="flex items-start gap-6">
                     <div className="bg-primary/10 text-primary p-4 rounded-full shadow-inner">
-                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-glass-water"><path d="M15.2 3.2c.1-.4.5-.8.9-.8H18c.9 0 1.6.5 1.8 1.4l-1.3 8.2c-.1.7-.7 1.2-1.4 1.2H6.8c-.7 0-1.3-.5-1.4-1.2L4 3.8c.2-.9.9-1.4 1.8-1.4h2c.4 0 .7.3.9.8l1.6 5.1 1.6-5.1Z"></path><path d="M4 14h16"></path></svg>
+                         <GlassWater size={28} />
                     </div>
                     <div>
                         <h3 className="text-3xl font-headline text-primary">The Reception</h3>
@@ -459,3 +459,4 @@ const Footer = () => (
     </div>
   </footer>
 );
+    
