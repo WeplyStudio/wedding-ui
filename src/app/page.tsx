@@ -369,6 +369,14 @@ const EventCard = ({
 
 const EventsSection = () => {
     const [googleCalendarLink, setGoogleCalendarLink] = useState<string | undefined>(undefined);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImageIndex(prevIndex => (prevIndex + 1) % galleryImages.length);
+        }, 5000);
+        return () => clearInterval(interval);
+    }, []);
 
     useEffect(() => {
         const receptionStartDate = new Date("2025-09-20T18:00:00");
@@ -383,22 +391,28 @@ const EventsSection = () => {
     }, []);
 
     return (
-        <section id="events" className="relative py-24 px-6 overflow-hidden rounded-bl-[50]">
-            <div className="absolute inset-0">
-                 <Image
-                    src="https://the.invisimple.id/wp-content/uploads/2024/12/eks-12-bg-01.jpg"
-                    alt="Marble background"
-                    data-ai-hint="dark marble"
-                    fill
-                    className="object-cover"
-                />
+        <section id="events" className="relative py-24 px-6 overflow-hidden">
+             <div className="absolute inset-0">
+                {galleryImages.map((image, index) => (
+                    <Image
+                        key={index}
+                        src={image.src}
+                        alt={image.alt}
+                        data-ai-hint={image.hint}
+                        fill
+                        className={cn(
+                            "object-cover transition-opacity duration-1000",
+                            index === currentImageIndex ? "opacity-100" : "opacity-0"
+                        )}
+                    />
+                ))}
                 <div className="absolute inset-0 bg-background/80" />
             </div>
             <div className="relative z-10 flex flex-col items-center text-center mb-16">
-                <h2 className="text-white font-serif text-6xl text-primary-foreground text-shadow">
+                <h2 className="font-serif text-6xl text-primary-foreground text-shadow">
                     Wedding
                 </h2>
-                <p className="text-white font-sans text-2xl text-primary-foreground tracking-[0.4em] uppercase">
+                <p className="font-sans text-2xl text-primary-foreground tracking-[0.4em] uppercase">
                     Event
                 </p>
                 <div className="w-24 h-px bg-primary my-4"></div>
@@ -694,6 +708,7 @@ const BottomNav = () => {
     
 
     
+
 
 
 
