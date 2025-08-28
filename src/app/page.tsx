@@ -131,13 +131,13 @@ const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => vo
           ))}
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
   
-          <div className="relative z-10 flex flex-col items-center justify-end h-full w-full text-center p-8 text-foreground">
+          <div className="relative z-10 flex flex-col items-center justify-end h-full w-full text-center p-8 text-primary-foreground">
               <div className="flex flex-col items-center mb-8 animate-fade-in-up" style={{ animationDuration: '1.2s' }}>
-                  <p className="font-sans text-sm tracking-[0.2em] uppercase mb-2 text-shadow text-primary-foreground">The Wedding Of</p>
-                  <h1 className="font-serif text-5xl md:text-6xl font-bold text-shadow-lg leading-tight text-primary-foreground">Andika &<br/>Putri</h1>
+                  <p className="font-sans text-sm tracking-[0.2em] uppercase mb-2 text-shadow">The Wedding Of</p>
+                  <h1 className="font-serif text-5xl md:text-6xl font-bold text-shadow-lg leading-tight">Andika &<br/>Putri</h1>
                   <div className="w-full text-center mt-8">
-                      <p className="font-sans text-lg mb-1 text-primary-foreground">Dear</p>
-                      <p className="font-serif text-xl font-bold mb-2 text-primary-foreground">{guestName}</p>
+                      <p className="font-sans text-lg mb-1">Dear</p>
+                      <p className="font-serif text-xl font-bold mb-2">{guestName}</p>
                       <p className="text-xs text-primary-foreground/80">*Mohon maaf jika ada kesalahan dalam penulisan nama / gelar.</p>
                   </div>
               </div>
@@ -625,7 +625,7 @@ const GiftDrawer = () => {
   
 
 const GuestBookSection = () => (
-    <AnimateOnScroll as="section" id="guestbook" className="py-24 px-6 bg-secondary/20 rounded-bl-[50]">
+    <AnimateOnScroll as="section" id="guestbook" className="py-24 px-6 bg-secondary/20">
       <SectionTitle subtitle="Leave Your Wishes" />
       <div className="max-w-4xl mx-auto">
         <AnimateOnScroll animation="zoom-in" delay={0.2}>
@@ -710,6 +710,7 @@ const BottomNav = () => {
     
 
     
+
 
 
 
