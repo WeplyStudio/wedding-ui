@@ -211,7 +211,7 @@ const HeroSection = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
             </div>
             
-            <div className="relative z-10 flex flex-col items-center w-full animate-fade-in-up" style={{animationDuration: '1.2s'}}>
+            <div className="relative z-10 flex flex-col items-center w-full animate-fade-in-up pb-28" style={{animationDuration: '1.2s'}}>
                 <p className="font-sans tracking-[0.2em] text-sm uppercase">The Wedding Of</p>
                 <h1 className="font-serif text-6xl md:text-7xl mt-2 mb-4 text-shadow-lg">{coupleNames}</h1>
                 <p className="font-sans text-lg">20 . 09 . 2025</p>
