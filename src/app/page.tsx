@@ -86,11 +86,11 @@ export default function EvergreenVowsPage() {
         <div className={cn("w-full max-w-3xl mx-auto transition-opacity duration-1000 ease-in-out", isOpen ? "opacity-100" : "opacity-0 invisible")}>
           <main className="flex-1 overflow-x-hidden">
             <HeroSection />
-            <div className="bg-background relative z-10 -mt-24 rounded-t-3xl shadow-2xl pt-16">
+            <div className="bg-background relative z-10 -mt-24 rounded-t-3xl shadow-2xl">
                 <AnimateOnScroll animation="fade-in-up" className="relative">
                     <div className="absolute -top-12 left-1/2 -translate-x-1/2">
                         <Avatar className="w-24 h-24 bg-background shadow-lg ring-4 ring-primary/20">
-                            <AvatarFallback className="text-3xl font-serif text-primary bg-transparent">AP</AvatarFallback>
+                            <AvatarFallback className="text-3xl font-serif text-primary bg-transparent">A&amp;P</AvatarFallback>
                         </Avatar>
                     </div>
                 </AnimateOnScroll>
@@ -230,7 +230,7 @@ const SectionTitle = ({ subtitle }: { subtitle: string }) => (
 )
 
 const CoupleSection = () => (
-    <section id="couple" className="relative flex flex-col">
+    <section id="couple" className="relative flex flex-col pt-16">
       <div className="bg-background pb-24 px-6 relative">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-20 bg-background rounded-b-full"></div>
         
