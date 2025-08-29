@@ -80,6 +80,12 @@
     .text-shadow-lg {
       text-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
+    .clip-path-organic-1 {
+      clip-path: url(#organic-shape-1);
+    }
+    .clip-path-organic-2 {
+      clip-path: url(#organic-shape-2);
+    }
 
     @keyframes fade-in {
       from { opacity: 0; }
