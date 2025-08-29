@@ -16,7 +16,8 @@ import { AnimateOnScroll } from "@/components/animate-on-scroll";
 import { cn } from "@/lib/utils";
 import GuestBook from "@/components/guestbook";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 
 const weddingDate = new Date("2025-09-20T14:00:00");
@@ -252,7 +253,7 @@ const CoupleSection = () => (
               Mempelai
             </span>
           </h2>
-          <p className="mt-8 max-w-xl mx-auto text-muted-foreground">
+          <p className="mt-8 max-w-xl mx-auto text-muted-foreground text-sm">
             <b>Assalamu’alaikum Warahmatullahi Wabarakatuh</b>
             <br />
             <br />
@@ -608,26 +609,25 @@ const GiftSection = () => {
             </div>
             <div className="relative z-10 flex flex-col items-center">
                 <AnimateOnScroll animation="zoom-in" delay={0.2}>
-                    <Card className="w-full max-w-md bg-background/80 border-0 shadow-2xl rounded-2xl overflow-hidden">
-                        <CardContent className="p-0">
-                            <div className="aspect-video">
-                                <Image
-                                    src="https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/4.jpeg"
-                                    alt="Wedding Gift"
-                                    data-ai-hint="couple gift"
-                                    width={600}
-                                    height={400}
-                                    className="object-cover w-full h-full"
-                                />
-                            </div>
-                        </CardContent>
-                        <div className="p-6 text-center">
-                            <CardTitle className="font-serif text-4xl text-primary mb-4">Wedding Gift</CardTitle>
+                    <Card className="w-full max-w-md bg-background/80 border-0 shadow-2xl rounded-2xl overflow-hidden relative">
+                         <div className="absolute top-4 right-4 text-primary">
+                            <Flower2 className="w-12 h-12 animate-spin-slow opacity-20" />
+                        </div>
+                         <div className="absolute bottom-4 left-4 text-primary">
+                            <Flower2 className="w-12 h-12 animate-spin-slow opacity-20" />
+                        </div>
+                        <CardHeader className="pt-12 items-center">
+                             <div className="p-3 bg-primary/20 rounded-full mb-2">
+                                <HeartHandshake className="w-8 h-8 text-primary" />
+                             </div>
+                            <CardTitle className="font-serif text-4xl text-primary">Wedding Gift</CardTitle>
+                        </CardHeader>
+                        <CardContent className="p-6 text-center">
                             <CardDescription className="mb-6 text-muted-foreground">
                                 Doa Restu Anda merupakan karunia yang sangat berarti bagi kami. Dan jika memberi adalah ungkapan tanda kasih, Anda dapat memberi melalui dibawah ini.
                             </CardDescription>
                             <GiftDrawer />
-                        </div>
+                        </CardContent>
                     </Card>
                 </AnimateOnScroll>
             </div>
@@ -641,53 +641,94 @@ const GiftDrawer = () => {
     const copyToClipboard = (text: string, label: string) => {
         navigator.clipboard.writeText(text);
         toast({
-        title: "Copied to clipboard!",
-        description: `${label} copied: ${text}`,
+        title: "Success!",
+        description: `${label} berhasil disalin.`,
         });
     };
 
     const bankAccounts = [
-        { bank: "BCA", name: "Putra Andika Pratama", number: "1234567890", logo: "/bca-logo.png" },
-        { bank: "BNI", name: "Putri Cantika Sari", number: "0987654321", logo: "/bni-logo.png" },
-        { bank: "BRI", name: "Putra & Putri", number: "1122334455", logo: "/bri-logo.png" },
+        { bank: "BCA", name: "Putra Andika Pratama", number: "1234567890", logo: "https://our-wedding.link/wp-content/uploads/2024/07/bca.png" },
+        { bank: "BNI", name: "Putri Cantika Sari", number: "0987654321", logo: "https://our-wedding.link/wp-content/uploads/2024/07/bni.png" },
+        { bank: "BRI", name: "Putra & Putri", number: "1122334455", logo: "https://our-wedding.link/wp-content/uploads/2024/07/bri.png" },
     ]
+    
+    const giftAddress = "Jl. Kencana Indah Blok AB No. 12, RT 05 RW 10, Kelurahan Bunga, Kecamatan Melati, Kota Kembang, 12345";
+
 
     return (
         <Sheet>
         <SheetTrigger asChild>
-            <Button className="w-full font-sans" size="lg">
+            <Button className="w-full font-sans rounded-full" size="lg">
                 <Wallet className="mr-2 h-5 w-5" />
-                Klik di Sini
+                Kirim Hadiah
             </Button>
         </SheetTrigger>
         <SheetContent side="bottom" className="w-full max-w-3xl mx-auto rounded-t-2xl p-0">
              <ScrollArea className="h-auto max-h-[90vh] p-6">
                 <SheetHeader className="text-center mb-6">
-                <SheetTitle className="font-serif text-3xl">Send a Gift</SheetTitle>
+                    <SheetTitle className="font-serif text-3xl">Kirim Tanda Kasih</SheetTitle>
                 </SheetHeader>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="flex flex-col items-center justify-center space-y-4 p-4 border rounded-lg">
-                        <h3 className="font-sans font-semibold text-lg">Scan QRIS</h3>
-                        <Image src="https://api.qr-code-generator.com/v1/create?access-token=yvR-0_gS62v4hJd9sFVTN8YwH_I9aG4nBExA0jImFk_s1zSgrJvjS2y4d35I2b-j&qr_code_text=https%3A%2F%2Fwww.google.com&image_format=PNG&image_width=500" alt="QRIS Code" data-ai-hint="qris code" width={200} height={200} className="rounded-md" />
-                        <p className="text-sm text-muted-foreground">All e-wallets and banks supported</p>
-                    </div>
-                    <div className="space-y-4">
+                <Tabs defaultValue="qris" className="w-full">
+                  <TabsList className="grid w-full grid-cols-3">
+                    <TabsTrigger value="qris">QRIS</TabsTrigger>
+                    <TabsTrigger value="bank">Bank Transfer</TabsTrigger>
+                    <TabsTrigger value="address">Kirim Hadiah</TabsTrigger>
+                  </TabsList>
+                  <TabsContent value="qris" className="mt-6">
+                    <Card className="border-0 shadow-none">
+                      <CardContent className="flex flex-col items-center justify-center space-y-4 p-4 text-center">
+                          <div className="flex items-center justify-center gap-4 text-muted-foreground">
+                            <GlassWater className="w-6 h-6"/>
+                            <h3 className="font-sans font-semibold text-lg">Scan QRIS</h3>
+                            <Camera className="w-6 h-6"/>
+                          </div>
+                          <Image src="https://api.qr-code-generator.com/v1/create?access-token=yvR-0_gS62v4hJd9sFVTN8YwH_I9aG4nBExA0jImFk_s1zSgrJvjS2y4d35I2b-j&qr_code_text=https%3A%2F%2Fwww.google.com&image_format=PNG&image_width=500" alt="QRIS Code" data-ai-hint="qris code" width={250} height={250} className="rounded-xl shadow-lg" />
+                          <p className="text-sm text-muted-foreground">Mendukung semua E-Wallet dan Mobile Banking.</p>
+                      </CardContent>
+                    </Card>
+                  </TabsContent>
+                  <TabsContent value="bank" className="mt-6">
+                     <div className="space-y-4">
                         {bankAccounts.map((account) => (
-                            <Card key={account.bank} className="p-4">
+                           <Card key={account.bank} className="p-4 bg-secondary/20 border-primary/10">
                                 <div className="flex items-center justify-between">
-                                    <div>
-                                        <Image src={account.logo} alt={`${account.bank} logo`} data-ai-hint={`${account.bank} logo`} width={60} height={20} objectFit="contain" />
-                                        <p className="font-semibold mt-2">{account.name}</p>
-                                        <p className="text-muted-foreground">{account.number}</p>
+                                    <div className="flex items-center gap-4">
+                                        <Avatar className="w-12 h-12 border-2 border-primary/20">
+                                          <AvatarImage src={account.logo} alt={`${account.bank} logo`} />
+                                          <AvatarFallback>{account.bank.substring(0,1)}</AvatarFallback>
+                                        </Avatar>
+                                        <div>
+                                            <p className="font-semibold">{account.name}</p>
+                                            <p className="text-muted-foreground">{account.number}</p>
+                                        </div>
                                     </div>
-                                    <Button variant="ghost" size="icon" onClick={() => copyToClipboard(account.number, `${account.bank} Account Number`)}>
+                                    <Button variant="ghost" size="icon" onClick={() => copyToClipboard(account.number, `No. Rekening ${account.bank}`)}>
                                         <Copy className="h-5 w-5" />
                                     </Button>
                                 </div>
                             </Card>
                         ))}
                     </div>
-                </div>
+                  </TabsContent>
+                  <TabsContent value="address" className="mt-6">
+                    <Card className="border-0 shadow-none">
+                      <CardHeader>
+                        <CardTitle className="font-sans text-lg">Alamat Pengiriman</CardTitle>
+                        <CardDescription>Bagi yang ingin mengirimkan kado, dapat mengirimkannya ke alamat berikut:</CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="p-4 border border-dashed rounded-lg bg-secondary/20">
+                          <p className="font-semibold text-foreground">Putra & Putri</p>
+                          <p className="text-muted-foreground text-sm">{giftAddress}</p>
+                        </div>
+                         <Button className="w-full mt-4" variant="outline" onClick={() => copyToClipboard(giftAddress, 'Alamat')}>
+                           <Copy className="mr-2 h-4 w-4" />
+                           Salin Alamat
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  </TabsContent>
+                </Tabs>
             </ScrollArea>
         </SheetContent>
         </Sheet>
