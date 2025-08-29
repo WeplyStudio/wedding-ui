@@ -231,19 +231,16 @@ const SectionTitle = ({ subtitle }: { subtitle: string }) => (
 
 const CoupleSection = () => (
     <section id="couple" className="relative flex flex-col">
-      <AnimateOnScroll animation="fade-in-up" className="bg-primary/10 py-12 px-6 text-center">
-        <p className="max-w-2xl mx-auto text-primary/80 italic mt-8">
-          "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."
-        </p>
-        <p className="mt-4 font-semibold text-primary/90">Q.S Ar-Rum : 21</p>
-      </AnimateOnScroll>
-
-      {/* Section Mempelai */}
       <div className="bg-background pb-24 px-6 relative">
-        {/* Shape melengkung di atas */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-20 bg-background rounded-b-full"></div>
-
-        {/* Title */}
+        
+        <AnimateOnScroll animation="fade-in-up" className="text-center py-12">
+          <p className="max-w-2xl mx-auto text-muted-foreground italic">
+            "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."
+          </p>
+          <p className="mt-4 font-semibold text-muted-foreground/80">Q.S Ar-Rum : 21</p>
+        </AnimateOnScroll>
+        
         <AnimateOnScroll
           animation="fade-in-up"
           delay={0.2}
@@ -265,19 +262,14 @@ const CoupleSection = () => (
           </p>
         </AnimateOnScroll>
 
-        {/* Mempelai */}
         <div className="space-y-24">
-          {/* Mempelai Pria */}
           <AnimateOnScroll
             animation="fade-in-right"
             className="flex flex-col md:flex-row items-center gap-8 md:gap-12"
           >
-            {/* Foto */}
             <div className="w-full md:w-1/2 flex justify-center">
               <div className="relative w-[300px] h-[400px] md:w-[350px] md:h-[466px]">
-                {/* Shape background */}
                 <div className="absolute inset-0 bg-primary/10 rounded-tr-[140px] rounded-bl-[140px]"></div>
-                {/* Foto */}
                 <div className="absolute inset-0 overflow-hidden rounded-tr-[140px] rounded-bl-[140px]">
                   <Image
                     src="https://the.invisimple.id/wp-content/uploads/elementor/thumbs/PRIA-r1qxu50pofy26yljvdfud7qei6f9whhy1kfb005u2w.jpg"
@@ -289,7 +281,6 @@ const CoupleSection = () => (
               </div>
             </div>
 
-            {/* Info */}
             <div className="w-full md:w-1/2 text-center md:text-left">
               <h3 className="font-serif text-4xl text-primary mb-2">
                 Putra Andika Pratama
@@ -317,17 +308,13 @@ const CoupleSection = () => (
             </div>
           </AnimateOnScroll>
 
-          {/* Mempelai Wanita */}
           <AnimateOnScroll
             animation="fade-in-left"
             className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12"
           >
-            {/* Foto */}
             <div className="w-full md:w-1/2 flex justify-center">
               <div className="relative w-[300px] h-[400px] md:w-[350px] md:h-[466px]">
-                {/* Shape background */}
                 <div className="absolute inset-0 bg-primary/10 rounded-tl-[140px] rounded-br-[140px]"></div>
-                {/* Foto */}
                 <div className="absolute inset-0 overflow-hidden rounded-tl-[140px] rounded-br-[140px]">
                   <Image
                     src="https://the.invisimple.id/wp-content/uploads/elementor/thumbs/WANITA-r1qxu50pofy26yljvdfud7qei6f9whhy1kfb005u2w.jpg"
@@ -339,7 +326,6 @@ const CoupleSection = () => (
               </div>
             </div>
 
-            {/* Info */}
             <div className="w-full md:w-1/2 text-center md:text-right">
               <h3 className="font-serif text-4xl text-primary mb-2">
                 Putri Cantika Sari
