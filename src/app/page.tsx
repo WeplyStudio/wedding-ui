@@ -224,21 +224,21 @@ const HeroSection = () => {
 };
 
 const SectionTitle = ({ subtitle }: { subtitle: string }) => (
-    <AnimateOnScroll className="flex flex-col items-center text-center mb-12">
+    <AnimateOnScroll className="flex flex-col items-center text-center mb-8">
         <h2 className="font-serif text-5xl">{subtitle}</h2>
     </AnimateOnScroll>
 )
 
 const CoupleSection = () => (
-    <section id="couple" className="relative flex flex-col pt-16">
+    <section id="couple" className="relative flex flex-col pt-[110]">
       <div className="bg-background pb-24 px-6 relative">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-20 bg-background rounded-b-full"></div>
         
-        <AnimateOnScroll animation="fade-in-up" className="text-center py-12">
+        <AnimateOnScroll animation="fade-in-up" className="text-center py-2">
           <p className="max-w-2xl mx-auto text-muted-foreground italic">
             "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."
           </p>
-          <p className="mt-4 font-semibold text-muted-foreground/80">Q.S Ar-Rum : 21</p>
+          <p className="mt-4 mb-12 font-semibold text-muted-foreground/80">Q.S Ar-Rum : 21</p>
         </AnimateOnScroll>
         
         <AnimateOnScroll
@@ -246,9 +246,9 @@ const CoupleSection = () => (
           delay={0.2}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-serif text-primary relative inline-block">
+          <h2 className="text-6xl font-serif text-primary relative inline-block">
             Kedua
-            <span className="font-serif italic font-normal text-muted-foreground/80 absolute -bottom-3 -right-12 text-3xl">
+            <span className="bg-primary/50 text-gray-600 font-serif italic font-normal text-muted-foreground/80 absolute -bottom-3 -right-12 text-3xl">
               Mempelai
             </span>
           </h2>
@@ -269,8 +269,8 @@ const CoupleSection = () => (
           >
             <div className="w-full md:w-1/2 flex justify-center">
               <div className="relative w-[300px] h-[400px] md:w-[350px] md:h-[466px]">
-                <div className="absolute inset-0 bg-primary/10 rounded-tr-[140px] rounded-bl-[140px]"></div>
-                <div className="absolute inset-0 overflow-hidden rounded-tr-[140px] rounded-bl-[140px]">
+                <div className="absolute inset-0 bg-primary/10 rounded-tr-[140px] rounded-xl"></div>
+                <div className="absolute inset-0 overflow-hidden rounded-tr-[140px] rounded-xl">
                   <Image
                     src="https://the.invisimple.id/wp-content/uploads/elementor/thumbs/PRIA-r1qxu50pofy26yljvdfud7qei6f9whhy1kfb005u2w.jpg"
                     alt="Putra Andika Pratama"
@@ -314,8 +314,8 @@ const CoupleSection = () => (
           >
             <div className="w-full md:w-1/2 flex justify-center">
               <div className="relative w-[300px] h-[400px] md:w-[350px] md:h-[466px]">
-                <div className="absolute inset-0 bg-primary/10 rounded-tl-[140px] rounded-br-[140px]"></div>
-                <div className="absolute inset-0 overflow-hidden rounded-tl-[140px] rounded-br-[140px]">
+                <div className="absolute inset-0 bg-primary/10 rounded-tl-[140px] rounded-xl"></div>
+                <div className="absolute inset-0 overflow-hidden rounded-tl-[140px] rounded-xl">
                   <Image
                     src="https://the.invisimple.id/wp-content/uploads/elementor/thumbs/WANITA-r1qxu50pofy26yljvdfud7qei6f9whhy1kfb005u2w.jpg"
                     alt="Putri Cantika Sari"
@@ -355,7 +355,7 @@ const CoupleSection = () => (
         </div>
       </div>
     </section>
-  );
+);
 
 const EventCard = ({
     title,
@@ -378,8 +378,8 @@ const EventCard = ({
 }) => {
     return (
         <AnimateOnScroll className="w-full max-w-md mx-auto" animation="zoom-in" delay={0.2}>
-            <div className="bg-background/80 backdrop-blur-sm rounded-xl shadow-2xl overflow-hidden">
-                <div className="relative h-64 w-full" style={{ clipPath: 'ellipse(100% 55% at 50% 45%)' }}>
+            <div className="bg-background/40 backdrop-blur-sm rounded-tr-[120] shadow-2xl overflow-hidden">
+                <div className="relative h-64 w-full">
                     <Image
                         src={imageUrl}
                         alt={title}
@@ -485,7 +485,7 @@ const EventsSection = () => {
                 <h2 className="text-black font-serif text-6xl text-primary-foreground text-shadow">
                     Wedding
                 </h2>
-                <p className="text-black font-sans tracking-[0.35em] uppercase text-lg md:text-sm text-primary-foreground/90">
+                <p className="bg-primary/50 text-black font-sans tracking-[0.35em] uppercase text-lg md:text-sm text-primary-foreground/90">
                     Event
                 </p>
                 <div className="w-24 h-px bg-primary my-4"></div>
