@@ -51,8 +51,8 @@ const MusicPlayer = ({ audioRef }: { audioRef: RefObject<HTMLAudioElement | null
 
   return (
     <>
-      <audio ref={internalAudioRef} loop>
-        <source src="/wedding-music.mp3" type="audio/mpeg" />
+      <audio ref={internalAudioRef} loop muted>
+        <source src="https://pouch.jumpshare.com/preview/1xoUdVYJat_mP9mQ_Fz-pCH5rKZevOxD1hZSHCSWx7ZZVFP27dF5AULAUvuAbsxgNch_EP84SbfvH8lJnYZLbDH_o7FZUL3QnJ9LdFBgYnkj-KIVDp0e_A8wblQYMGh9C3XtMRaKl993t-_DAu64WW6yjbN-I2pg_cnoHs_AmgI.mp3" type="audio/mpeg" />
         Your browser does not support the audio element.
       </audio>
       <div className="fixed bottom-4 right-4 z-50">
