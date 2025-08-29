@@ -636,13 +636,31 @@ const GuestBookSection = () => (
   );
 
 const Footer = () => (
-  <AnimateOnScroll as="footer" className="py-16 text-center bg-background rounded-b-3xl">
-    <div className="container mx-auto px-4 text-muted-foreground text-sm">
-        <AnimateOnScroll animation="fade-in-up">
-            <p className="font-serif text-4xl text-primary mb-4">{coupleNames}</p>
-            <p className="font-sans">&copy; {new Date().getFullYear()}. Made with love, for our loved ones.</p>
-        </AnimateOnScroll>
-    </div>
+  <AnimateOnScroll as="footer" className="relative py-24 px-6 overflow-hidden text-center text-primary-foreground">
+      <div className="absolute inset-0">
+          <Image
+              src="https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/20_4_11/7.jpeg"
+              alt="Thank you"
+              data-ai-hint="couple beach"
+              fill
+              className="object-cover"
+          />
+          <div className="absolute inset-0 bg-black/50" />
+      </div>
+      <div className="relative z-10 flex flex-col items-center">
+          <AnimateOnScroll animation="fade-in-up">
+              <h2 className="font-serif text-4xl mb-4">Terima Kasih</h2>
+              <p className="max-w-xl mx-auto mb-6 text-sm">
+                  Merupakan suatu kebahagiaan dan kehormatan bagi kami, apabila Bapak/Ibu/Saudara/i, berkenan hadir dan memberikan do’a restu kepada kami.
+                  <br /><br />
+                  Wassalamu’alaikum warahmatullahi wabarakatuh
+              </p>
+              <div className="mt-8">
+                  <p className="text-xs uppercase tracking-widest mb-2">Kami yang berbahagia</p>
+                  <p className="font-serif text-4xl">{coupleNames}</p>
+              </div>
+          </AnimateOnScroll>
+      </div>
   </AnimateOnScroll>
 );
 
@@ -697,26 +715,3 @@ const BottomNav = () => {
         </nav>
     );
 };
-
-    
-
-    
-
-
-
-
-    
-
-    
-
-    
-
-
-
-
-
-
-
-
-
-
