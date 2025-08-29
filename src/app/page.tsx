@@ -1,5 +1,4 @@
 
-
 "use client";
 
 import Image from "next/image";
@@ -88,13 +87,13 @@ export default function EvergreenVowsPage() {
           <main className="flex-1 overflow-x-hidden">
             <HeroSection />
             <div className="bg-background relative z-10 -mt-24 rounded-t-3xl shadow-2xl">
-                <div className="relative">
-                    <AnimateOnScroll animation="fade-in-up" className="absolute -top-12 left-1/2 -translate-x-1/2">
+                <AnimateOnScroll animation="fade-in-up" className="relative">
+                    <div className="absolute -top-12 left-1/2 -translate-x-1/2">
                         <Avatar className="w-24 h-24 bg-background shadow-lg ring-4 ring-primary/20">
                             <AvatarFallback className="text-3xl font-serif text-primary bg-transparent">AP</AvatarFallback>
                         </Avatar>
-                    </AnimateOnScroll>
-                </div>
+                    </div>
+                </AnimateOnScroll>
                 <CoupleSection />
                 <EventsSection />
                 <GallerySection />
@@ -734,3 +733,5 @@ const BottomNav = () => {
         </nav>
     );
 };
+
+    
