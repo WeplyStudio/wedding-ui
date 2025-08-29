@@ -6,7 +6,7 @@ import { useState, useEffect, useRef } from "react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { Mail, Gift, Heart, Clock, CalendarDays, MapPin, Users, Video, BookOpen, Music, Play, Pause, Flower2, HeartHandshake, GlassWater, Camera, Home, User, Calendar, GalleryHorizontal, Instagram, Wallet, Copy } from "lucide-react";
+import { Mail, Gift, Heart, Clock, CalendarDays, MapPin, Users, Video, BookOpen, Music, Play, Pause, Flower2, HeartHandshake, GlassWater, Camera, Home, User, Calendar, GalleryHorizontal, Instagram, Wallet, Copy, MessageCircle } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { useToast } from "@/hooks/use-toast";
@@ -748,32 +748,51 @@ const GuestBookSection = () => (
   );
 
 const Footer = () => (
-  <AnimateOnScroll as="footer" className="relative py-24 px-6 overflow-hidden text-center text-primary-foreground">
-      <div className="absolute inset-0">
+    <footer className="w-full text-center">
+      <AnimateOnScroll as="div" className="relative py-24 px-6 overflow-hidden text-primary-foreground">
+        <div className="absolute inset-0">
           <Image
-              src="https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/20_4_11/7.jpeg"
-              alt="Thank you"
-              data-ai-hint="couple beach"
-              fill
-              className="object-cover"
+            src="https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/7.jpeg"
+            alt="Thank you"
+            data-ai-hint="couple beach"
+            fill
+            className="object-cover"
           />
           <div className="absolute inset-0 bg-black/50" />
-      </div>
-      <div className="relative z-10 flex flex-col items-center">
+        </div>
+        <div className="relative z-10 flex flex-col items-center">
           <AnimateOnScroll animation="fade-in-up">
-              <h2 className="font-serif text-4xl mb-4">Terima Kasih</h2>
-              <p className="max-w-xl mx-auto mb-6 text-sm">
-                  Merupakan suatu kebahagiaan dan kehormatan bagi kami, apabila Bapak/Ibu/Saudara/i, berkenan hadir dan memberikan do’a restu kepada kami.
-                  <br /><br />
-                  Wassalamu’alaikum warahmatullahi wabarakatuh
-              </p>
-              <div className="mt-8">
-                  <p className="text-xs uppercase tracking-widest mb-2">Kami yang berbahagia</p>
-                  <p className="font-serif text-4xl">{coupleNames}</p>
-              </div>
+            <h2 className="font-serif text-4xl mb-4">Terima Kasih</h2>
+            <p className="max-w-xl mx-auto mb-8 text-sm">
+              Merupakan suatu kebahagiaan dan kehormatan bagi kami, apabila Bapak/Ibu/Saudara/i, berkenan hadir dan memberikan do’a restu kepada kami.
+            </p>
+            <p className="max-w-xl mx-auto mb-8 text-sm font-semibold">
+              Wassalamu’alaikum warahmatullahi wabarakatuh
+            </p>
+            <div className="mt-8">
+              <p className="text-xs uppercase tracking-widest mb-2">Kami yang berbahagia</p>
+              <p className="font-serif text-4xl">{coupleNames}</p>
+            </div>
           </AnimateOnScroll>
+        </div>
+      </AnimateOnScroll>
+      <div className="bg-secondary/20 py-8 px-6 text-foreground">
+        <div className="flex flex-col items-center gap-4">
+            <div className="flex items-center gap-2">
+                <Image src="https://the.invisimple.id/wp-content/uploads/2024/10/cropped-cropped-icon-invisimple-32x32.png" alt="invisimple.id logo" width={24} height={24} />
+                <span className="font-semibold">invisimple.id</span>
+            </div>
+            <div className="flex items-center gap-6">
+                <a href="#" aria-label="Instagram" className="hover:text-primary transition-colors"><Instagram className="w-5 h-5" /></a>
+                <a href="#" aria-label="WhatsApp" className="hover:text-primary transition-colors"><MessageCircle className="w-5 h-5" /></a>
+                <a href="#" aria-label="TikTok" className="hover:text-primary transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="M22 4s-.7 2.1-2 3.4c1.6 1.4 2.8 3.2 2.8 5.5 0 3.9-3.1 7-7 7H6c-3.9 0-7-3.1-7-7 0-3.9 3.1-7 7-7h1V4c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2v10c0 1.1.9 2 2 2s2-.9 2-2V4h-2"/></svg>
+                </a>
+            </div>
+            <p className="text-sm uppercase tracking-widest font-medium">Hubungi Kami</p>
+        </div>
       </div>
-  </AnimateOnScroll>
+    </footer>
 );
 
 const BottomNav = () => {
