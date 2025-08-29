@@ -86,7 +86,7 @@ export default function EvergreenVowsPage() {
         <div className={cn("w-full max-w-3xl mx-auto transition-opacity duration-1000 ease-in-out", isOpen ? "opacity-100" : "opacity-0 invisible")}>
           <main className="flex-1 overflow-x-hidden">
             <HeroSection />
-            <div className="bg-background relative z-10 -mt-24 rounded-t-3xl shadow-2xl">
+            <div className="bg-background relative z-10 -mt-24 rounded-t-3xl shadow-2xl pt-16">
                 <AnimateOnScroll animation="fade-in-up" className="relative">
                     <div className="absolute -top-12 left-1/2 -translate-x-1/2">
                         <Avatar className="w-24 h-24 bg-background shadow-lg ring-4 ring-primary/20">
@@ -186,7 +186,7 @@ const HeroSection = () => {
     }, []);
 
     return (
-        <section id="home" className="relative h-screen flex flex-col items-center justify-end text-center p-4 pb-28 text-white">
+        <section id="home" className="relative h-screen flex flex-col items-center justify-end text-center p-4 pb-48 text-white">
             <div className="absolute inset-0">
                  {galleryImages.map((image, index) => (
                     <Image
@@ -224,7 +224,7 @@ const SectionTitle = ({ subtitle }: { subtitle: string }) => (
 )
 
 const CoupleSection = () => (
-    <section id="couple" className="relative flex flex-col pt-16">
+    <section id="couple" className="relative flex flex-col">
       <AnimateOnScroll animation="fade-in-up" className="bg-primary/10 py-12 px-6 text-center">
         <p className="max-w-2xl mx-auto text-primary/80 italic mt-8">
           "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."
