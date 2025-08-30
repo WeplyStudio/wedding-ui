@@ -39,6 +39,15 @@ const galleryImages = [
   { src: "https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/Bride.jpg", alt: "Happy couple", hint: "happy couple" },
 ];
 
+const ParallaxContainer = ({ children, className }: { children: React.ReactNode, className?: string }) => (
+    <div className={cn("absolute inset-0 -z-10 [clip-path:inset(0)]", className)}>
+        <div className="fixed inset-0">
+            {children}
+        </div>
+    </div>
+);
+
+
 export default function EvergreenVowsPage() {
   const [isOpen, setIsOpen] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -457,7 +466,7 @@ const EventsSection = () => {
 
     return (
         <AnimateOnScroll as="section" id="events" className="relative py-24 px-6 overflow-hidden">
-             <div className="absolute inset-0">
+            <ParallaxContainer>
                 {galleryImages.map((image, index) => (
                     <Image
                         key={index}
@@ -467,12 +476,12 @@ const EventsSection = () => {
                         fill
                         className={cn(
                             "object-cover transition-opacity duration-1000",
-                            index === currentImageIndex ? "opacity-100" : "opacity-80"
+                            index === currentImageIndex ? "opacity-100" : "opacity-0"
                         )}
                     />
                 ))}
                 <div className="absolute inset-0 bg-black/30" />
-            </div>
+            </ParallaxContainer>
             <div className="relative z-10 flex flex-col items-center text-center mb-16">
                 <h2 className="text-white font-serif text-6xl text-shadow">
                     Wedding
@@ -582,7 +591,7 @@ const GiftSection = () => {
 
     return (
         <AnimateOnScroll as="section" id="gift" className="relative py-24 px-6 overflow-hidden text-center">
-            <div className="absolute inset-0">
+            <ParallaxContainer>
                 {galleryImages.map((image, index) => (
                     <Image
                         key={index}
@@ -597,7 +606,7 @@ const GiftSection = () => {
                     />
                 ))}
                 <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" />
-            </div>
+            </ParallaxContainer>
             <div className="relative z-10 flex flex-col items-center">
                 <AnimateOnScroll animation="zoom-in" delay={0.2}>
                     <Card className="w-full max-w-md bg-background/80 border-0 shadow-2xl rounded-2xl overflow-hidden relative">
@@ -741,7 +750,7 @@ const GuestBookSection = () => (
 const Footer = () => (
     <footer className="w-full text-center">
       <AnimateOnScroll as="div" className="relative py-24 px-6 overflow-hidden text-primary-foreground">
-        <div className="absolute inset-0">
+        <ParallaxContainer>
           <Image
             src="https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/7.jpeg"
             alt="Thank you"
@@ -750,7 +759,7 @@ const Footer = () => (
             className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-primary via-black/40 to-black/40" />
-        </div>
+        </ParallaxContainer>
         <div className="relative z-10 flex flex-col items-center">
           <AnimateOnScroll animation="fade-in-up">
             <h2 className="font-serif text-3xl mb-4">Terima Kasih</h2>
