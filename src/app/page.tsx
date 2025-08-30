@@ -57,7 +57,6 @@ export default function EvergreenVowsPage() {
     document.documentElement.style.overflow = 'auto';
     document.body.style.overflow = 'auto';
     if (audioRef.current) {
-      audioRef.current.muted = false;
       audioRef.current.play().catch(console.error);
     }
   };
@@ -103,7 +102,7 @@ export default function EvergreenVowsPage() {
                 <Footer />
             </div>
           </main>
-          <MusicPlayer audioRef={audioRef} />
+          <MusicPlayer ref={audioRef} />
           <BottomNav />
         </div>
     </div>
@@ -758,7 +757,7 @@ const Footer = () => (
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-black/50" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
         </div>
         <div className="relative z-10 flex flex-col items-center">
           <AnimateOnScroll animation="fade-in-up">
