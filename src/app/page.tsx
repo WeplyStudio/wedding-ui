@@ -39,15 +39,6 @@ const galleryImages = [
   { src: "https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/Bride.jpg", alt: "Happy couple", hint: "happy couple" },
 ];
 
-const navItems = [
-    { href: '#home', icon: Home, label: 'Home' },
-    { href: '#couple', icon: Heart, label: 'Couple' },
-    { href: '#events', icon: Calendar, label: 'Events' },
-    { href: '#gallery', icon: GalleryHorizontal, label: 'Gallery' },
-    { href: '#gift', icon: Gift, label: 'Gift'},
-    { href: '#guestbook', icon: Mail, label: 'Wishes' },
-];
-
 export default function EvergreenVowsPage() {
   const [isOpen, setIsOpen] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -103,7 +94,6 @@ export default function EvergreenVowsPage() {
             </div>
           </main>
           <MusicPlayer ref={audioRef} />
-          <BottomNav />
         </div>
     </div>
   );
@@ -793,57 +783,5 @@ const Footer = () => (
       </div>
     </footer>
 );
-
-const BottomNav = () => {
-    const [activeNav, setActiveNav] = useState('#home');
-
-    useEffect(() => {
-        const sections = navItems.map(item => document.querySelector(item.href));
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    setActiveNav(`#${entry.target.id}`);
-                }
-            });
-        }, { rootMargin: '-50% 0px -50% 0px', threshold: 0.2 });
-
-        sections.forEach(section => {
-            if (section) observer.observe(section);
-        });
-
-        return () => {
-            sections.forEach(section => {
-                if (section) observer.unobserve(section);
-            });
-        };
-    }, []);
-
-    return (
-        <nav className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50">
-            <div className="bg-background/80 backdrop-blur-md shadow-2xl rounded-full px-3 py-2">
-                <ul className="flex items-center justify-center gap-x-1">
-                    {navItems.map(item => (
-                        <li key={item.href}>
-                            <a 
-                                href={item.href}
-                                onClick={() => setActiveNav(item.href)}
-                                className={cn(
-                                    "flex flex-col items-center justify-center text-center w-12 h-12 rounded-full transition-all duration-300 ease-in-out",
-                                    activeNav === item.href 
-                                        ? "bg-primary text-primary-foreground scale-110" 
-                                        : "text-muted-foreground hover:bg-accent/50 hover:text-accent-foreground"
-                                )}
-                            >
-                                <item.icon className="w-5 h-5 mb-0.5" />
-                                <span className="text-[10px] font-medium">{item.label}</span>
-                            </a>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        </nav>
-    );
-};
 
     
