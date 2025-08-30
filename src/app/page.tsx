@@ -159,7 +159,7 @@ const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => vo
               <Button 
                 onClick={onOpen} 
                 size="lg" 
-                className="w-full max-w-sm rounded-full px-7 py-5 text-xs shadow-lg bg-primary hover:bg-primary/90 text-primary-foreground font-sans animate-fade-in-up"
+                className="w-full max-w-sm rounded-full px-7 py-5 text-xs shadow-lg bg-accent hover:bg-accent/90 text-primary-foreground font-sans animate-fade-in-up"
                 style={{ animationDuration: '0.8s', animationDelay: '0.3s' }}
               >
                   <Mail className="mr-3 h-5 w-5" />
@@ -221,28 +221,29 @@ const SectionTitle = ({ subtitle }: { subtitle: string }) => (
 
 const CoupleSection = () => (
     <section id="couple" className="relative flex flex-col pt-[110]">
-      <div className="bg-background pb-24 px-6 relative">
+      <div className="bg-background relative">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-20 bg-background rounded-b-full"></div>
         
-        <AnimateOnScroll animation="fade-in-up" className="text-center py-2">
-          <p className="max-w-2xl mx-auto text-muted-foreground italic">
+        <AnimateOnScroll animation="fade-in-up" className="text-center py-2 px-10">
+          <p className="max-w-2xl mx-auto text-muted-foreground text-sm">
             "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."
           </p>
-          <p className="mt-4 mb-12 font-semibold text-muted-foreground/80">Q.S Ar-Rum : 21</p>
+          <p className="mt-4 mb-20 font-semibold text-muted-foreground font-serif italic text-2xl">Q.S Ar-Rum : 21</p>
         </AnimateOnScroll>
         
+        <div className="bg-accent m-0 py-12 rounded-tl-[100] p-0">
         <AnimateOnScroll
           animation="fade-in-up"
           delay={0.2}
           className="text-center mb-16"
         >
-          <h2 className="text-6xl font-serif text-primary relative inline-block">
+          <h2 className="z-[10] text-6xl font-serif text-white relative inline-block">
             Kedua
-            <span className="bg-primary/50 text-gray-600 font-serif italic font-normal text-muted-foreground/80 absolute -bottom-3 -right-12 text-3xl">
+            <span className="z-[9] text-gray-200 font-serif italic font-normal text-muted-foreground/80 absolute -bottom-3 -right-12 text-3xl">
               Mempelai
             </span>
           </h2>
-          <p className="mt-8 max-w-xl mx-auto text-muted-foreground text-sm">
+          <p className="mt-8 max-w-xl mx-auto text-white text-sm px-12 py-4">
             <b>Assalamu’alaikum Warahmatullahi Wabarakatuh</b>
             <br />
             <br />
@@ -272,19 +273,19 @@ const CoupleSection = () => (
             </div>
 
             <div className="w-full md:w-1/2 text-center md:text-left">
-              <h3 className="font-serif text-4xl text-primary mb-2">
+              <h3 className="font-serif text-4xl text-white mb-2">
                 Putra Andika Pratama
               </h3>
-              <p className="font-sans font-bold text-muted-foreground mb-1">
+              <p className="font-sans font-bold text-white mb-1">
                 Putra Pertama dari
               </p>
-              <p className="font-sans text-sm mb-4">
+              <p className="font-sans text-sm text-white mb-4">
                 Bapak Deni Bastian dan Ibu Aisha Dania
               </p>
               <Button
                 asChild
                 variant="outline"
-                className="rounded-full bg-transparent border-primary/30 hover:bg-primary hover:text-primary-foreground transition-all duration-300 group"
+                className="rounded-full bg-white text-accent hover:bg-accent hover:text-white hover:border-white transition-all duration-300 group"
               >
                 <a
                   href="https://www.instagram.com/user_ig_pria"
@@ -317,19 +318,19 @@ const CoupleSection = () => (
             </div>
 
             <div className="w-full md:w-1/2 text-center md:text-right">
-              <h3 className="font-serif text-4xl text-primary mb-2">
-                Putri Cantika Sari
+            <h3 className="font-serif text-4xl text-white mb-2">
+                Putri Cantika Permata
               </h3>
-              <p className="font-sans font-bold text-muted-foreground mb-1">
+              <p className="font-sans font-bold text-white mb-1">
                 Putri Pertama dari
               </p>
-              <p className="font-sans text-sm mb-4">
-                Bapak Abdul Rozak dan Ibu Adella Marni
+              <p className="font-sans text-sm text-white mb-4">
+                Bapak Agus Sucipto dan Ibu Lisa Melisa
               </p>
               <Button
                 asChild
                 variant="outline"
-                className="rounded-full border-primary/30 hover:bg-primary hover:text-primary-foreground transition-all duration-300 group"
+                className="rounded-full bg-white text-accent hover:bg-accent hover:text-white hover:border-white transition-all duration-300 group"
               >
                 <a
                   href="https://www.instagram.com/user_ig_wanita"
@@ -342,6 +343,7 @@ const CoupleSection = () => (
               </Button>
             </div>
           </AnimateOnScroll>
+        </div>
         </div>
       </div>
     </section>
@@ -368,7 +370,7 @@ const EventCard = ({
 }) => {
     return (
         <AnimateOnScroll className="w-full max-w-md mx-auto" animation="zoom-in" delay={0.2}>
-            <div className="bg-background/40 backdrop-blur-sm rounded-tr-[120] shadow-2xl overflow-hidden">
+            <div className="bg-background/85 backdrop-blur-sm rounded-tr-[120] shadow-2xl overflow-hidden">
                 <div className="relative h-64 w-full">
                     <Image
                         src={imageUrl}
@@ -465,17 +467,17 @@ const EventsSection = () => {
                         fill
                         className={cn(
                             "object-cover transition-opacity duration-1000",
-                            index === currentImageIndex ? "opacity-100" : "opacity-0"
+                            index === currentImageIndex ? "opacity-100" : "opacity-80"
                         )}
                     />
                 ))}
-                <div className="absolute inset-0 bg-background/80" />
+                <div className="absolute inset-0 bg-black/30" />
             </div>
             <div className="relative z-10 flex flex-col items-center text-center mb-16">
-                <h2 className="text-black font-serif text-6xl text-primary-foreground text-shadow">
+                <h2 className="text-white font-serif text-6xl text-shadow">
                     Wedding
                 </h2>
-                <p className="bg-primary/50 text-black font-sans tracking-[0.35em] uppercase text-lg md:text-sm text-primary-foreground/90">
+                <p className="text-white bg-primary/50 font-sans tracking-[0.35em] uppercase text-lg md:text-sm">
                     Event
                 </p>
                 <div className="w-24 h-px bg-primary my-4"></div>
@@ -594,7 +596,7 @@ const GiftSection = () => {
                         )}
                     />
                 ))}
-                <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
+                <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" />
             </div>
             <div className="relative z-10 flex flex-col items-center">
                 <AnimateOnScroll animation="zoom-in" delay={0.2}>
@@ -747,38 +749,27 @@ const Footer = () => (
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-primary via-black/40 to-black/40" />
         </div>
         <div className="relative z-10 flex flex-col items-center">
           <AnimateOnScroll animation="fade-in-up">
-            <h2 className="font-serif text-4xl mb-4">Terima Kasih</h2>
-            <p className="max-w-xl mx-auto mb-8 text-sm">
+            <h2 className="font-serif text-3xl mb-4">Terima Kasih</h2>
+            <p className="max-w-xl mx-auto mb-2 text-xs">
               Merupakan suatu kebahagiaan dan kehormatan bagi kami, apabila Bapak/Ibu/Saudara/i, berkenan hadir dan memberikan do’a restu kepada kami.
             </p>
-            <p className="max-w-xl mx-auto mb-8 text-sm font-semibold">
+            <p className="max-w-xl mx-auto mb-12 text-xs font-semibold">
               Wassalamu’alaikum warahmatullahi wabarakatuh
             </p>
             <div className="mt-8">
-              <p className="text-xs uppercase tracking-widest mb-2">Kami yang berbahagia</p>
-              <p className="font-serif text-4xl">{coupleNames}</p>
+              <p className="text-xs uppercase tracking-widest mb-4">Kami yang berbahagia</p>
+              <p className="font-serif text-5xl">{coupleNames}</p>
             </div>
           </AnimateOnScroll>
         </div>
       </AnimateOnScroll>
-      <div className="bg-secondary/20 py-8 px-6 text-foreground">
+      <div className="bg-primary py-[65] px-6 text-foreground">
         <div className="flex flex-col items-center gap-4">
-            <div className="flex items-center gap-2">
-                <Image src="https://the.invisimple.id/wp-content/uploads/2024/10/cropped-cropped-icon-invisimple-32x32.png" alt="invisimple.id logo" width={24} height={24} />
-                <span className="font-semibold">invisimple.id</span>
-            </div>
-            <div className="flex items-center gap-6">
-                <a href="#" aria-label="Instagram" className="hover:text-primary transition-colors"><Instagram className="w-5 h-5" /></a>
-                <a href="#" aria-label="WhatsApp" className="hover:text-primary transition-colors"><MessageCircle className="w-5 h-5" /></a>
-                <a href="#" aria-label="TikTok" className="hover:text-primary transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><path d="M22 4s-.7 2.1-2 3.4c1.6 1.4 2.8 3.2 2.8 5.5 0 3.9-3.1 7-7 7H6c-3.9 0-7-3.1-7-7 0-3.9 3.1-7 7-7h1V4c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2v10c0 1.1.9 2 2 2s2-.9 2-2V4h-2"/></svg>
-                </a>
-            </div>
-            <p className="text-sm uppercase tracking-widest font-medium">Hubungi Kami</p>
+            <p className="text-white text-xs uppercase tracking-widest font-medium">make with ♡ for putra and putri</p>
         </div>
       </div>
     </footer>
