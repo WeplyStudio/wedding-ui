@@ -27,19 +27,21 @@ const coupleNames = "Iqbal & Sastriana";
 
 
 const openingImages = [
-    "https://i.ibb.co.com/8Dv3wh1p/IMG-5562.jpg",
-    "https://i.ibb.co.com/whGjMpKT/IMG-5553.jpg",
-    "https://i.ibb.co.com/zTH2yMBh/IMG-5583.jpg",
-    "https://i.ibb.co.com/whGjMpKT/IMG-5553.jpg",
-    "https://i.ibb.co.com/8Dv3wh1p/IMG-5562.jpg",
+    "/images/IMG_5562.JPG",
+    "/images/IMG_5553.JPG",
+    "/images/IMG_5583.JPG",
+    "/images/IMG_5566.JPG",
+    "/images/IMG_5572.JPG",
+    "/images/IMG_20250823_224958.jpg",
 ];
 
 const galleryImages = [
-  { src: "https://i.ibb.co.com/ZzHrsRsF/IMG-5572.jpg", alt: "Couple smiling", hint: "couple smiling" },
-  { src: "https://i.ibb.co.com/PZwzs3M2/IMG-5566.jpg", alt: "Couple holding hands", hint: "couple hands" },
-  { src: "https://i.ibb.co.com/zTH2yMBh/IMG-5583.jpg", alt: "Couple in nature", hint: "couple nature" },
-  { src: "https://i.ibb.co.com/whGjMpKT/IMG-5553.jpg", alt: "Couple walking on a beach", hint: "couple beach" },
-  { src: "https://i.ibb.co.com/8Dv3wh1p/IMG-5562.jpg", alt: "Couple under a tree", hint: "couple tree" },
+  { src: "/images/IMG_5572.JPG", alt: "Couple smiling", hint: "couple smiling" },
+  { src: "/images/IMG_5566.JPG", alt: "Couple holding hands", hint: "couple hands" },
+  { src: "/images/IMG_5583.JPG", alt: "Couple in nature", hint: "couple nature" },
+  { src: "/images/IMG_5553.JPG", alt: "Couple walking on a beach", hint: "couple beach" },
+  { src: "/images/IMG_5562.JPG", alt: "Couple under a tree", hint: "couple tree" },
+  { src: "/images/IMG_20250823_224958.jpg", alt: "Ring", hint: "couple tree" },
 ];
 
 const ParallaxContainer = ({ children, className }: { children: React.ReactNode, className?: string }) => (
@@ -288,7 +290,7 @@ const CoupleSection = () => (
                 <div className="absolute inset-0 bg-primary/10 rounded-tr-[140px] rounded-xl"></div>
                 <div className="absolute inset-0 overflow-hidden rounded-tr-[140px] rounded-xl">
                   <Image
-                    src="https://i.ibb.co.com/Zpr8ZH9D/IMG-5576.jpg"
+                    src="/images/IMG_5576.JPG"
                     alt="Iqbal"
                     fill
                     className="object-cover scale-125"
@@ -334,10 +336,10 @@ const CoupleSection = () => (
                 <div className="absolute inset-0 bg-primary/10 rounded-tl-[140px] rounded-xl"></div>
                 <div className="absolute inset-0 overflow-hidden rounded-tl-[140px] rounded-xl">
                   <Image
-                    src="https://i.ibb.co.com/HDwWMqQv/IMG-5580.jpg"
+                    src="/images/IMG_5580.JPG"
                     alt="Sastriana"
                     fill
-                    className="object-cover scale-150"
+                    className="object-cover scale-125"
                   />
                 </div>
               </div>
