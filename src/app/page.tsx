@@ -3,7 +3,8 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -23,7 +24,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const weddingDate = new Date("2025-09-20T14:00:00");
 const coupleNames = "Putri & Putra";
-const guestName = "Bapak/Ibu/Saudara/i"; // This can be dynamic in a real app
+
 
 const openingImages = [
     "https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/Bride.jpg",
@@ -70,46 +71,48 @@ export default function EvergreenVowsPage() {
   }, [isOpen]);
 
   return (
-    <div className="flex flex-col items-center min-h-screen bg-background text-foreground font-sans">
-      <svg width="0" height="0">
-        <defs>
-          <clipPath id="organic-shape-1" clipPathUnits="objectBoundingBox">
-            <path d="M0.432,0.021 C0.803,0.01,0.91,0.206,0.98,0.468 C1.002,0.56,1.006,0.679,0.995,0.768 C0.985,0.857,0.96,0.932,0.912,0.978 C0.84,1.004,0.578,1.01,0.403,0.994 C0.102,0.969,-0.007,0.833,0.001,0.521 C0.003,0.43,0.015,0.283,0.061,0.187 C0.126,0.05,0.21,0.026,0.432,0.021"></path>
-          </clipPath>
-          <clipPath id="organic-shape-2" clipPathUnits="objectBoundingBox">
-            <path d="M0.568,0.979 C0.197,0.99,0.09,0.794,0.02,0.532 C-0.002,0.44,-0.006,0.321,0.005,0.232 C0.015,0.143,0.04,0.068,0.088,0.022 C0.16,-0.004,0.422,-0.01,0.597,0.006 C0.898,0.031,1.007,0.167,0.999,0.479 C0.997,0.57,0.985,0.717,0.939,0.813 C0.874,0.95,0.79,0.974,0.568,0.979"></path>
-          </clipPath>
-        </defs>
-      </svg>
+    <Suspense fallback={<div>Loading...</div>}>
+      <div className="flex flex-col items-center min-h-screen bg-background text-foreground font-sans">
+        <svg width="0" height="0">
+          <defs>
+            <clipPath id="organic-shape-1" clipPathUnits="objectBoundingBox">
+              <path d="M0.432,0.021 C0.803,0.01,0.91,0.206,0.98,0.468 C1.002,0.56,1.006,0.679,0.995,0.768 C0.985,0.857,0.96,0.932,0.912,0.978 C0.84,1.004,0.578,1.01,0.403,0.994 C0.102,0.969,-0.007,0.833,0.001,0.521 C0.003,0.43,0.015,0.283,0.061,0.187 C0.126,0.05,0.21,0.026,0.432,0.021"></path>
+            </clipPath>
+            <clipPath id="organic-shape-2" clipPathUnits="objectBoundingBox">
+              <path d="M0.568,0.979 C0.197,0.99,0.09,0.794,0.02,0.532 C-0.002,0.44,-0.006,0.321,0.005,0.232 C0.015,0.143,0.04,0.068,0.088,0.022 C0.16,-0.004,0.422,-0.01,0.597,0.006 C0.898,0.031,1.007,0.167,0.999,0.479 C0.997,0.57,0.985,0.717,0.939,0.813 C0.874,0.95,0.79,0.974,0.568,0.979"></path>
+            </clipPath>
+          </defs>
+        </svg>
 
-        <OpeningCeremony isOpen={isOpen} onOpen={handleOpenInvitation} />
-        
-        <div className={cn("w-full max-w-3xl mx-auto transition-opacity duration-1000 ease-in-out", isOpen ? "opacity-100" : "opacity-0 invisible")}>
-          <main className="flex-1 overflow-x-hidden">
-             <div className="relative">
-                <HeroSection />
-                <div className="relative z-20">
-                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2">
-                      <AnimateOnScroll animation="zoom-in" delay={0.3}>
-                          <Avatar className="w-24 h-24 bg-background shadow-lg ring-4 ring-primary/20">
-                              <AvatarFallback className="text-3xl font-serif text-primary bg-transparent">A&amp;P</AvatarFallback>
-                          </Avatar>
-                      </AnimateOnScroll>
+          <OpeningCeremony isOpen={isOpen} onOpen={handleOpenInvitation} />
+          
+          <div className={cn("w-full max-w-3xl mx-auto transition-opacity duration-1000 ease-in-out", isOpen ? "opacity-100" : "opacity-0 invisible")}>
+            <main className="flex-1 overflow-x-hidden">
+               <div className="relative">
+                  <HeroSection />
+                  <div className="relative z-20">
+                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2">
+                        <AnimateOnScroll animation="zoom-in" delay={0.3}>
+                            <Avatar className="w-24 h-24 bg-background shadow-lg ring-4 ring-primary/20">
+                                <AvatarFallback className="text-3xl font-serif text-primary bg-transparent">P&amp;P</AvatarFallback>
+                            </Avatar>
+                        </AnimateOnScroll>
+                    </div>
                   </div>
-                </div>
-                <div className="bg-background relative z-10 rounded-t-3xl shadow-2xl pt-16">
-                    <CoupleSection />
-                    <EventsSection />
-                    <GallerySection />
-                    <GiftSection />
-                    <GuestBookSection />
-                    <Footer />
-                </div>
-            </div>
-          </main>
-          <MusicPlayer ref={audioRef} />
-        </div>
-    </div>
+                  <div className="bg-background relative z-10 rounded-t-3xl shadow-2xl pt-16">
+                      <CoupleSection />
+                      <EventsSection />
+                      <GallerySection />
+                      <GiftSection />
+                      <GuestBookSection />
+                      <Footer />
+                  </div>
+              </div>
+            </main>
+            <MusicPlayer ref={audioRef} />
+          </div>
+      </div>
+    </Suspense>
   );
 }
 
@@ -117,6 +120,8 @@ export default function EvergreenVowsPage() {
 const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => void }) => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [isClient, setIsClient] = useState(false);
+    const searchParams = useSearchParams();
+    const guestName = searchParams.get('to') || "Bapak/Ibu/Saudara/i";
 
     useEffect(() => {
         setIsClient(true);
