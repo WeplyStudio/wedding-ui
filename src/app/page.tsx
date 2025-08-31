@@ -36,12 +36,12 @@ const openingImages = [
 ];
 
 const galleryImages = [
-  { src: "/images/IMG_5572.JPG", alt: "Couple smiling", hint: "couple smiling" },
-  { src: "/images/IMG_5566.JPG", alt: "Couple holding hands", hint: "couple hands" },
-  { src: "/images/IMG_5583.JPG", alt: "Couple in nature", hint: "couple nature" },
-  { src: "/images/IMG_5553.JPG", alt: "Couple walking on a beach", hint: "couple beach" },
+  { src: "/images/IMG_5553.JPG", alt: "Couple smiling", hint: "couple smiling" },
+  { src: "/images/IMG_20250823_224958.jpg", alt: "Couple holding hands", hint: "couple hands" },
+  { src: "/images/IMG_5566.JPG", alt: "Couple in nature", hint: "couple nature" },
+  { src: "/images/IMG_5572.JPG", alt: "Couple walking on a beach", hint: "couple beach" },
   { src: "/images/IMG_5562.JPG", alt: "Couple under a tree", hint: "couple tree" },
-  { src: "/images/IMG_20250823_224958.jpg", alt: "Ring", hint: "couple tree" },
+  { src: "/images/IMG_5583.JPG", alt: "Ring", hint: "couple tree" },
 ];
 
 const ParallaxContainer = ({ children, className }: { children: React.ReactNode, className?: string }) => (
@@ -519,7 +519,7 @@ const EventsSection = () => {
                     time="09:00 - Selesai"
                     location={["Jl. Raja Ali Haji No.02", "Kijang Kota, Bintan Timur"]}
                     buttons={[{ text: "Google Maps", href: "https://maps.app.goo.gl/NDW1v14nDYjPHbHb6?g_st=ac", icon: MapPin }]}
-                    imageUrl="https://i.ibb.co.com/PZwzs3M2/IMG-5566.jpg"
+                    imageUrl="/images/IMG_5566.JPG"
                     imageHint="wedding ceremony"
                     align="left"
                 />
@@ -532,7 +532,7 @@ const EventsSection = () => {
                         { text: "Google Maps", href: "https://maps.app.goo.gl/cV9dk9cw2M3KV1bN6?g_st=ac", icon: MapPin },
                         { text: "Add to Calendar", href: googleCalendarLink, icon: CalendarDays }
                     ]}
-                    imageUrl="https://i.ibb.co.com/whGjMpKT/IMG-5553.jpg"
+                    imageUrl="/images/IMG-5553.JPG"
                     imageHint="wedding reception"
                     align="right"
                 />
@@ -667,9 +667,8 @@ const GiftDrawer = () => {
     };
 
     const bankAccounts = [
-        { bank: "BCA", name: "Putra Andika Pratama", number: "1234567890", logo: "https://our-wedding.link/wp-content/uploads/2024/07/bca.png" },
-        { bank: "BNI", name: "Putri Cantika Sari", number: "0987654321", logo: "https://our-wedding.link/wp-content/uploads/2024/07/bni.png" },
-        { bank: "BRI", name: "Putra & Putri", number: "1122334455", logo: "https://our-wedding.link/wp-content/uploads/2024/07/bri.png" },
+        { bank: "BCA", name: "Iqbal", number: "8890759859", logo: "/images/bca.png" },
+        { bank: "BSI", name: "Sastriana", number: "7216522855", logo: "/images/bsi.png" },
     ]
     
     const giftAddress = "Jl. Kencana Indah Blok AB No. 12, RT 05 RW 10, Kelurahan Bunga, Kecamatan Melati, Kota Kembang, 12345";
