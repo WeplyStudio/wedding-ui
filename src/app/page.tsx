@@ -86,21 +86,25 @@ export default function EvergreenVowsPage() {
         
         <div className={cn("w-full max-w-3xl mx-auto transition-opacity duration-1000 ease-in-out", isOpen ? "opacity-100" : "opacity-0 invisible")}>
           <main className="flex-1 overflow-x-hidden">
-            <HeroSection />
-            <div className="bg-background relative z-10 -mt-24 rounded-t-3xl shadow-2xl">
-                <AnimateOnScroll animation="fade-in-up" className="relative z-20">
-                    <div className="absolute -top-16 left-1/2 -translate-x-1/2">
-                        <Avatar className="w-24 h-24 bg-background shadow-lg ring-4 ring-primary/20">
-                            <AvatarFallback className="text-3xl font-serif text-primary bg-transparent">A&amp;P</AvatarFallback>
-                        </Avatar>
-                    </div>
-                </AnimateOnScroll>
-                <CoupleSection />
-                <EventsSection />
-                <GallerySection />
-                <GiftSection />
-                <GuestBookSection />
-                <Footer />
+             <div className="relative">
+                <HeroSection />
+                <div className="relative z-20">
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2">
+                      <AnimateOnScroll animation="zoom-in" delay={0.3}>
+                          <Avatar className="w-24 h-24 bg-background shadow-lg ring-4 ring-primary/20">
+                              <AvatarFallback className="text-3xl font-serif text-primary bg-transparent">A&amp;P</AvatarFallback>
+                          </Avatar>
+                      </AnimateOnScroll>
+                  </div>
+                </div>
+                <div className="bg-background relative z-10 rounded-t-3xl shadow-2xl pt-16">
+                    <CoupleSection />
+                    <EventsSection />
+                    <GallerySection />
+                    <GiftSection />
+                    <GuestBookSection />
+                    <Footer />
+                </div>
             </div>
           </main>
           <MusicPlayer ref={audioRef} />
@@ -192,7 +196,7 @@ const HeroSection = () => {
     }, []);
 
     return (
-        <section id="home" className="relative h-screen flex flex-col items-center justify-end text-center p-4 pb-48 text-white">
+        <section id="home" className="relative h-screen flex flex-col items-center justify-end text-center p-4 pb-16 text-white">
             <div className="absolute inset-0">
                  {galleryImages.map((image, index) => (
                     <Image
@@ -211,7 +215,7 @@ const HeroSection = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
             </div>
             
-            <div className="relative z-10 flex flex-col items-center w-full animate-fade-in-up pb-28" style={{animationDuration: '1.2s'}}>
+            <div className="relative z-10 flex flex-col items-center w-full animate-fade-in-up" style={{animationDuration: '1.2s'}}>
                 <p className="font-sans tracking-[0.2em] text-sm uppercase">The Wedding Of</p>
                 <h1 className="font-serif text-6xl md:text-7xl mt-2 mb-4 text-shadow-lg">{coupleNames}</h1>
                 <p className="font-sans text-lg">20 . 09 . 2025</p>
@@ -230,7 +234,7 @@ const SectionTitle = ({ subtitle }: { subtitle: string }) => (
 );
 
 const CoupleSection = () => (
-  <section id="couple" className="relative flex flex-col pt-[110] z-10">
+  <section id="couple" className="relative flex flex-col pt-[50] z-10">
     <div className="bg-background relative z-0">
       {/* Lengkungan atas → kasih z-0 supaya ga nutup SectionTitle */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-20 bg-background rounded-b-full z-0"></div>
