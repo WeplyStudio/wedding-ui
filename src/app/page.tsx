@@ -27,18 +27,18 @@ const coupleNames = "Putri & Putra";
 
 
 const openingImages = [
-    "https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/Bride.jpg",
-    "https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/Groom.jpg",
-    "https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/4.jpeg",
+    "https://i.ibb.co/ZzHrsRsF/IMG-5572.jpg",
+    "https://i.ibb.co/PZwzs3M2/IMG-5566.jpg",
+    "https://i.ibb.co/zTH2yMBh/IMG-5583.jpg",
 ];
 
 const galleryImages = [
-  { src: "https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/4.jpeg", alt: "Couple smiling", hint: "couple smiling" },
-  { src: "https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/5.jpeg", alt: "Couple holding hands", hint: "couple hands" },
-  { src: "https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/6.jpeg", alt: "Couple in nature", hint: "couple nature" },
-  { src: "https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/7.jpeg", alt: "Couple walking on a beach", hint: "couple beach" },
-  { src: "https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/8.jpg", alt: "Couple under a tree", hint: "couple tree" },
-  { src: "https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/Bride.jpg", alt: "Happy couple", hint: "happy couple" },
+  { src: "https://i.ibb.co/ZzHrsRsF/IMG-5572.jpg", alt: "Couple smiling", hint: "couple smiling" },
+  { src: "https://i.ibb.co/PZwzs3M2/IMG-5566.jpg", alt: "Couple holding hands", hint: "couple hands" },
+  { src: "https://i.ibb.co/zTH2yMBh/IMG-5583.jpg", alt: "Couple in nature", hint: "couple nature" },
+  { src: "https://i.ibb.co/whGjMpKT/IMG-5553.jpg", alt: "Couple walking on a beach", hint: "couple beach" },
+  { src: "https://i.ibb.co/8Dv3wh1p/IMG-5562.jpg", alt: "Couple under a tree", hint: "couple tree" },
+  { src: "https://i.ibb.co/HDwWMqQv/IMG-5580.jpg", alt: "Happy couple", hint: "happy couple" },
 ];
 
 const ParallaxContainer = ({ children, className }: { children: React.ReactNode, className?: string }) => (
@@ -94,7 +94,7 @@ export default function EvergreenVowsPage() {
                     <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2">
                         <AnimateOnScroll animation="zoom-in" delay={0.3}>
                             <Avatar className="w-24 h-24 bg-background shadow-lg ring-4 ring-primary/20">
-                                <AvatarFallback className="text-3xl font-serif text-primary bg-transparent">P&amp;P</AvatarFallback>
+                                <AvatarFallback className="text-3xl font-serif text-primary bg-transparent">P&P</AvatarFallback>
                             </Avatar>
                         </AnimateOnScroll>
                     </div>
@@ -287,7 +287,7 @@ const CoupleSection = () => (
                 <div className="absolute inset-0 bg-primary/10 rounded-tr-[140px] rounded-xl"></div>
                 <div className="absolute inset-0 overflow-hidden rounded-tr-[140px] rounded-xl">
                   <Image
-                    src="https://the.invisimple.id/wp-content/uploads/elementor/thumbs/PRIA-r1qxu50pofy26yljvdfud7qei6f9whhy1kfb005u2w.jpg"
+                    src="https://i.ibb.co/Zpr8ZH9D/IMG-5576.jpg"
                     alt="Putra Andika Pratama"
                     fill
                     className="object-cover"
@@ -333,7 +333,7 @@ const CoupleSection = () => (
                 <div className="absolute inset-0 bg-primary/10 rounded-tl-[140px] rounded-xl"></div>
                 <div className="absolute inset-0 overflow-hidden rounded-tl-[140px] rounded-xl">
                   <Image
-                    src="https://the.invisimple.id/wp-content/uploads/elementor/thumbs/WANITA-r1qxu50pofy26yljvdfud7qei6f9whhy1kfb005u2w.jpg"
+                    src="https://i.ibb.co/HDwWMqQv/IMG-5580.jpg"
                     alt="Putri Cantika Sari"
                     fill
                     className="object-cover"
@@ -802,5 +802,7 @@ const Footer = () => (
 </div>
     </footer>
 );
+
+    
 
     

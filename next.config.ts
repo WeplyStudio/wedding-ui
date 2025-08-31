@@ -51,9 +51,17 @@ const nextConfig: NextConfig = {
         hostname: 'api.qr-code-generator.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.ibb.co',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
 };
 
 export default nextConfig;
+
+    
