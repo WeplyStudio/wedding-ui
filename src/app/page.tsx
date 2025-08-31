@@ -532,7 +532,7 @@ const EventsSection = () => {
                         { text: "Google Maps", href: "https://maps.app.goo.gl/cV9dk9cw2M3KV1bN6?g_st=ac", icon: MapPin },
                         { text: "Add to Calendar", href: googleCalendarLink, icon: CalendarDays }
                     ]}
-                    imageUrl="/images/IMG-5553.JPG"
+                    imageUrl="/images/IMG_5553.JPG"
                     imageHint="wedding reception"
                     align="right"
                 />
