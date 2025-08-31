@@ -1,4 +1,5 @@
 
+
 "use client";
 
 import Image from "next/image";
@@ -87,7 +88,7 @@ export default function EvergreenVowsPage() {
           <main className="flex-1 overflow-x-hidden">
             <HeroSection />
             <div className="bg-background relative z-10 -mt-24 rounded-t-3xl shadow-2xl">
-                <AnimateOnScroll animation="fade-in-up" className="relative">
+                <AnimateOnScroll animation="fade-in-up" className="relative z-20">
                     <div className="absolute -top-12 left-1/2 -translate-x-1/2">
                         <Avatar className="w-24 h-24 bg-background shadow-lg ring-4 ring-primary/20">
                             <AvatarFallback className="text-3xl font-serif text-primary bg-transparent">A&amp;P</AvatarFallback>
@@ -223,24 +224,27 @@ const HeroSection = () => {
 };
 
 const SectionTitle = ({ subtitle }: { subtitle: string }) => (
-    <AnimateOnScroll className="flex flex-col items-center text-center mb-8">
-        <h2 className="font-serif text-5xl">{subtitle}</h2>
-    </AnimateOnScroll>
-)
+  <AnimateOnScroll className="flex flex-col items-center text-center relative z-50 pb-[110]">
+    <h2 className="font-serif text-5xl">{subtitle}</h2><br/>
+  </AnimateOnScroll>
+);
 
 const CoupleSection = () => (
-    <section id="couple" className="relative flex flex-col pt-[110]">
-      <div className="bg-background relative">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-20 bg-background rounded-b-full"></div>
-        
-        <AnimateOnScroll animation="fade-in-up" className="text-center py-2 px-10">
-          <p className="max-w-2xl mx-auto text-muted-foreground text-sm">
-            "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."
-          </p>
-          <p className="mt-4 mb-20 font-semibold text-muted-foreground font-serif italic text-2xl">Q.S Ar-Rum : 21</p>
-        </AnimateOnScroll>
-        
-        <div className="bg-accent m-0 py-12 rounded-tl-[100] p-0">
+  <section id="couple" className="relative flex flex-col pt-[110] z-10">
+    <div className="bg-background relative z-0">
+      {/* Lengkungan atas → kasih z-0 supaya ga nutup SectionTitle */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-20 bg-background rounded-b-full z-0"></div>
+      
+      <AnimateOnScroll animation="fade-in-up" className="text-center py-2 px-10 relative z-10">
+        <p className="max-w-2xl mx-auto text-muted-foreground text-sm">
+          "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."
+        </p>
+        <p className="mt-4 mb-20 font-semibold text-muted-foreground font-serif italic text-2xl">
+          Q.S Ar-Rum : 21
+        </p>
+      </AnimateOnScroll>
+      
+      <div className="bg-accent m-0 py-12 rounded-tl-[100] p-0 relative z-10">
         <AnimateOnScroll
           animation="fade-in-up"
           delay={0.2}
@@ -262,7 +266,9 @@ const CoupleSection = () => (
           </p>
         </AnimateOnScroll>
 
+        {/* pasangan foto + biodata */}
         <div className="space-y-24">
+          {/* Mempelai pria */}
           <AnimateOnScroll
             animation="fade-in-right"
             className="flex flex-col md:flex-row items-center gap-8 md:gap-12"
@@ -308,6 +314,7 @@ const CoupleSection = () => (
             </div>
           </AnimateOnScroll>
 
+          {/* Mempelai wanita */}
           <AnimateOnScroll
             animation="fade-in-left"
             className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12"
@@ -327,7 +334,7 @@ const CoupleSection = () => (
             </div>
 
             <div className="w-full md:w-1/2 text-center md:text-right">
-            <h3 className="font-serif text-4xl text-white mb-2">
+              <h3 className="font-serif text-4xl text-white mb-2">
                 Putri Cantika Permata
               </h3>
               <p className="font-sans font-bold text-white mb-1">
@@ -353,10 +360,11 @@ const CoupleSection = () => (
             </div>
           </AnimateOnScroll>
         </div>
-        </div>
       </div>
-    </section>
+    </div>
+  </section>
 );
+
 
 const EventCard = ({
     title,
@@ -776,11 +784,13 @@ const Footer = () => (
           </AnimateOnScroll>
         </div>
       </AnimateOnScroll>
-      <div className="bg-primary py-[65] px-6 text-foreground">
-        <div className="flex flex-col items-center gap-4">
-            <p className="text-white text-xs uppercase tracking-widest font-medium">make with ♡ for putra and putri</p>
-        </div>
-      </div>
+      <div className="bg-primary text-white">
+  <div className="flex flex-col items-center justify-center min-h-[150px] px-6 text-center">
+    <p className="text-xs uppercase tracking-[0.3em] font-medium">
+      Make with ♡ for Putra and Putri
+    </p>
+  </div>
+</div>
     </footer>
 );
 
