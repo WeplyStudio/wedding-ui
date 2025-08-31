@@ -22,23 +22,24 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 
-const weddingDate = new Date("2025-09-20T14:00:00");
-const coupleNames = "Putri & Putra";
+const weddingDate = new Date("2025-10-07T14:00:00");
+const coupleNames = "Iqbal & Sastriana";
 
 
 const openingImages = [
-    "https://i.ibb.co/ZzHrsRsF/IMG-5572.jpg",
-    "https://i.ibb.co/PZwzs3M2/IMG-5566.jpg",
-    "https://i.ibb.co/zTH2yMBh/IMG-5583.jpg",
+    "https://i.ibb.co.com/8Dv3wh1p/IMG-5562.jpg",
+    "https://i.ibb.co.com/whGjMpKT/IMG-5553.jpg",
+    "https://i.ibb.co.com/zTH2yMBh/IMG-5583.jpg",
+    "https://i.ibb.co.com/whGjMpKT/IMG-5553.jpg",
+    "https://i.ibb.co.com/8Dv3wh1p/IMG-5562.jpg",
 ];
 
 const galleryImages = [
-  { src: "https://i.ibb.co/ZzHrsRsF/IMG-5572.jpg", alt: "Couple smiling", hint: "couple smiling" },
-  { src: "https://i.ibb.co/PZwzs3M2/IMG-5566.jpg", alt: "Couple holding hands", hint: "couple hands" },
-  { src: "https://i.ibb.co/zTH2yMBh/IMG-5583.jpg", alt: "Couple in nature", hint: "couple nature" },
-  { src: "https://i.ibb.co/whGjMpKT/IMG-5553.jpg", alt: "Couple walking on a beach", hint: "couple beach" },
-  { src: "https://i.ibb.co/8Dv3wh1p/IMG-5562.jpg", alt: "Couple under a tree", hint: "couple tree" },
-  { src: "https://i.ibb.co/HDwWMqQv/IMG-5580.jpg", alt: "Happy couple", hint: "happy couple" },
+  { src: "https://i.ibb.co.com/ZzHrsRsF/IMG-5572.jpg", alt: "Couple smiling", hint: "couple smiling" },
+  { src: "https://i.ibb.co.com/PZwzs3M2/IMG-5566.jpg", alt: "Couple holding hands", hint: "couple hands" },
+  { src: "https://i.ibb.co.com/zTH2yMBh/IMG-5583.jpg", alt: "Couple in nature", hint: "couple nature" },
+  { src: "https://i.ibb.co.com/whGjMpKT/IMG-5553.jpg", alt: "Couple walking on a beach", hint: "couple beach" },
+  { src: "https://i.ibb.co.com/8Dv3wh1p/IMG-5562.jpg", alt: "Couple under a tree", hint: "couple tree" },
 ];
 
 const ParallaxContainer = ({ children, className }: { children: React.ReactNode, className?: string }) => (
@@ -94,7 +95,7 @@ export default function EvergreenVowsPage() {
                     <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2">
                         <AnimateOnScroll animation="zoom-in" delay={0.3}>
                             <Avatar className="w-24 h-24 bg-background shadow-lg ring-4 ring-primary/20">
-                                <AvatarFallback className="text-3xl font-serif text-primary bg-transparent">P&P</AvatarFallback>
+                                <AvatarFallback className="text-3xl font-serif text-primary bg-transparent">I&S</AvatarFallback>
                             </Avatar>
                         </AnimateOnScroll>
                     </div>
@@ -144,9 +145,9 @@ const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => vo
       )}>
           {openingImages.map((src, index) => (
             <Image
-                key={src}
+                key={`${src}-${index}`}
                 src={src}
-                alt="The Wedding of Putri & Putra"
+                alt="The Wedding of Iqbal & Sastriana"
                 data-ai-hint="wedding couple photo"
                 fill
                 priority={index === 0}
@@ -156,12 +157,12 @@ const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => vo
                 )}
             />
           ))}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
   
           <div className="relative z-10 flex flex-col items-center justify-end h-full w-full text-center p-8 text-primary-foreground">
               <div className="flex flex-col items-center mb-8 animate-fade-in-up" style={{ animationDuration: '1.2s' }}>
               <p className="font-sans tracking-[0.35em] uppercase mb-4 text-xs md:text-sm text-primary-foreground/90">The Wedding Of</p>
-                  <h1 className="font-serif text-5xl md:text-6xl font-bold text-shadow-lg leading-tight mb-[70]">Andika & Putri</h1>
+                  <h1 className="font-serif text-5xl md:text-6xl font-bold text-shadow-lg leading-tight mb-[90]">Iqbal <span className="block text-2xl m-0 p-0">&</span> Sastriana</h1>
                   <div className="w-full text-center mt-10">
   <p className="font-sans tracking-[0.35em] uppercase text-xs md:text-sm text-primary-foreground/90">
     Dear
@@ -223,7 +224,7 @@ const HeroSection = () => {
             <div className="relative z-10 flex flex-col items-center w-full animate-fade-in-up" style={{animationDuration: '1.2s'}}>
                 <p className="font-sans tracking-[0.2em] text-sm uppercase">The Wedding Of</p>
                 <h1 className="font-serif text-6xl md:text-7xl mt-2 mb-4 text-shadow-lg">{coupleNames}</h1>
-                <p className="font-sans text-lg">20 . 09 . 2025</p>
+                <p className="font-sans text-lg">07 . 10 . 2025</p>
                 <div className="mt-8 w-full max-w-md">
                     <Countdown targetDate={weddingDate} />
                 </div>
@@ -287,10 +288,10 @@ const CoupleSection = () => (
                 <div className="absolute inset-0 bg-primary/10 rounded-tr-[140px] rounded-xl"></div>
                 <div className="absolute inset-0 overflow-hidden rounded-tr-[140px] rounded-xl">
                   <Image
-                    src="https://i.ibb.co/Zpr8ZH9D/IMG-5576.jpg"
-                    alt="Putra Andika Pratama"
+                    src="https://i.ibb.co.com/Zpr8ZH9D/IMG-5576.jpg"
+                    alt="Iqbal"
                     fill
-                    className="object-cover"
+                    className="object-cover scale-125"
                   />
                 </div>
               </div>
@@ -298,13 +299,13 @@ const CoupleSection = () => (
 
             <div className="w-full md:w-1/2 text-center md:text-left">
               <h3 className="font-serif text-4xl text-white mb-2">
-                Putra Andika Pratama
+                Iqbal
               </h3>
               <p className="font-sans font-bold text-white mb-1">
-                Putra Pertama dari
+                Putra Ketiga dari
               </p>
               <p className="font-sans text-sm text-white mb-4">
-                Bapak Deni Bastian dan Ibu Aisha Dania
+                Bapak Mavilindo dan Ibu Rika Efiani
               </p>
               <Button
                 asChild
@@ -312,12 +313,12 @@ const CoupleSection = () => (
                 className="rounded-full bg-white text-accent hover:bg-accent hover:text-white hover:border-white transition-all duration-300 group"
               >
                 <a
-                  href="https://www.instagram.com/user_ig_pria"
+                  href="https://www.instagram.com/ibal.doc"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <Instagram className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
-                  @user_ig_pria
+                  ibal.doc
                 </a>
               </Button>
             </div>
@@ -333,10 +334,10 @@ const CoupleSection = () => (
                 <div className="absolute inset-0 bg-primary/10 rounded-tl-[140px] rounded-xl"></div>
                 <div className="absolute inset-0 overflow-hidden rounded-tl-[140px] rounded-xl">
                   <Image
-                    src="https://i.ibb.co/HDwWMqQv/IMG-5580.jpg"
-                    alt="Putri Cantika Sari"
+                    src="https://i.ibb.co.com/HDwWMqQv/IMG-5580.jpg"
+                    alt="Sastriana"
                     fill
-                    className="object-cover"
+                    className="object-cover scale-150"
                   />
                 </div>
               </div>
@@ -344,13 +345,13 @@ const CoupleSection = () => (
 
             <div className="w-full md:w-1/2 text-center md:text-right">
               <h3 className="font-serif text-4xl text-white mb-2">
-                Putri Cantika Permata
+                Sastriana
               </h3>
               <p className="font-sans font-bold text-white mb-1">
-                Putri Pertama dari
+                Putri Ketiga dari
               </p>
               <p className="font-sans text-sm text-white mb-4">
-                Bapak Agus Sucipto dan Ibu Lisa Melisa
+                Bapak Abu Hasan Syahri dan Ibu Martina
               </p>
               <Button
                 asChild
@@ -358,12 +359,12 @@ const CoupleSection = () => (
                 className="rounded-full bg-white text-accent hover:bg-accent hover:text-white hover:border-white transition-all duration-300 group"
               >
                 <a
-                  href="https://www.instagram.com/user_ig_wanita"
+                  href="https://www.instagram.com/do_anaa"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <Instagram className="mr-2 h-4 w-4 transition-transform group-hover:scale-110" />
-                  @user_ig_wanita
+                  @do_anaa
                 </a>
               </Button>
             </div>
@@ -465,8 +466,8 @@ const EventsSection = () => {
 
     useEffect(() => {
         if (typeof window !== "undefined") {
-            const receptionStartDate = new Date("2025-09-20T18:00:00");
-            const receptionEndDate = new Date("2025-09-20T21:00:00");
+            const receptionStartDate = new Date("2025-10-07T13:00:00");
+            const receptionEndDate = new Date("2025-10-07T15:00:00");
 
             const formatDateForGoogleCalendar = (date: Date) => {
                 if (!(date instanceof Date) || isNaN(date.getTime())) {
@@ -476,7 +477,7 @@ const EventsSection = () => {
                 return date.toISOString().replace(/-|:|\.\d{3}/g, '');
             };
 
-            const link = `https://www.google.com/calendar/render?action=TEMPLATE&text=Wedding+Reception%3A+Putri+%26+Putra&dates=${formatDateForGoogleCalendar(receptionStartDate)}/${formatDateForGoogleCalendar(receptionEndDate)}&details=Join+us+to+celebrate+the+wedding+of+Putri+and+Putra!&location=The+Grand+Ballroom%2C+123+Blossom+Lane%2C+Meadowville`;
+            const link = `https://www.google.com/calendar/render?action=TEMPLATE&text=Wedding+Reception%3A+Iqbal+%26+Sastriana&dates=${formatDateForGoogleCalendar(receptionStartDate)}/${formatDateForGoogleCalendar(receptionEndDate)}&details=Join+us+to+celebrate+the+wedding+of+Iqbal+and+Sastriana!&location=Perumnas+Kijang+Permai+KM+23+GG+Cery+Blok+L+No+21`;
             setGoogleCalendarLink(link);
         }
     }, []);
@@ -512,24 +513,24 @@ const EventsSection = () => {
             <div className="max-w-4xl mx-auto grid md:grid-cols-1 gap-12">
                 <EventCard
                     title="Akad Nikah"
-                    date={["20", "September", "2025"]}
-                    time="14:00 - 16:00"
-                    location={["The Evergreen Garden", "123 Blossom Lane, Meadowville"]}
-                    buttons={[{ text: "Google Maps", icon: MapPin, disabled: true }]}
-                    imageUrl="https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/Resepsi-1-1.jpg"
+                    date={["07", "Oktober", "2025"]}
+                    time="09:00 - Selesai"
+                    location={["Jl. Raja Ali Haji No.02", "Kijang Kota, Bintan Timur"]}
+                    buttons={[{ text: "Google Maps", href: "https://maps.app.goo.gl/NDW1v14nDYjPHbHb6?g_st=ac", icon: MapPin }]}
+                    imageUrl="https://i.ibb.co.com/PZwzs3M2/IMG-5566.jpg"
                     imageHint="wedding ceremony"
                     align="left"
                 />
                  <EventCard
                     title="Resepsi"
-                    date={["20", "September", "2025"]}
-                    time="18:00 - 21:00"
-                    location={["The Grand Ballroom", "123 Blossom Lane, Meadowville"]}
+                    date={["07", "Oktober", "2025"]}
+                    time="13:00 - Selesai"
+                    location={["Perumnas Kijang Permai", "KM 23, GG Cery Blok L No.21"]}
                     buttons={[
-                        { text: "Google Maps", href: "https://www.google.com/maps", icon: MapPin },
+                        { text: "Google Maps", href: "https://maps.app.goo.gl/cV9dk9cw2M3KV1bN6?g_st=ac", icon: MapPin },
                         { text: "Add to Calendar", href: googleCalendarLink, icon: CalendarDays }
                     ]}
-                    imageUrl="https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/Resepsi-1.jpg"
+                    imageUrl="https://i.ibb.co.com/whGjMpKT/IMG-5553.jpg"
                     imageHint="wedding reception"
                     align="right"
                 />
@@ -735,7 +736,7 @@ const GiftDrawer = () => {
                       </CardHeader>
                       <CardContent>
                         <div className="p-4 border border-dashed rounded-lg bg-secondary/20">
-                          <p className="font-semibold text-foreground">Putra & Putri</p>
+                          <p className="font-semibold text-foreground">Iqbal & Sastriana</p>
                           <p className="text-muted-foreground text-sm">{giftAddress}</p>
                         </div>
                          <Button className="w-full mt-4" variant="outline" onClick={() => copyToClipboard(giftAddress, 'Alamat')}>
@@ -769,7 +770,7 @@ const Footer = () => (
       <AnimateOnScroll as="div" className="relative py-24 px-6 overflow-hidden text-primary-foreground">
         <ParallaxContainer>
           <Image
-            src="https://the.invisimple.id/wp-content/uploads/jet-form-builder/3e3c025039d81339d5f720f3d0dfaef0/2024/11/7.jpeg"
+            src="https://i.ibb.co.com/ZzHrsRsF/IMG-5572.jpg"
             alt="Thank you"
             data-ai-hint="couple beach"
             fill
@@ -796,7 +797,7 @@ const Footer = () => (
       <div className="bg-primary text-white">
   <div className="flex flex-col items-center justify-center min-h-[150px] px-6 text-center">
     <p className="text-xs uppercase tracking-[0.3em] font-medium">
-      Make with ♡ for Putra and Putri
+      Make with ♡ for Iqbal and Sastriana
     </p>
   </div>
 </div>
