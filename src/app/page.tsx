@@ -519,7 +519,7 @@ const EventsSection = () => {
                     time="09:00 - Selesai"
                     location={["Jl. Raja Ali Haji No.02", "Kijang Kota, Bintan Timur"]}
                     buttons={[{ text: "Google Maps", href: "https://maps.app.goo.gl/NDW1v14nDYjPHbHb6?g_st=ac", icon: MapPin }]}
-                    imageUrl="/images/IMG_5566.JPG"
+                    imageUrl="/images/IMG_5553.JPG"
                     imageHint="wedding ceremony"
                     align="left"
                 />
