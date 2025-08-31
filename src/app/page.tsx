@@ -771,7 +771,7 @@ const Footer = () => (
       <AnimateOnScroll as="div" className="relative py-24 px-6 overflow-hidden text-primary-foreground">
         <ParallaxContainer>
           <Image
-            src="https://i.ibb.co.com/ZzHrsRsF/IMG-5572.jpg"
+            src="/images/IMG_5583.JPG"
             alt="Thank you"
             data-ai-hint="couple beach"
             fill
