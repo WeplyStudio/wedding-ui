@@ -19,7 +19,7 @@ const inter = Inter({
 
 
 export const metadata: Metadata = {
-  title: 'The Wedding of Putri & Putra',
+  title: 'The Wedding of Iqbal & Sastriana',
   description: 'Join us to celebrate our wedding!',
 };
 
