@@ -779,7 +779,7 @@ const Footer = () => (
           />
           <div className="absolute inset-0 bg-gradient-to-t from-primary via-black/40 to-black/40" />
         </ParallaxContainer>
-        <div className="relative z-10 flex flex-col items-center">
+        <div className="relative z-10 flex flex-col items-center text-white">
           <AnimateOnScroll animation="fade-in-up">
             <h2 className="font-serif text-3xl mb-4">Terima Kasih</h2>
             <p className="max-w-xl mx-auto mb-2 text-xs">
