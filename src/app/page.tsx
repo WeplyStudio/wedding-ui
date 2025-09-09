@@ -486,19 +486,14 @@ const EventsSection = () => {
 
     return (
         <AnimateOnScroll as="section" id="events" className="relative py-24 px-6 overflow-hidden">
-            <ParallaxContainer>
-                {galleryImages.map((image, index) => (
-                    <Image
-                        key={index}
-                        src={image.src}
-                        alt={image.alt}
-                        data-ai-hint={image.hint}
-                        fill
-                        className={cn(
-                            "object-cover transition-opacity duration-1000",
-                            index === currentImageIndex ? "opacity-100" : "opacity-0"
-                        )}
-                    />
+<ParallaxContainer>
+  <Image
+    src="/images/bg.png"
+    alt="Background"
+    fill
+    className="object-cover transition-opacity duration-1000 opacity-100"
+  />
+</ParallaxContainer>
                 ))}
                 <div className="absolute inset-0 bg-black/30" />
             </ParallaxContainer>
