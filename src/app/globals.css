@@ -4,47 +4,47 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%; /* White */
-    --foreground: 224 71% 4%; /* Dark */
+    --background: 0 0% 100%; /* Putih bersih */
+    --foreground: 120 20% 10%; /* Hijau sangat gelap untuk teks */
     --card: 0 0% 100%;
-    --card-foreground: 224 71% 4%;
+    --card-foreground: 120 20% 10%;
     --popover: 0 0% 100%;
-    --popover-foreground: 224 71% 4%;
-    --primary: 120 44% 40%; /* Hijau utama */
-    --primary-foreground: 0 0% 100%; /* Putih */
-    --secondary: 120 44% 75%; /* Hijau lebih muda */
-    --secondary-foreground: 224 71% 4%;
-    --muted: 120 20% 94%; /* Hijau pucat */
-    --muted-foreground: 120 16% 35%;
-    --accent: 120 44% 50%; /* Hijau aksen */
+    --popover-foreground: 120 20% 10%;
+    --primary: 120 44% 35%; /* Hijau daun alami */
+    --primary-foreground: 0 0% 100%; /* Putih untuk kontras */
+    --secondary: 60 20% 85%; /* Krem / beige lembut */
+    --secondary-foreground: 120 20% 10%;
+    --muted: 0 0% 96%; /* Abu putih lembut */
+    --muted-foreground: 120 10% 35%;
+    --accent: 120 40% 45%; /* Hijau aksen */
     --accent-foreground: 0 0% 100%;
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 70% 50%; /* Merah untuk error */
     --destructive-foreground: 0 0% 100%;
-    --border: 120 20% 90%;
-    --input: 120 20% 90%;
-    --ring: 120 44% 40%; /* Hijau utama */
+    --border: 0 0% 90%; /* Border abu putih */
+    --input: 0 0% 90%;
+    --ring: 120 44% 35%;
     --radius: 0.75rem;
 
-    --chart-1: 120 44% 40%;
-    --chart-2: 120 44% 50%;
-    --chart-3: 120 44% 60%;
-    --chart-4: 120 44% 30%;
-    --chart-5: 120 44% 70%;
+    --chart-1: 120 44% 35%;
+    --chart-2: 120 44% 45%;
+    --chart-3: 120 44% 55%;
+    --chart-4: 120 44% 25%;
+    --chart-5: 120 44% 65%;
   }
 
   .dark {
-    --background: 222 47% 11%;
+    --background: 120 20% 8%; /* Hijau sangat gelap */
     --foreground: 0 0% 100%;
-    --card: 222 47% 11%;
+    --card: 120 20% 8%;
     --card-foreground: 0 0% 100%;
-    --popover: 222 47% 11%;
+    --popover: 120 20% 8%;
     --popover-foreground: 0 0% 100%;
-    --primary: 120 44% 30%; /* Hijau lebih gelap */
+    --primary: 120 44% 30%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 120 44% 20%;
+    --secondary: 60 15% 25%; /* Beige gelap */
     --secondary-foreground: 0 0% 100%;
-    --muted: 120 20% 20%;
-    --muted-foreground: 120 20% 65%;
+    --muted: 120 15% 15%;
+    --muted-foreground: 120 15% 65%;
     --accent: 120 44% 25%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 30.6%;
@@ -53,11 +53,11 @@
     --input: 120 20% 20%;
     --ring: 120 44% 30%;
 
-    --chart-1: 120 44% 40%;
-    --chart-2: 120 44% 50%;
-    --chart-3: 120 44% 60%;
-    --chart-4: 120 44% 30%;
-    --chart-5: 120 44% 70%;
+    --chart-1: 120 44% 35%;
+    --chart-2: 120 44% 45%;
+    --chart-3: 120 44% 55%;
+    --chart-4: 120 44% 25%;
+    --chart-5: 120 44% 65%;
   }
 }
 
@@ -78,7 +78,7 @@
     text-shadow: 0 2px 4px rgba(0,0,0,0.1);
   }
   .text-accent {
-    color: rgba(102,201,102,0.5); /* Hijau lembut transparan */
+    color: rgba(60,120,60,0.6); /* Hijau lembut transparan */
   }
   .text-shadow-lg {
     text-shadow: 0 4px 10px rgba(0,0,0,0.2);
@@ -94,42 +94,34 @@
     from { opacity: 0; }
     to { opacity: 1; }
   }
-
   @keyframes fade-in-down {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
   }
-
   @keyframes fade-in-up {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
-  
   @keyframes fade-in-left {
     from { opacity: 0; transform: translateX(20px); }
     to { opacity: 1; transform: translateX(0); }
   }
-
   @keyframes fade-in-right {
     from { opacity: 0; transform: translateX(-20px); }
     to { opacity: 1; transform: translateX(0); }
   }
-  
   @keyframes zoom-in {
     from { opacity: 0; transform: scale(0.95); }
     to { opacity: 1; transform: scale(1); }
   }
-
   @keyframes sway-left {
     0%, 100% { transform: rotate(-2deg); }
     50% { transform: rotate(2deg); }
   }
-
   @keyframes sway-right {
     0%, 100% { transform: rotate(2deg); }
     50% { transform: rotate(-2deg); }
   }
-  
   @keyframes spin-slow {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
