@@ -602,7 +602,7 @@ const GiftSection = () => {
     }, []);
 
     return (
-        <AnimateOnScroll as="section" id="gift" className="relative py-24 px-6 overflow-hidden text-center">
+        <AnimateOnScroll as="section" id="gift" className="relative py-24 px-6 overflow-hidden text-center rounded-br-4xl">
             <ParallaxContainer>
                 {galleryImages.map((image, index) => (
                     <Image
@@ -612,7 +612,7 @@ const GiftSection = () => {
                         data-ai-hint={image.hint}
                         fill
                         className={cn(
-                            "object-cover transition-opacity duration-1000 rounded-3xl", // ✅ tambah rounded-3xl
+                            "object-cover transition-opacity duration-1000", // ✅ tambah rounded-3xl
                             index === currentImageIndex ? "opacity-100" : "opacity-0"
                         )}
                     />
