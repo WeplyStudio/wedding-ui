@@ -663,7 +663,7 @@ const GiftDrawer = () => {
         { bank: "BSI", name: "Sastriana", number: "7216522855", logo: "/images/bsi.png" },
     ]
     
-    const giftAddress = "Jl. Kencana Indah Blok AB No. 12, RT 05 RW 10, Kelurahan Bunga, Kecamatan Melati, Kota Kembang, 12345";
+    const giftAddress = "Perumnas Kijang Permai, KM 23, GG Cery Blok L No.21";
 
 
     return (
