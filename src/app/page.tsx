@@ -638,9 +638,9 @@ const GiftSection = () => {
                         </div>
                         <CardHeader className="pt-12 items-center">
                              <div className="p-3 bg-primary/20 rounded-full mb-2">
-                                <HeartHandshake className="w-8 h-8 text-primary" />
+                                <HeartHandshake className="w-8 h-8 text-primary-foreground" />
                              </div>
-                            <CardTitle className="font-serif text-4xl text-primary">Wedding Gift</CardTitle>
+                            <CardTitle className="font-serif text-4xl text-primary-foreground">Wedding Gift</CardTitle>
                         </CardHeader>
                         <CardContent className="p-6 text-center">
                             <CardDescription className="mb-6 text-muted-foreground">
