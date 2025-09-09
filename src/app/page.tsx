@@ -740,11 +740,9 @@ const GiftDrawer = () => {
 const GuestBookSection = () => (
     <AnimateOnScroll as="section" id="guestbook" className="py-24 px-6 bg-secondary/20">
       <SectionTitle subtitle="Leave Your Wishes" />
-      <div className="max-w-4xl mx-auto">
         <AnimateOnScroll animation="zoom-in" delay={0.2}>
              <GuestBook />
         </AnimateOnScroll>
-      </div>
     </AnimateOnScroll>
   );
 
