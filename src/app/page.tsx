@@ -166,13 +166,13 @@ const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => vo
               <p className="font-sans tracking-[0.35em] uppercase mb-4 text-xs md:text-sm text-white">The Wedding Of</p>
                   <h1 className="font-serif text-5xl md:text-6xl font-bold text-shadow-lg leading-tight mb-[90]">Iqbal <span className="block text-2xl m-0 p-0">&</span> Sastriana</h1>
                   <div className="w-full text-center mt-10">
-  <p className="font-sans tracking-[0.35em] uppercase text-xs md:text-sm text-primary-foreground/90">
+  <p className="font-sans tracking-[0.35em] uppercase text-xs md:text-sm text-white">
     Dear
   </p>
-  <p className="font-serif text-xl md:text-2xl font-bold italic text-shadow-md tracking-wide">
+  <p className="font-serif text-xl md:text-2xl font-bold italic text-shadow-md tracking-wide text-white">
     {guestName}
   </p>
-  <p className="text-[10px] md:text-xs text-primary-foreground/70 mt-2 italic">
+  <p className="text-[10px] md:text-xs text-white mt-2 italic">
     *Mohon maaf jika ada kesalahan dalam penulisan nama / gelar.
   </p>
 </div>
