@@ -494,8 +494,6 @@ const EventsSection = () => {
     className="object-cover transition-opacity duration-1000 opacity-100"
   />
 </ParallaxContainer>
-                <div className="absolute inset-0 bg-black/30" />
-            </ParallaxContainer>
             <div className="relative z-10 flex flex-col items-center text-center mb-16">
                 <h2 className="text-white font-serif text-6xl text-shadow">
                     Wedding
@@ -798,7 +796,3 @@ const Footer = () => (
 </div>
     </footer>
 );
-
-    
-
-    
