@@ -4,23 +4,23 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%; /* Putih bersih */
-    --foreground: 120 20% 10%; /* Hijau sangat gelap untuk teks */
+    --background: 0 0% 100%; /* Putih */
+    --foreground: 120 20% 10%; /* Hijau tua untuk teks */
     --card: 0 0% 100%;
     --card-foreground: 120 20% 10%;
     --popover: 0 0% 100%;
     --popover-foreground: 120 20% 10%;
-    --primary: 120 44% 35%; /* Hijau daun alami */
-    --primary-foreground: 0 0% 100%; /* Putih untuk kontras */
-    --secondary: 60 20% 85%; /* Krem / beige lembut */
+    --primary: 120 44% 35%; /* Hijau daun utama */
+    --primary-foreground: 0 0% 100%; /* Putih */
+    --secondary: 60 30% 85%; /* Krem/beige lembut */
     --secondary-foreground: 120 20% 10%;
-    --muted: 0 0% 96%; /* Abu putih lembut */
+    --muted: 0 0% 96%; /* Putih keabu-abuan */
     --muted-foreground: 120 10% 35%;
-    --accent: 120 40% 45%; /* Hijau aksen */
+    --accent: 120 44% 45%; /* Hijau aksen */
     --accent-foreground: 0 0% 100%;
-    --destructive: 0 70% 50%; /* Merah untuk error */
+    --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 90%; /* Border abu putih */
+    --border: 0 0% 90%;
     --input: 0 0% 90%;
     --ring: 120 44% 35%;
     --radius: 0.75rem;
@@ -41,7 +41,7 @@
     --popover-foreground: 0 0% 100%;
     --primary: 120 44% 30%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 60 15% 25%; /* Beige gelap */
+    --secondary: 60 20% 25%; /* Beige gelap */
     --secondary-foreground: 0 0% 100%;
     --muted: 120 15% 15%;
     --muted-foreground: 120 15% 65%;
@@ -74,66 +74,74 @@
 }
 
 @layer utilities {
-  .text-shadow {
-    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
-  .text-accent {
-    color: rgba(60,120,60,0.6); /* Hijau lembut transparan */
-  }
-  .text-shadow-lg {
-    text-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  }
-  .clip-path-organic-1 {
-    clip-path: url(#organic-shape-1);
-  }
-  .clip-path-organic-2 {
-    clip-path: url(#organic-shape-2);
-  }
+    .text-shadow {
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .text-accent {
+      color: rgba(60,120,60,0.6); /* Hijau lembut transparan */
+    }
+    .text-shadow-lg {
+      text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .clip-path-organic-1 {
+      clip-path: url(#organic-shape-1);
+    }
+    .clip-path-organic-2 {
+      clip-path: url(#organic-shape-2);
+    }
 
-  @keyframes fade-in {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  @keyframes fade-in-down {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes fade-in-up {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes fade-in-left {
-    from { opacity: 0; transform: translateX(20px); }
-    to { opacity: 1; transform: translateX(0); }
-  }
-  @keyframes fade-in-right {
-    from { opacity: 0; transform: translateX(-20px); }
-    to { opacity: 1; transform: translateX(0); }
-  }
-  @keyframes zoom-in {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
-  }
-  @keyframes sway-left {
-    0%, 100% { transform: rotate(-2deg); }
-    50% { transform: rotate(2deg); }
-  }
-  @keyframes sway-right {
-    0%, 100% { transform: rotate(2deg); }
-    50% { transform: rotate(-2deg); }
-  }
-  @keyframes spin-slow {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
+    @keyframes fade-in {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
 
-  .animate-fade-in { animation: fade-in forwards; }
-  .animate-fade-in-down { animation: fade-in-down forwards; }
-  .animate-fade-in-up { animation: fade-in-up forwards; }
-  .animate-fade-in-left { animation: fade-in-left forwards; }
-  .animate-fade-in-right { animation: fade-in-right forwards; }
-  .animate-zoom-in { animation: zoom-in forwards; }
-  .animate-sway-left { animation: sway-left 8s ease-in-out infinite; }
-  .animate-sway-right { animation: sway-right 8s ease-in-out infinite; }
-  .animate-spin-slow { animation: spin-slow 20s linear infinite; }
+    @keyframes fade-in-down {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fade-in-up {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes fade-in-left {
+      from { opacity: 0; transform: translateX(20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes fade-in-right {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    
+    @keyframes zoom-in {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes sway-left {
+      0%, 100% { transform: rotate(-2deg); }
+      50% { transform: rotate(2deg); }
+    }
+
+    @keyframes sway-right {
+      0%, 100% { transform: rotate(2deg); }
+      50% { transform: rotate(-2deg); }
+    }
+    
+    @keyframes spin-slow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .animate-fade-in { animation: fade-in forwards; }
+    .animate-fade-in-down { animation: fade-in-down forwards; }
+    .animate-fade-in-up { animation: fade-in-up forwards; }
+    .animate-fade-in-left { animation: fade-in-left forwards; }
+    .animate-fade-in-right { animation: fade-in-right forwards; }
+    .animate-zoom-in { animation: zoom-in forwards; }
+    .animate-sway-left { animation: sway-left 8s ease-in-out infinite; }
+    .animate-sway-right { animation: sway-right 8s ease-in-out infinite; }
+    .animate-spin-slow { animation: spin-slow 20s linear infinite; }
 }
