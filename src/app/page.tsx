@@ -495,10 +495,10 @@ const EventsSection = () => {
   />
 </ParallaxContainer>
             <div className="relative z-10 flex flex-col items-center text-center mb-16">
-                <h2 className="text-white font-serif text-6xl text-shadow">
+                <h2 className="text-primary-foreground font-serif text-6xl text-shadow">
                     Wedding
                 </h2>
-                <p className="text-white bg-primary/50 font-sans tracking-[0.35em] uppercase text-lg md:text-sm">
+                <p className="text-primary bg-primary-foreground/50 font-sans tracking-[0.35em] uppercase text-lg md:text-sm">
                     Event
                 </p>
                 <div className="w-24 h-px bg-primary my-4"></div>
