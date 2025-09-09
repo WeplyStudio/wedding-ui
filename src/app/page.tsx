@@ -637,8 +637,8 @@ const GiftSection = () => {
                             <Flower2 className="w-12 h-12 animate-spin-slow opacity-20" />
                         </div>
                         <CardHeader className="pt-12 items-center">
-                             <div className="p-3 bg-primary/20 rounded-full mb-2">
-                                <HeartHandshake className="w-8 h-8 text-primary-foreground" />
+                             <div className="p-3 bg-primary-foreground rounded-full mb-2">
+                                <HeartHandshake className="w-8 h-8 text-primary" />
                              </div>
                             <CardTitle className="font-serif text-4xl text-primary-foreground">Wedding Gift</CardTitle>
                         </CardHeader>
