@@ -612,7 +612,7 @@ const GiftSection = () => {
                         data-ai-hint={image.hint}
                         fill
                         className={cn(
-                            "object-cover transition-opacity duration-1000",
+                            "object-cover transition-opacity duration-1000 rounded-3xl", // ✅ tambah rounded-3xl
                             index === currentImageIndex ? "opacity-100" : "opacity-0"
                         )}
                     />
@@ -679,25 +679,14 @@ const GiftDrawer = () => {
                 <SheetHeader className="text-center mb-6">
                     <SheetTitle className="font-serif text-3xl">Kirim Tanda Kasih</SheetTitle>
                 </SheetHeader>
-                <Tabs defaultValue="qris" className="w-full">
-                  <TabsList className="grid w-full grid-cols-3">
-                    <TabsTrigger value="qris">QRIS</TabsTrigger>
+                <Tabs defaultValue="bank" className="w-full">
+                  <TabsList className="grid w-full grid-cols-2">
                     <TabsTrigger value="bank">Bank Transfer</TabsTrigger>
                     <TabsTrigger value="address">Kirim Hadiah</TabsTrigger>
                   </TabsList>
-                  <TabsContent value="qris" className="mt-6">
-                    <Card className="border-0 shadow-none">
-                      <CardContent className="flex flex-col items-center justify-center space-y-4 p-4 text-center">
-                          <div className="flex items-center justify-center gap-4 text-muted-foreground">
-                            <GlassWater className="w-6 h-6"/>
-                            <h3 className="font-sans font-semibold text-lg">Scan QRIS</h3>
-                            <Camera className="w-6 h-6"/>
-                          </div>
-                          <Image src="https://api.qr-code-generator.com/v1/create?access-token=yvR-0_gS62v4hJd9sFVTN8YwH_I9aG4nBExA0jImFk_s1zSgrJvjS2y4d35I2b-j&qr_code_text=https%3A%2F%2Fwww.google.com&image_format=PNG&image_width=500" alt="QRIS Code" data-ai-hint="qris code" width={250} height={250} className="rounded-xl shadow-lg" />
-                          <p className="text-sm text-muted-foreground">Mendukung semua E-Wallet dan Mobile Banking.</p>
-                      </CardContent>
-                    </Card>
-                  </TabsContent>
+
+                  {/* ✅ QRIS dihapus */}
+
                   <TabsContent value="bank" className="mt-6">
                      <div className="space-y-4">
                         {bankAccounts.map((account) => (
@@ -721,6 +710,7 @@ const GiftDrawer = () => {
                         ))}
                     </div>
                   </TabsContent>
+
                   <TabsContent value="address" className="mt-6">
                     <Card className="border-0 shadow-none">
                       <CardHeader>
