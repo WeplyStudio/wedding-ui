@@ -5,59 +5,59 @@
 @layer base {
   :root {
     --background: 0 0% 100%; /* Putih */
-    --foreground: 120 20% 10%; /* Hijau tua untuk teks */
+    --foreground: 120 5% 15%; /* Hijau-abu sangat lembut untuk teks */
     --card: 0 0% 100%;
-    --card-foreground: 120 20% 10%;
+    --card-foreground: 120 5% 15%;
     --popover: 0 0% 100%;
-    --popover-foreground: 120 20% 10%;
-    --primary: 120 44% 35%; /* Hijau daun utama */
-    --primary-foreground: 0 0% 100%; /* Putih */
-    --secondary: 60 30% 85%; /* Krem/beige lembut */
-    --secondary-foreground: 120 20% 10%;
-    --muted: 0 0% 96%; /* Putih keabu-abuan */
-    --muted-foreground: 120 10% 35%;
-    --accent: 120 44% 45%; /* Hijau aksen */
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 84.2% 60.2%;
+    --popover-foreground: 120 5% 15%;
+    --primary: 120 15% 85%; /* Hijau pastel sangat tipis */
+    --primary-foreground: 120 15% 20%; /* Hijau abu gelap */
+    --secondary: 60 20% 90%; /* Krem putih */
+    --secondary-foreground: 120 5% 20%;
+    --muted: 120 10% 96%; /* Putih keabu ada hint hijau */
+    --muted-foreground: 120 5% 35%;
+    --accent: 120 12% 80%; /* Hijau samar */
+    --accent-foreground: 120 5% 20%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 120 44% 35%;
+    --border: 120 10% 92%;
+    --input: 120 10% 92%;
+    --ring: 120 12% 75%;
     --radius: 0.75rem;
 
-    --chart-1: 120 44% 35%;
-    --chart-2: 120 44% 45%;
-    --chart-3: 120 44% 55%;
-    --chart-4: 120 44% 25%;
-    --chart-5: 120 44% 65%;
+    --chart-1: 120 15% 80%;
+    --chart-2: 120 12% 70%;
+    --chart-3: 120 10% 60%;
+    --chart-4: 120 15% 50%;
+    --chart-5: 120 12% 40%;
   }
 
   .dark {
-    --background: 120 20% 8%; /* Hijau sangat gelap */
+    --background: 120 10% 8%; /* Hijau kehitaman tipis */
     --foreground: 0 0% 100%;
-    --card: 120 20% 8%;
+    --card: 120 10% 8%;
     --card-foreground: 0 0% 100%;
-    --popover: 120 20% 8%;
+    --popover: 120 10% 8%;
     --popover-foreground: 0 0% 100%;
-    --primary: 120 44% 30%;
+    --primary: 120 12% 25%; /* Hijau gelap samar */
     --primary-foreground: 0 0% 100%;
-    --secondary: 60 20% 25%; /* Beige gelap */
+    --secondary: 60 15% 25%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 120 15% 15%;
-    --muted-foreground: 120 15% 65%;
-    --accent: 120 44% 25%;
+    --muted: 120 8% 15%;
+    --muted-foreground: 120 10% 65%;
+    --accent: 120 12% 25%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 100%;
-    --border: 120 20% 20%;
-    --input: 120 20% 20%;
-    --ring: 120 44% 30%;
+    --border: 120 8% 20%;
+    --input: 120 8% 20%;
+    --ring: 120 12% 25%;
 
-    --chart-1: 120 44% 35%;
-    --chart-2: 120 44% 45%;
-    --chart-3: 120 44% 55%;
-    --chart-4: 120 44% 25%;
-    --chart-5: 120 44% 65%;
+    --chart-1: 120 12% 35%;
+    --chart-2: 120 10% 45%;
+    --chart-3: 120 8% 55%;
+    --chart-4: 120 12% 65%;
+    --chart-5: 120 10% 75%;
   }
 }
 
@@ -75,13 +75,13 @@
 
 @layer utilities {
     .text-shadow {
-      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      text-shadow: 0 2px 4px rgba(0,0,0,0.08);
     }
     .text-accent {
-      color: rgba(60,120,60,0.6); /* Hijau lembut transparan */
+      color: hsl(120 12% 40% / 0.6); /* Hijau tipis semi transparan */
     }
     .text-shadow-lg {
-      text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      text-shadow: 0 4px 10px rgba(0,0,0,0.15);
     }
     .clip-path-organic-1 {
       clip-path: url(#organic-shape-1);
