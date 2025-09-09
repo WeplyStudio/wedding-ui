@@ -517,8 +517,8 @@ const EventsSection = () => {
                     title="Akad Nikah"
                     date={["07", "Oktober", "2025"]}
                     time="09:00 - Selesai"
-                    location={["Jl. Raja Ali Haji No.02", "Kijang Kota, Bintan Timur"]}
-                    buttons={[{ text: "Google Maps", href: "https://maps.app.goo.gl/NDW1v14nDYjPHbHb6?g_st=ac", icon: MapPin }]}
+                    location={["Perumnas Kijang Permai", "KM 23, GG Cery Blok L No.21"]}
+                    buttons={[{ text: "Google Maps", href: "https://maps.app.goo.gl/cV9dk9cw2M3KV1bN6?g_st=ac", icon: MapPin }]}
                     imageUrl="/images/IMG_5553.JPG"
                     imageHint="wedding ceremony"
                     align="left"
