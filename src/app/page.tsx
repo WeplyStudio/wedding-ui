@@ -161,9 +161,9 @@ const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => vo
           ))}
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
   
-          <div className="relative z-10 flex flex-col items-center justify-end h-full w-full text-center p-8 text-primary-foreground">
+          <div className="relative z-10 flex flex-col items-center justify-end h-full w-full text-center p-8 text-white">
               <div className="flex flex-col items-center mb-8 animate-fade-in-up" style={{ animationDuration: '1.2s' }}>
-              <p className="font-sans tracking-[0.35em] uppercase mb-4 text-xs md:text-sm text-primary-foreground/90">The Wedding Of</p>
+              <p className="font-sans tracking-[0.35em] uppercase mb-4 text-xs md:text-sm text-white">The Wedding Of</p>
                   <h1 className="font-serif text-5xl md:text-6xl font-bold text-shadow-lg leading-tight mb-[90]">Iqbal <span className="block text-2xl m-0 p-0">&</span> Sastriana</h1>
                   <div className="w-full text-center mt-10">
   <p className="font-sans tracking-[0.35em] uppercase text-xs md:text-sm text-primary-foreground/90">
