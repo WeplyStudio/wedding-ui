@@ -242,7 +242,7 @@ const SectionTitle = ({ subtitle }: { subtitle: string }) => (
 );
 
 const CoupleSection = () => (
-  <section id="couple" className="relative py-20 overflow-hidden isolate">
+  <section id="couple" className="relative py-20">
     <div className="bg-background relative z-0">
       {/* Lengkungan atas → kasih z-0 supaya ga nutup SectionTitle */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-20 bg-background rounded-b-full z-0"></div>
