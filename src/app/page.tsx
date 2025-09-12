@@ -289,7 +289,7 @@ const CoupleSection = () => (
             className="flex flex-col md:flex-row items-center gap-8 md:gap-12"
           >
             <div className="w-full md:w-1/2 flex justify-center">
-              <div className="relative w-[300px] h-[400px] md:w-[350px] md:h-[466px]">
+              <div className="relative w-[320px] h-[400px] md:w-[350px] md:h-[466px]">
                 <div className="absolute inset-0 bg-primary/10 rounded-tr-[140px] rounded-xl"></div>
                 <div className="absolute inset-0 overflow-hidden rounded-tr-[140px] rounded-xl">
                   <Image
