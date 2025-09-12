@@ -401,7 +401,7 @@ const EventCard = ({
     align?: 'left' | 'right';
 }) => {
     return (
-        <AnimateOnScroll className="w-full max-w-md mx-auto" animation="zoom-in" delay={0.2}>
+        <AnimateOnScroll className="w-full max-w-md mx-auto m-0" animation="zoom-in" delay={0.2}>
             <div className="bg-background/85 backdrop-blur-sm rounded-tr-[120] shadow-2xl overflow-hidden">
                 <div className="relative h-64 w-full">
                     <Image
