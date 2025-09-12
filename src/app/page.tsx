@@ -242,7 +242,7 @@ const SectionTitle = ({ subtitle }: { subtitle: string }) => (
 );
 
 const CoupleSection = () => (
-  <section id="couple" className="relative py-20">
+   <section id="couple" className="relative pb-0"> {/* ganti py-20 → pb-0 */}
     <div className="bg-background relative z-0">
       {/* Lengkungan atas → kasih z-0 supaya ga nutup SectionTitle */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-20 bg-background rounded-b-full z-0"></div>
@@ -257,9 +257,9 @@ const CoupleSection = () => (
       </AnimateOnScroll>
       
      <div
-  className="relative m-0 py-36 rounded-tl-[100px] p-0 m-0 z-10 bg-center bg-cover bg-no-repeat"
-  style={{ backgroundImage: "url('/images/bg3.png')" }}
->
+        className="relative pt-24 pb-0 rounded-tl-[100px] z-10 bg-center bg-cover bg-no-repeat"
+        style={{ backgroundImage: "url('/images/bg3.png')" }}
+      >
         <AnimateOnScroll
           animation="fade-in-up"
           delay={0.2}
@@ -401,7 +401,7 @@ const EventCard = ({
     align?: 'left' | 'right';
 }) => {
     return (
-        <AnimateOnScroll className="w-full max-w-md mx-auto m-0" animation="zoom-in" delay={0.2}>
+        <AnimateOnScroll className="w-full max-w-md mx-auto" animation="zoom-in" delay={0.2}>
             <div className="bg-background/85 backdrop-blur-sm rounded-tr-[120] shadow-2xl overflow-hidden">
                 <div className="relative h-64 w-full">
                     <Image
