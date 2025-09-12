@@ -256,7 +256,7 @@ const CoupleSection = () => (
         </p>
       </AnimateOnScroll>
       
-      <div className="bg-accent m-0 py-12 rounded-tl-[100] p-0 relative z-10">
+      <div className="bg-accent m-0 py-12 rounded-tl-[100] p-0 relative z-10 overflow-hidden">
         <AnimateOnScroll
           animation="fade-in-up"
           delay={0.2}
