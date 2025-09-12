@@ -258,7 +258,7 @@ const CoupleSection = () => (
       
      <div
   className="relative m-0 py-12 rounded-tl-[100px] p-0 z-10 bg-center bg-cover bg-no-repeat"
-  style={{ backgroundImage: "url('/images/bg2.png')" }}
+  style={{ backgroundImage: "url('/images/bg3.png')" }}
 >
         <AnimateOnScroll
           animation="fade-in-up"
