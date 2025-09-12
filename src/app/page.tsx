@@ -256,7 +256,10 @@ const CoupleSection = () => (
         </p>
       </AnimateOnScroll>
       
-      <div className="bg-accent m-0 py-12 rounded-tl-[100] p-0 relative z-10 overflow-hidden isolate">
+     <div
+  className="relative m-0 py-12 rounded-tl-[100px] p-0 z-10 overflow-hidden isolate bg-center bg-cover bg-no-repeat"
+  style={{ backgroundImage: "url('/images/bg2.jpg')" }}
+>
         <AnimateOnScroll
           animation="fade-in-up"
           delay={0.2}
