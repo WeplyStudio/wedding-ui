@@ -257,7 +257,7 @@ const CoupleSection = () => (
       </AnimateOnScroll>
       
      <div
-        className="relative pt-24 py-36 rounded-tl-[100px] z-10 bg-center bg-cover bg-no-repeat"
+        className="relative pt-24 py-8 rounded-tl-[100px] z-10 bg-center bg-cover bg-no-repeat"
         style={{ backgroundImage: "url('/images/bg3.png')" }}
       >
         <AnimateOnScroll
