@@ -285,7 +285,8 @@ const CoupleSection = () => (
         <div className="space-y-24">
           {/* Mempelai pria */}
           <AnimateOnScroll
-            animation="fade-in-right"
+            animation="fade-in-up"
+            delay={0.2}
             className="flex flex-col md:flex-row items-center gap-8 md:gap-12"
           >
             <div className="w-full md:w-1/2 flex justify-center">
@@ -331,7 +332,8 @@ const CoupleSection = () => (
 
           {/* Mempelai wanita */}
           <AnimateOnScroll
-            animation="fade-in-left"
+            animation="fade-in-up"
+            delay={0.2}
             className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12"
           >
             <div className="w-full md:w-1/2 flex justify-center">
