@@ -95,7 +95,7 @@ export default function EvergreenVowsPage() {
                   <HeroSection />
                   <div className="relative z-20">
                     <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2">
-                        <AnimateOnScroll animation="zoom-in" delay={0.3}>
+                        <AnimateOnScroll animation="zoom-in">
                             <Avatar className="w-24 h-24 bg-background shadow-lg ring-4 ring-primary/20">
                                 <AvatarFallback className="text-3xl font-serif text-primary bg-transparent">I&S</AvatarFallback>
                             </Avatar>
@@ -182,7 +182,7 @@ const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => vo
                 onClick={onOpen} 
                 size="lg" 
                 className="w-full max-w-sm rounded-full px-7 py-5 text-xs shadow-lg bg-accent hover:bg-accent/90 text-primary-foreground font-sans animate-fade-in-up"
-                style={{ animationDuration: '0.8s', animationDelay: '0.3s' }}
+                style={{ animationDuration: '0.8s'}}
               >
                   <Mail className="mr-3 h-5 w-5" />
                   Buka Undangan
@@ -262,7 +262,6 @@ const CoupleSection = () => (
       >
         <AnimateOnScroll
           animation="fade-in-up"
-          delay={0.2}
           className="text-center mb-16"
         >
           <h2 className="z-[10] text-6xl font-serif text-white relative inline-block">
@@ -286,7 +285,6 @@ const CoupleSection = () => (
           {/* Mempelai pria */}
           <AnimateOnScroll
             animation="fade-in-up"
-            delay={0.2}
             className="flex flex-col md:flex-row items-center gap-8 md:gap-12"
           >
             <div className="w-full md:w-1/2 flex justify-center">
@@ -333,7 +331,6 @@ const CoupleSection = () => (
           {/* Mempelai wanita */}
           <AnimateOnScroll
             animation="fade-in-up"
-            delay={0.2}
             className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12"
           >
             <div className="w-full md:w-1/2 flex justify-center">
@@ -403,7 +400,7 @@ const EventCard = ({
     align?: 'left' | 'right';
 }) => {
     return (
-        <AnimateOnScroll className="w-full max-w-md mx-auto" animation="zoom-in" delay={0.2}>
+        <AnimateOnScroll className="w-full max-w-md mx-auto" animation="zoom-in">
             <div className="bg-background/85 backdrop-blur-sm rounded-tr-[120] shadow-2xl overflow-hidden">
                 <div className="relative h-64 w-full">
                     <Image
@@ -541,7 +538,7 @@ const EventsSection = () => {
 const PhotoGrid = () => (
     <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8">
         {galleryImages.map((image, index) => (
-            <AnimateOnScroll key={index} delay={index * 0.1} animation="zoom-in">
+            <AnimateOnScroll key={index} animation="zoom-in">
                  <div className="overflow-hidden rounded-lg shadow-lg group">
                     <Image
                         src={image.src}
@@ -625,7 +622,7 @@ const GiftSection = () => {
                 <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" />
             </ParallaxContainer>
             <div className="relative z-10 flex flex-col items-center">
-                <AnimateOnScroll animation="zoom-in" delay={0.2}>
+                <AnimateOnScroll animation="zoom-in">
                     <Card className="w-full max-w-md bg-background/80 border-0 shadow-2xl rounded-2xl overflow-hidden relative">
                          <div className="absolute top-4 right-4 text-primary">
                             <Flower2 className="w-12 h-12 animate-spin-slow opacity-20" />
@@ -745,7 +742,7 @@ const GiftDrawer = () => {
 const GuestBookSection = () => (
     <AnimateOnScroll as="section" id="guestbook" className="py-24 px-6 bg-secondary/20">
       <SectionTitle subtitle="Leave Your Wishes" />
-        <AnimateOnScroll animation="zoom-in" delay={0.2}>
+        <AnimateOnScroll animation="zoom-in">
              <GuestBook />
         </AnimateOnScroll>
     </AnimateOnScroll>
