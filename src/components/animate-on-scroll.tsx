@@ -17,7 +17,7 @@ export function AnimateOnScroll({
   children,
   animation = 'fade-in-up',
   delay = 0,
-  duration = 0.5,
+  duration = 3.5,
   threshold = 0.1,
   className,
   as: Component = 'div',
