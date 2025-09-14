@@ -46,15 +46,25 @@ const GuestbookForm = ({ onMessageAdded }: { onMessageAdded: () => void }) => {
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
 
-  useEffect(() => {
-    if (state.success) {
-      toast({ title: "Success!", description: state.message });
-      formRef.current?.reset();
-      onMessageAdded();
-    } else if (state.message && Object.keys(state.errors ?? {}).length > 0) {
-      toast({ variant: "destructive", title: "Oops! Something went wrong.", description: state.message });
-    }
-  }, [state, toast, onMessageAdded]);
+  // sukses
+useEffect(() => {
+  if (!state.success) return;
+
+  toast({ title: "Success!", description: state.message });
+  formRef.current?.reset();
+  onMessageAdded();
+}, [state.success]);
+
+// error
+useEffect(() => {
+  if (!state.message || !state.errors || Object.keys(state.errors).length === 0) return;
+
+  toast({
+    variant: "destructive",
+    title: "Oops! Something went wrong.",
+    description: state.message,
+  });
+}, [state.errors]);
 
   return (
     <form ref={formRef} action={formAction} className="space-y-6 font-sans">
