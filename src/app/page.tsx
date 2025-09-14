@@ -26,20 +26,20 @@ const weddingDate = new Date("2025-10-07T14:00:00");
 const coupleNames = "Iqbal & Sastriana";
 
 
-const openingImages = [
-    "/images/IMG_5562.JPG",
-    "/images/IMG_5553.JPG",
-    "/images/IMG_5583.JPG",
-    "/images/IMG_5566.JPG",
-    "/images/IMG_5572.JPG",
+const openingimage = [
+    "/image/IMG_5562.JPG",
+    "/image/IMG_5553.JPG",
+    "/image/IMG_5583.JPG",
+    "/image/IMG_5566-crop.JPG",
+    "/image/IMG_5572.JPG",
 ];
 
-const galleryImages = [
-  { src: "/images/IMG_5553.JPG", alt: "Couple smiling", hint: "couple smiling" },
-  { src: "/images/IMG_5566.JPG", alt: "Couple in nature", hint: "couple nature" },
-  { src: "/images/IMG_5572.JPG", alt: "Couple walking on a beach", hint: "couple beach" },
-  { src: "/images/IMG_5562.JPG", alt: "Couple under a tree", hint: "couple tree" },
-  { src: "/images/IMG_5583.JPG", alt: "Ring", hint: "couple tree" },
+const galleryimage = [
+  { src: "/image/IMG_5553.JPG", alt: "Couple smiling", hint: "couple smiling" },
+  { src: "/image/IMG_5566-crop.JPG", alt: "Couple in nature", hint: "couple nature" },
+  { src: "/image/IMG_5572.JPG", alt: "Couple walking on a beach", hint: "couple beach" },
+  { src: "/image/IMG_5562.JPG", alt: "Couple under a tree", hint: "couple tree" },
+  { src: "/image/IMG_5583.JPG", alt: "Ring", hint: "couple tree" },
 ];
 
 const ParallaxContainer = ({ children, className }: { children: React.ReactNode, className?: string }) => (
@@ -132,7 +132,7 @@ const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => vo
         if (!isClient) return;
 
         const interval = setInterval(() => {
-            setCurrentImageIndex(prevIndex => (prevIndex + 1) % openingImages.length);
+            setCurrentImageIndex(prevIndex => (prevIndex + 1) % openingimage.length);
         }, 3000); // Change image every 5 seconds
 
         return () => clearInterval(interval);
@@ -143,7 +143,7 @@ const OpeningCeremony = ({ isOpen, onOpen }: { isOpen: boolean, onOpen: () => vo
         "fixed inset-0 z-[100] transition-all duration-1000 ease-in-out flex items-center justify-center backdrop-brightness-150",
         isOpen ? "opacity-0 pointer-events-none" : "opacity-85"
       )}>
-          {openingImages.map((src, index) => (
+          {openingimage.map((src, index) => (
             <Image
                 key={`${src}-${index}`}
                 src={src}
@@ -195,7 +195,7 @@ const HeroSection = () => {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setCurrentImageIndex(prevIndex => (prevIndex + 1) % galleryImages.length);
+            setCurrentImageIndex(prevIndex => (prevIndex + 1) % galleryimage.length);
         }, 3000); // Change image every 3 seconds
 
         return () => clearInterval(interval);
@@ -204,7 +204,7 @@ const HeroSection = () => {
     return (
         <section id="home" className="relative h-screen flex flex-col items-center justify-end text-center p-4 pb-16 text-white">
             <div className="absolute inset-0">
-                 {galleryImages.map((image, index) => (
+                 {galleryimage.map((image, index) => (
                     <Image
                         key={image.src}
                         src={image.src}
@@ -256,7 +256,7 @@ const CoupleSection = () => (
       
      <div
         className="relative pt-24 py-36 rounded-tl-[100px] z-10 bg-center bg-cover bg-no-repeat"
-        style={{ backgroundImage: "url('/images/bg3.png')" }}
+        style={{ backgroundImage: "url('/image/bg3.png')" }}
       >
         <AnimateOnScroll
           animation="fade-in-up"
@@ -290,7 +290,7 @@ const CoupleSection = () => (
                 <div className="absolute inset-0 bg-primary/10 rounded-tr-[140px] rounded-xl"></div>
                 <div className="absolute inset-0 overflow-hidden rounded-tr-[140px] rounded-xl">
                   <Image
-                    src="/images/IMG_5576.JPG"
+                    src="/image/IMG_5576.JPG"
                     alt="Iqbal"
                     fill
                     className="object-cover scale-125"
@@ -336,7 +336,7 @@ const CoupleSection = () => (
                 <div className="absolute inset-0 bg-primary/10 rounded-tl-[140px] rounded-xl"></div>
                 <div className="absolute inset-0 overflow-hidden rounded-tl-[140px] rounded-xl">
                   <Image
-                    src="/images/IMG_5580.JPG"
+                    src="/image/IMG_5580.JPG"
                     alt="Sastriana"
                     fill
                     className="object-cover scale-125"
@@ -461,7 +461,7 @@ const EventsSection = () => {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setCurrentImageIndex(prevIndex => (prevIndex + 1) % galleryImages.length);
+            setCurrentImageIndex(prevIndex => (prevIndex + 1) % galleryimage.length);
         }, 5000);
         return () => clearInterval(interval);
     }, []);
@@ -488,7 +488,7 @@ const EventsSection = () => {
         <AnimateOnScroll as="section" id="events" className="relative py-24 px-6 overflow-hidden">
 <ParallaxContainer>
   <Image
-    src="/images/bg.png"
+    src="/image/bg.png"
     alt="Background"
     fill
     className="object-cover transition-opacity duration-1000 opacity-100"
@@ -511,7 +511,7 @@ const EventsSection = () => {
                     time="09:00 - Selesai"
                     location={["Perumnas Kijang Permai", "KM 23, GG Cery Blok L No.21"]}
                     buttons={[{ text: "Google Maps", href: "https://maps.app.goo.gl/cV9dk9cw2M3KV1bN6?g_st=ac", icon: MapPin }]}
-                    imageUrl="/images/IMG_5553.JPG"
+                    imageUrl="/image/IMG_5553.JPG"
                     imageHint="wedding ceremony"
                     align="left"
                 />
@@ -524,7 +524,7 @@ const EventsSection = () => {
                         { text: "Google Maps", href: "https://maps.app.goo.gl/cV9dk9cw2M3KV1bN6?g_st=ac", icon: MapPin },
                         { text: "Add to Calendar", href: googleCalendarLink, icon: CalendarDays }
                     ]}
-                    imageUrl="/images/IMG_5562.JPG"
+                    imageUrl="/image/IMG_5562.JPG"
                     imageHint="wedding reception"
                     align="right"
                 />
@@ -535,7 +535,7 @@ const EventsSection = () => {
 
 const PhotoGrid = () => (
     <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8">
-        {galleryImages.map((image, index) => (
+        {galleryimage.map((image, index) => (
             <AnimateOnScroll key={index} animation="zoom-in">
                  <div className="overflow-hidden rounded-lg shadow-lg group">
                     <Image
@@ -564,7 +564,7 @@ const GallerySection = () => (
                 className="w-full max-w-5xl mx-auto"
             >
                 <CarouselContent className="-ml-4">
-                    {galleryImages.map((image, index) => (
+                    {galleryimage.map((image, index) => (
                         <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
                             <Card className="overflow-hidden group shadow-lg border-0 rounded-lg">
                                 <CardContent className="p-0 aspect-[3/4]">
@@ -596,7 +596,7 @@ const GiftSection = () => {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setCurrentImageIndex(prevIndex => (prevIndex + 1) % galleryImages.length);
+            setCurrentImageIndex(prevIndex => (prevIndex + 1) % galleryimage.length);
         }, 5000);
         return () => clearInterval(interval);
     }, []);
@@ -604,7 +604,7 @@ const GiftSection = () => {
     return (
         <AnimateOnScroll as="section" id="gift" className="relative py-24 px-6 overflow-hidden text-center rounded-br-4xl">
             <ParallaxContainer>
-                {galleryImages.map((image, index) => (
+                {galleryimage.map((image, index) => (
                     <Image
                         key={index}
                         src={image.src}
@@ -659,8 +659,8 @@ const GiftDrawer = () => {
     };
 
     const bankAccounts = [
-        { bank: "BCA", name: "Iqbal", number: "8890759859", logo: "/images/bca.png" },
-        { bank: "BSI", name: "Sastriana", number: "7216522855", logo: "/images/bsi.png" },
+        { bank: "BCA", name: "Iqbal", number: "8890759859", logo: "/image/bca.png" },
+        { bank: "BSI", name: "Sastriana", number: "7216522855", logo: "/image/bsi.png" },
     ]
     
     const giftAddress = "Perumnas Kijang Permai, KM 23, GG Cery Blok L No.21";
@@ -751,7 +751,7 @@ const Footer = () => (
       <AnimateOnScroll as="div" className="relative py-24 px-6 overflow-hidden text-primary-foreground">
         <ParallaxContainer>
           <Image
-            src="/images/IMG_5583.JPG"
+            src="/image/IMG_5583.JPG"
             alt="Thank you"
             data-ai-hint="couple beach"
             fill
