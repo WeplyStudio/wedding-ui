@@ -661,8 +661,8 @@ const GiftDrawer = () => {
     };
 
     const bankAccounts = [
-        { bank: "BCA", name: "Iqbal", number: "8890759859", logo: "/image/bca.png" },
-        { bank: "BSI", name: "Sastriana", number: "7216522855", logo: "/image/bsi.png" },
+        { bank: "BCA", name: "Iqbal", number: "8890759859", logo: "/images/bca.png" },
+        { bank: "BSI", name: "Sastriana", number: "7216522855", logo: "/images/bsi.png" },
     ]
     
     const giftAddress = "Perumnas Kijang Permai, KM 23, GG Cery Blok L No.21";
