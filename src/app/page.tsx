@@ -256,7 +256,7 @@ const CoupleSection = () => (
       
      <div
         className="relative pt-24 py-36 rounded-tl-[100px] z-10 bg-center bg-cover bg-no-repeat"
-        style={{ backgroundImage: "url('/image/bg3.png')" }}
+        style={{ backgroundImage: "url('/images/bg3.png')" }}
       >
         <AnimateOnScroll
           animation="fade-in-up"
@@ -488,7 +488,7 @@ const EventsSection = () => {
         <AnimateOnScroll as="section" id="events" className="relative py-24 px-6 overflow-hidden">
 <ParallaxContainer>
   <Image
-    src="/image/bg.png"
+    src="/images/bg.png"
     alt="Background"
     fill
     className="object-cover transition-opacity duration-1000 opacity-100"
