@@ -32,10 +32,12 @@ const openingimage = [
     "/image/IMG_5583.JPG",
     "/image/IMG_5566-crop.JPG",
     "/image/IMG_5572.JPG",
+    "/image/IMG_010810.jpg",
 ];
 
 const galleryimage = [
   { src: "/image/IMG_5553.JPG", alt: "Couple smiling", hint: "couple smiling" },
+  { src: "/image/IMG_010810.jpg", alt: "Couple smiling", hint: "couple bleh" },
   { src: "/image/IMG_5566-crop.JPG", alt: "Couple in nature", hint: "couple nature" },
   { src: "/image/IMG_5572.JPG", alt: "Couple walking on a beach", hint: "couple beach" },
   { src: "/image/IMG_5562.JPG", alt: "Couple under a tree", hint: "couple tree" },
