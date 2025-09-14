@@ -176,7 +176,6 @@ export default function GuestBook() {
               messages.map((msg, index) => (
                 <AnimateOnScroll
                   key={msg._id}
-                  delay={index * 0.08}
                   className="
                     group flex items-start gap-4 p-4 sm:p-5
                     rounded-2xl border border-primary/10
